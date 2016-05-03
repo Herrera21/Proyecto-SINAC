@@ -1,0 +1,91 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CapaPresentacion/Html/PaginaEstandar.Master" AutoEventWireup="true" CodeBehind="MMenuPoliza.aspx.cs" Inherits="Sistema.CapaPresentacion.Html.BombForest.MMenuPoliza1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderContenido" runat="server">
+    <!--mensaje-->
+    <div id="mensajes" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
+            <div class="modal-header">
+              <h3>Mensaje</h3>
+            </div>
+            <div class="modal-body">
+               <label id="labelMensaje" runat="server"></label>		        
+            </div>
+            <div class="modal-footer">
+              <a id="botonMensaje1" runat="server" href="CMenuPoliza.aspx" class="btn">Cerrar</a>
+              <a id="botonMensaje2" runat="server" href="#" class="btn" data-dismiss="modal">Cerrar</a>
+            </div>
+    </div>
+    <!--contenido-->
+    <div class="container">
+
+        <!-- Miga -->
+        <div class="row" style="background-color:white; width:99.7%">
+            <ol class="breadcrumb">
+                <li><a href="../MenuPrincipal.aspx"> Menú Principal </a></li>
+                <li class="active">Mantenimientos</li>
+                <li class="active"><a href="CMenuPoliza.aspx"> Pólizas </a> </li>
+                <li class="active">Modificar </li>
+            </ol>
+        </div>
+
+            <form id="form1" runat="server">
+            <div class="row" style="background-color:white; width:99.7%">
+                
+                <!--formulario-->
+
+                <!--alert-->
+                <div id="alert" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
+                        <div class="modal-header">
+                            <h3>Alerta</h3>
+                        </div>
+                        <div class="modal-body">
+                            <label id="labelAlert" runat="server"></label>		        
+                        </div>
+                        <div class="modal-footer">
+                            <asp:Button ID="ButtonAceptar" runat="server" Text="Aceptar" class="btn" OnClick="ButtonAcepta"/>
+                            <asp:Button ID="ButtonCancelar" runat="server" Text="Cancelar" class="btn" OnClick="ButtonCancela"/>
+                        </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 col-md-offset-4">
+
+                <h1 class="text-center login-title">Modificar Póliza</h1><hr />
+
+                <div class="form-group" id="divNombre">
+                <label class="control-label" >Nombre de la póliza</label>
+                <input type="text" id="nombre" runat="server" onblur="textVal(this,'divNombre','span1Nombre','span2Nombre');" class="form-control" placeholder="Ingrese el nombre de la póliza" maxlength="20" required/>
+                <span class="" aria-hidden="true" id="span1Nombre"></span>
+                <span class="help-block" id="span2Nombre"></span>
+                </div>
+
+
+                <div class="form-group" id="divLBrigada">
+                <label class="control-label" >Número de póliza</label>
+                <input type="text" id="numero" runat="server" onblur="" class="form-control" placeholder="Ingrese el número de póliza" maxlength="20" required/>
+                <span class="" aria-hidden="true" id="span1LBrigada"></span>
+                <span class="help-block" id="span2LBrigada"></span>
+                </div>
+
+                <div class="form-group">
+                <label>Periodo de inicio</label>
+                <input type="text" class="form-control date" id="periodoInicio" runat="server" 
+                        placeholder="Ingrese la fecha de inicio de póliza" maxlength="10"/>
+                </div>
+
+                <div class="form-group">
+                <label>Vencimiento de la póliza</label>
+                <input type="text" class="form-control date" id="periodoFin" runat="server" 
+                        placeholder="Ingrese la fecha de vencimiento" maxlength="10"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" >Observaciones</label>
+                    <textarea name="observaciones" id="observaciones" runat="server" class="form-control"></textarea>
+                </div>
+                 
+                <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Guardar" OnClick="Button1_Click" />
+                <asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="Inactivar" OnClick="Button2_Click" />
+            </div>
+                    
+            </div>
+        </form>
+        </div>
+</asp:Content>

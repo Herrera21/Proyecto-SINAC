@@ -1,0 +1,40 @@
+﻿body {
+    /*background: white url(../../Imagenes/body_degradado.png) repeat-x;*/
+    
+    /*
+    background: -webkit-linear-gradient(#359233, white) no-repeat; /* For Safari 5.1 to 6.0 *
+    background: -o-linear-gradient(#359233, white) no-repeat; /* For Opera 11.1 to 12.0 *
+    background: -moz-linear-gradient(#359233, white) no-repeat; /* For Firefox 3.6 to 15 *
+    background: linear-gradient(#359233, white) no-repeat; /* Standard syntax *
+    */
+
+
+    background: -webkit-linear-gradient(#09A906, white) no-repeat; /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#09A906, white) no-repeat; /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#09A906, white) no-repeat; /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#09A906, white) no-repeat; /* Standard syntax */
+}
+
+#banner {
+    width: 97.2%;
+    /*height:200px;*/
+}
+
+#Linea {
+    background-color:#0B6121;
+    padding:5px;
+    width:99.7%;
+}
+
+#footer {
+    font-family:'Arial Rounded MT';
+	width: 99.8%;
+	/*height: 25px;
+    border: 2px solid black;*/
+    color: #969494;
+    display: table;
+    text-align: center;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    background-color: black;
+}

@@ -1,0 +1,109 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PaginaEstandar.master.cs" Inherits="Sistema.CapaPresentacion.Html.PaginaEstandar" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/CapaPresentacion/Css/Estandar.css" rel="stylesheet" />
+    <link href="/CapaPresentacion/Css/Formularios.css" rel="stylesheet" />
+    <link href="/CapaPresentacion/Css/Gripviev.css" rel="stylesheet" />
+    <link href="/Bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/Jquery/jquery-ui.css" rel="stylesheet"/>
+    <link href="/FileInput/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="/CapaPresentacion/Css/fonts.css" />
+    <script type="text/javascript" src="/CapaPresentacion/Js/Validaciones.js"></script>
+    <script src="/Jquery/js/jquery.js"></script>
+    <script src="/Bootstrap/js/bootstrap.js"></script>
+    <script src="/Bootstrap/js/jquery.js"></script>
+    <script src="/Bootstrap/js/bootstrap-modal.js"></script>
+    <script src="/Jquery/jquery-ui.js"></script>
+    <script src="/FileInput/js/fileinput.js" type="text/javascript"></script>
+    <script src="/FileInput/js/fileinput_locale_es.js" type="text/javascript"></script>
+    <script src="/Bootstrap/js/bootstrapValidator.js"></script>
+    <title>SINAC</title>
+    
+</head>
+<body> <!-- #0B6121-->
+    <div class="container" style="background-color: transparent">
+        <br />
+        <div class="container">
+            <div class="row">
+                <div id="banner">
+                    <img src="/Imagenes/portada.png" class="img-responsive, col-md-12" style="max-width: 100%; height: auto; background-color: white;" />
+                </div>
+            </div>
+        </div>
+        <br />
+        <!-- muestra la linea-->
+        <div id="Linea"></div> 
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderContenido" runat="server">
+        </asp:ContentPlaceHolder>
+        
+        
+        <!--id="footer" style="border-color:#0B6121; background-color:#0B6121" -->
+        <div id="Linea"></div>
+        <div id="footer">
+            <div id="footerBody">
+                <div  class="col-md-2">
+                    <h4>&#169; 2015, SINAC.</h4>
+                </div>
+                <!--<img src="imagenes/acercade.jpg" alt="">
+                <img src="imagenes/ayuda.jpg" alt="">
+                --> 
+                <div class="col-md-offset-6 col-md-2">
+                    <a href="#" title="Acerca" target="_blank"><img src="/Imagenes/Acerca2.png"  class="img-responsive" style="max-width: 80%; height: auto;"></a>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" title="Ayuda" target="_blank"><img src="/Imagenes/Ayuda2.png" class="img-responsive" style="max-width: 80%; height: auto;"></a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- codigo del calendario para los text-->
+    <script>
+        $.datepicker.regional['es'] = {
+         closeText: 'Cerrar',
+         prevText: '<Ant',
+         nextText: 'Sig>',
+         currentText: 'Hoy',
+         monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+         monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+         dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+         dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+         dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+         weekHeader: 'Sm',
+         dateFormat: 'dd/mm/yy',
+         firstDay: 1,
+         isRTL: false,
+         showMonthAfterYear: false,
+         yearSuffix: ''
+        };
+
+ 
+        $.datepicker.setDefaults($.datepicker.regional["es"]);
+        $(".date").datepicker({
+            inline: true,
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-100:+0",
+            maxDate: "+0m +0d"
+        });
+
+        $('.img').fileinput({
+            language: 'es',
+            allowedFileExtensions: ['jpg', 'png'],
+            showUpload: false,
+            showCaption: false,
+            overwriteInitial: true,
+            browseClass: "btn btn-primary btn-lg",
+            fileType: "any",
+            previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+            maxFileSize: 1024
+        });
+    </script>
+</body>
+</html>

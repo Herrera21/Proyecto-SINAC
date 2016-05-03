@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9E391B78-23F6-4BA9-91C6-E26CC107143A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sistema</RootNamespace>
+    <AssemblyName>Sistema</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\Downloads\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>..\..\..\..\Downloads\itextsharp.xtra.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.3\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.3\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.3\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.2.3\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.3\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Bootstrap\js\bootstrapValidator.js" />
+    <Content Include="CapaPresentacion\Css\Estandar.css" />
+    <Content Include="CapaPresentacion\Css\fonts.css" />
+    <Content Include="CapaPresentacion\Css\Formularios.css" />
+    <Content Include="CapaPresentacion\Css\Gripviev.css" />
+    <Content Include="CapaPresentacion\Html\Mantenimiento\CCapacitación.aspx" />
+    <Content Include="CapaPresentacion\Html\Mantenimiento\CIncendForest.aspx" />
+    <Content Include="CapaPresentacion\Html\Mantenimiento\CMenuPoliza.aspx" />
+    <Content Include="CapaPresentacion\Html\BombForest\MBomInfoPerson.aspx" />
+    <Content Include="CapaPresentacion\Html\Mantenimiento\MCapacitación.aspx" />
+    <Content Include="CapaPresentacion\Html\Mantenimiento\MIncendForest.aspx" />
+    <Content Include="CapaPresentacion\Html\Mantenimiento\MMenuPoliza.aspx" />
+    <Content Include="CapaPresentacion\Html\CAreaConserv.aspx" />
+    <Content Include="CapaPresentacion\Html\BombForest\CBomberos.aspx" />
+    <Content Include="CapaPresentacion\Html\CBrigadas.aspx" />
+    <Content Include="CapaPresentacion\Html\MMenuAreaConserv.aspx" />
+    <Content Include="CapaPresentacion\Html\MMenuBrigada.aspx" />
+    <Content Include="CapaPresentacion\Html\Mantenimiento\RMenuPoliza.aspx" />
+    <Content Include="CapaPresentacion\Js\Validaciones.js" />
+    <Content Include="Imagenes\editar.gif" />
+    <Content Include="Imagenes\grd_head.png" />
+    <Content Include="Imagenes\grd_pgr.png" />
+    <Content Include="Imagenes\slide1.jpg" />
+    <Content Include="Imagenes\slide2.jpg" />
+    <Content Include="Imagenes\slide3.jpg" />
+    <Content Include="Imagenes\slide4.jpg" />
+    <Content Include="Imagenes\slide5.jpg" />
+    <Content Include="Imagenes\slide6.jpg" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\icomoon.eot" />
+    <Content Include="fonts\icomoon.ttf" />
+    <Content Include="fonts\icomoon.woff" />
+    <Content Include="CapaPresentacion\Html\PaginaEstandar.Master" />
+    <Content Include="Bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="Bootstrap\css\bootstrap.css.map" />
+    <Content Include="Bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="ClassDiagram1.cd" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Bootstrap\css\bootstrap.css" />
+    <Content Include="Bootstrap\css\bootstrap.min.css" />
+    <Content Include="Bootstrap\js\bootstrap-modal.js" />
+    <Content Include="Bootstrap\js\bootstrap.js" />
+    <Content Include="Bootstrap\js\bootstrap.min.js" />
+    <Content Include="Bootstrap\js\jquery.js" />
+    <Content Include="Bootstrap\js\npm.js" />
+    <Content Include="CapaPresentacion\Css\MenuPrincipal.css" />
+    <Content Include="CapaPresentacion\Html\Mantenimiento\RActivPrevenc.aspx" />
+    <Content Include="CapaPresentacion\Html\BombForest\RBomBenef.aspx" />
+    <Content Include="CapaPresentacion\Html\BombForest\RBomInfoPerson.aspx" />
+    <Content Include="CapaPresentacion\Html\Mantenimiento\RCapacitación.aspx" />
+    <Content Include="CapaPresentacion\Html\BombForest\RCarne.aspx" />
+    <Content Include="CapaPresentacion\Html\BombForest\RContactosEmergencia.aspx" />
+    <Content Include="CapaPresentacion\Html\BombForest\REquipoProtPerso.aspx" />
+    <Content Include="CapaPresentacion\Html\Mantenimiento\RIncendForest.aspx" />
+    <Content Include="CapaPresentacion\Html\BombForest\RReseniaMedica.aspx" />
+    <Content Include="CapaPresentacion\Html\MenuPrincipal.aspx" />
+    <Content Include="CapaPresentacion\Html\MMenuUsu.aspx" />
+    <Content Include="CapaPresentacion\Html\RMenuAreaConserv.aspx" />
+    <Content Include="CapaPresentacion\Html\RMenuBrigada.aspx" />
+    <Content Include="CapaPresentacion\Html\RMenuUsu.aspx" />
+    <Content Include="CapaPresentacion\Js\MenuPrincipal.js" />
+    <Content Include="fonts\icomoon.svg" />
+    <Content Include="Imagenes\Acerca2.png" />
+    <Content Include="Imagenes\Ayuda2.png" />
+    <Content Include="Imagenes\body_degradado.png" />
+    <Content Include="Imagenes\head.png" />
+    <Content Include="Imagenes\logo.png" />
+    <Content Include="Imagenes\portada.png" />
+    <Content Include="index.aspx" />
+    <Content Include="Jquery\images\ui-icons_444444_256x240.png" />
+    <Content Include="Jquery\images\ui-icons_555555_256x240.png" />
+    <Content Include="Jquery\jquery-ui.css" />
+    <Content Include="Jquery\jquery-ui.js" />
+    <Content Include="Jquery\js\jquery.js" />
+    <Content Include="Jquery\js\jquery.slides.js" />
+    <Content Include="Jquery\js\jquery.slides.min.js" />
+    <Content Include="scripts\ai.0.15.0-build58334.js" />
+    <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CapaConfiguracion\ActivPrevencDB.cs" />
+    <Compile Include="CapaConfiguracion\BomBenefDB.cs" />
+    <Compile Include="CapaConfiguracion\BomberoDB.cs" />
+    <Compile Include="CapaConfiguracion\BrigadaDB.cs" />
+    <Compile Include="CapaConfiguracion\CapacitacionDB.cs" />
+    <Compile Include="CapaConfiguracion\CarneDB.cs" />
+    <Compile Include="CapaConfiguracion\ContactosEmergenciaDB.cs" />
+    <Compile Include="CapaConfiguracion\EquipoProtPersoDB.cs" />
+    <Compile Include="CapaConfiguracion\IncendForestDB.cs" />
+    <Compile Include="CapaConfiguracion\PolizaDB.cs" />
+    <Compile Include="CapaConfiguracion\ReseniaMedicaDB.cs" />
+    <Compile Include="CapaConfiguracion\UsuarioDB.cs" />
+    <Compile Include="CapaConfiguracion\AreaConservacionDB.cs" />
+    <Compile Include="CapaDatos\ControlDB.cs" />
+    <Compile Include="CapaLogicaNegocio\ActivPrevencion.cs" />
+    <Compile Include="CapaLogicaNegocio\Beneficiario.cs" />
+    <Compile Include="CapaLogicaNegocio\Bombero.cs" />
+    <Compile Include="CapaLogicaNegocio\Brigada.cs" />
+    <Compile Include="CapaLogicaNegocio\Capacitacion.cs" />
+    <Compile Include="CapaLogicaNegocio\Carnet.cs" />
+    <Compile Include="CapaLogicaNegocio\ContEmerg.cs" />
+    <Compile Include="CapaLogicaNegocio\EquipoProtecPerson.cs" />
+    <Compile Include="CapaLogicaNegocio\IncendForest.cs" />
+    <Compile Include="CapaLogicaNegocio\PersonaAbstract.cs" />
+    <Compile Include="CapaLogicaNegocio\PersonaAbstract2.cs" />
+    <Compile Include="CapaLogicaNegocio\Poliza.cs" />
+    <Compile Include="CapaLogicaNegocio\ReseniaMedic.cs" />
+    <Compile Include="CapaLogicaNegocio\Usuario.cs" />
+    <Compile Include="CapaLogicaNegocio\AreaConservacion.cs" />
+    <Compile Include="CapaPresentacion\Code\ImageControl.cs" />
+    <Compile Include="CapaPresentacion\Code\VariablesSeccionControl.cs" />
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\CCapacitación.aspx.cs">
+      <DependentUpon>CCapacitación.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\CCapacitación.aspx.designer.cs">
+      <DependentUpon>CCapacitación.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\CIncendForest.aspx.cs">
+      <DependentUpon>CIncendForest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\CIncendForest.aspx.designer.cs">
+      <DependentUpon>CIncendForest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\CMenuPoliza.aspx.cs">
+      <DependentUpon>CMenuPoliza.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\CMenuPoliza.aspx.designer.cs">
+      <DependentUpon>CMenuPoliza.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\MBomInfoPerson.aspx.cs">
+      <DependentUpon>MBomInfoPerson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\MBomInfoPerson.aspx.designer.cs">
+      <DependentUpon>MBomInfoPerson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\MCapacitación.aspx.cs">
+      <DependentUpon>MCapacitación.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\MCapacitación.aspx.designer.cs">
+      <DependentUpon>MCapacitación.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\MIncendForest.aspx.cs">
+      <DependentUpon>MIncendForest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\MIncendForest.aspx.designer.cs">
+      <DependentUpon>MIncendForest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\MMenuPoliza.aspx.cs">
+      <DependentUpon>MMenuPoliza.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\MMenuPoliza.aspx.designer.cs">
+      <DependentUpon>MMenuPoliza.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\RActivPrevenc.aspx.cs">
+      <DependentUpon>RActivPrevenc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\RActivPrevenc.aspx.designer.cs">
+      <DependentUpon>RActivPrevenc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\RBomBenef.aspx.cs">
+      <DependentUpon>RBomBenef.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\RBomBenef.aspx.designer.cs">
+      <DependentUpon>RBomBenef.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\RBomInfoPerson.aspx.cs">
+      <DependentUpon>RBomInfoPerson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\RBomInfoPerson.aspx.designer.cs">
+      <DependentUpon>RBomInfoPerson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\RCapacitación.aspx.cs">
+      <DependentUpon>RCapacitación.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\RCapacitación.aspx.designer.cs">
+      <DependentUpon>RCapacitación.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\RCarne.aspx.cs">
+      <DependentUpon>RCarne.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\RCarne.aspx.designer.cs">
+      <DependentUpon>RCarne.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\RContactosEmergencia.aspx.cs">
+      <DependentUpon>RContactosEmergencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\RContactosEmergencia.aspx.designer.cs">
+      <DependentUpon>RContactosEmergencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\REquipoProtPerso.aspx.cs">
+      <DependentUpon>REquipoProtPerso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\REquipoProtPerso.aspx.designer.cs">
+      <DependentUpon>REquipoProtPerso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\RIncendForest.aspx.cs">
+      <DependentUpon>RIncendForest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\RIncendForest.aspx.designer.cs">
+      <DependentUpon>RIncendForest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\RReseniaMedica.aspx.cs">
+      <DependentUpon>RReseniaMedica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\RReseniaMedica.aspx.designer.cs">
+      <DependentUpon>RReseniaMedica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\CAreaConserv.aspx.cs">
+      <DependentUpon>CAreaConserv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\CAreaConserv.aspx.designer.cs">
+      <DependentUpon>CAreaConserv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\CBomberos.aspx.cs">
+      <DependentUpon>CBomberos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\CBomberos.aspx.designer.cs">
+      <DependentUpon>CBomberos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\CBrigadas.aspx.cs">
+      <DependentUpon>CBrigadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\CBrigadas.aspx.designer.cs">
+      <DependentUpon>CBrigadas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\MenuPrincipal.aspx.cs">
+      <DependentUpon>MenuPrincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\MenuPrincipal.aspx.designer.cs">
+      <DependentUpon>MenuPrincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\MMenuAreaConserv.aspx.cs">
+      <DependentUpon>MMenuAreaConserv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\MMenuAreaConserv.aspx.designer.cs">
+      <DependentUpon>MMenuAreaConserv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\MMenuBrigada.aspx.cs">
+      <DependentUpon>MMenuBrigada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\MMenuBrigada.aspx.designer.cs">
+      <DependentUpon>MMenuBrigada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\MMenuUsu.aspx.cs">
+      <DependentUpon>MMenuUsu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\MMenuUsu.aspx.designer.cs">
+      <DependentUpon>MMenuUsu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\PaginaEstandar.Master.cs">
+      <DependentUpon>PaginaEstandar.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\PaginaEstandar.Master.designer.cs">
+      <DependentUpon>PaginaEstandar.Master</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\RMenuAreaConserv.aspx.cs">
+      <DependentUpon>RMenuAreaConserv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\RMenuAreaConserv.aspx.designer.cs">
+      <DependentUpon>RMenuAreaConserv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\RMenuBrigada.aspx.cs">
+      <DependentUpon>RMenuBrigada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\RMenuBrigada.aspx.designer.cs">
+      <DependentUpon>RMenuBrigada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\RMenuPoliza.aspx.cs">
+      <DependentUpon>RMenuPoliza.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\RMenuPoliza.aspx.designer.cs">
+      <DependentUpon>RMenuPoliza.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\RMenuUsu.aspx.cs">
+      <DependentUpon>RMenuUsu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\RMenuUsu.aspx.designer.cs">
+      <DependentUpon>RMenuUsu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Code\Logear.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2022</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
