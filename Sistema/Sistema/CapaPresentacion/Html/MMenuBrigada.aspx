@@ -26,7 +26,7 @@
         <div class="row" style="background-color:white; width:99.7%">
             <ol class="breadcrumb">
                 <li><a href="MenuPrincipal.aspx"> Menú Principal </a></li>
-                <li><a href="CAreaConserv.aspx">Áreas de conservación </a></li>
+                <li><a href="CAreaConserv.aspx">Áreas de Conservación </a></li>
                 <li>Brigadas </li>
                 <li><a href="CBrigadas.aspx">Consultas </a></li>
                 <li class="active">Modificar </li>

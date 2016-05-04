@@ -32,7 +32,7 @@
                                 <div class="modal-header">
                                     <asp:DropDownList ID="columna" class="form-control" runat="server">
                                         <asp:listitem value ="nombre_Brigada"> Nombre de la Brigada </asp:listitem>
-                                        <asp:listitem value ="nombre"> Lider de Brigada </asp:listitem>
+                                        <asp:listitem value ="nombre"> Líder de Brigada </asp:listitem>
                                     </asp:DropDownList>
                                 </div>
 
