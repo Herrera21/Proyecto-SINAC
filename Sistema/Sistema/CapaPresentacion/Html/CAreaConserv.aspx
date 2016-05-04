@@ -32,7 +32,7 @@
                                     <asp:DropDownList ID="columna" class="form-control" runat="server">
                                         <asp:listitem value ="Nombre"> Nombre </asp:listitem>
                                         <asp:listitem value ="Abreviatura"> Abreviatura </asp:listitem>
-                                        <asp:listitem value ="Ubicacion"> Ubicacion </asp:listitem>
+                                        <asp:listitem value ="Ubicacion"> Ubicación </asp:listitem>
                                     </asp:DropDownList>
                                 </div>
 
