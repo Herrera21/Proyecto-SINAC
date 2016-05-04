@@ -51,20 +51,23 @@
                                 </div>
                         </div>
                           <!--formulario-->
-                         <div class="form-group">
-                            <label>Lugar del incendio</label>
-                            <input type="text" class="form-control" id="lugInce" runat="server"
-                                placeholder="Ingrese el lugar del incendio" required autofocus/>
+                          <div class="form-group has-feedback has-success" id="divLugInce">
+                            <label class="control-label">Lugar del incendio</label>
+                            <input type="text" class="form-control" id="lugInce" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator1','ContentPlaceHolderContenido_RegularExpressionValidator1' ,'divLugInce','span1LugInce');"
+                                placeholder="Ingrese el lugar del incendio" maxlength="50"/>
+                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1"  runat="server" ControlToValidate="lugInce" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Solo se permiten letras" ControlToValidate="lugInce" ValidationExpression="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                            <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1LugInce"></span>
                           </div>
                           <div class="form-group has-feedback has-success" id="divFechaPart">
                             <label class="control-label">Fecha de participación</label>
-                            <input type="text" class="form-control date" id="fechaPart" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator7','ContentPlaceHolderContenido_RegularExpressionValidator7' ,'divFechaPart','span1FechaPart');" placeholder="Ingrese la fecha de participación" maxlength="10"/>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="fechaPart" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ErrorMessage="Formato inválido" ControlToValidate="fechaPart" ValidationExpression="^\d{2}\/\d{2}\/\d{4}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                            <input type="text" class="form-control date" id="fechaPart" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator2','ContentPlaceHolderContenido_RegularExpressionValidator2' ,'divFechaPart','span1FechaPart');" placeholder="Ingrese la fecha de participación" maxlength="10"/>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="fechaPart" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Formato inválido" ControlToValidate="fechaPart" ValidationExpression="^\d{2}\/\d{2}\/\d{4}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1FechaPart"></span>
                           </div>
 
-                          <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Guardar" Enabled="true" OnClick="Button1_Click" OnClientClick="area()" />
+                          <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Guardar" Enabled="true" OnClick="Button1_Click" OnClientClick="area()" ValidationGroup="enviar"/>
                           <asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="Inactivar" OnClick="Button2_Click" OnClientClick="area()" />
                         </form>
                     </div>

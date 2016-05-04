@@ -33,36 +33,44 @@
                             
                           <div class="form-group" id="divNombre">
                             <label class="control-label" >Nombre de la póliza</label>
-                            <input type="text" id="nombre" runat="server" onblur="textVal(this,'divNombre','span1Nombre','span2Nombre');" class="form-control" placeholder="Ingrese el nombre de la póliza" maxlength="20" required/>
+                            <input type="text" id="nombre" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator1','ContentPlaceHolderContenido_RegularExpressionValidator1' ,'divNombre','span1Nombre');" class="form-control" placeholder="Ingrese el nombre de la póliza" maxlength="20"/>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1"  runat="server" ControlToValidate="nombre" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Solo se permiten letras" ControlToValidate="nombre" ValidationExpression="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="" aria-hidden="true" id="span1Nombre"></span>
-                            <span class="help-block" id="span2Nombre"></span>
                           </div>
 
 
-                          <div class="form-group" id="divLBrigada">
+                          <div class="form-group" id="divNumero">
                             <label class="control-label" >Número de póliza</label>
-                            <input type="text" id="numero" runat="server" onblur="" class="form-control" placeholder="Ingrese el número de póliza" maxlength="20" required/>
-                            <span class="" aria-hidden="true" id="span1LBrigada"></span>
-                            <span class="help-block" id="span2LBrigada"></span>
+                            <input type="text" id="numero" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator2','ContentPlaceHolderContenido_RegularExpressionValidator2' ,'divNumero','span1Numero');" class="form-control" placeholder="Ingrese el número de póliza" maxlength="20"/>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2"  runat="server" ControlToValidate="numero" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Solo se permiten numeros" ControlToValidate="numero" ValidationExpression="^[0-9 ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                            <span class="" aria-hidden="true" id="span1Numero"></span>
                           </div>
 
-                            <div class="form-group">
+                            <div class="form-group" id="divPeriodoInicio">
                             <label>Periodo de inicio</label>
-                            <input type="text" class="form-control date" id="periodoInicio" runat="server" 
+                            <input type="text" class="form-control date" id="periodoInicio" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator3','ContentPlaceHolderContenido_RegularExpressionValidator3' ,'divPeriodoInicio','span1PeriodoInicio');"
                                     placeholder="Ingrese la fecha de inicio de póliza" maxlength="10"/>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="periodoInicio" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Formato inválido" ControlToValidate="periodoInicio" ValidationExpression="^\d{2}\/\d{2}\/\d{4}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                            <span class="" aria-hidden="true" id="span1PeriodoInicio"></span>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" id="divPeriodoFin">
                             <label>Vencimiento de la póliza</label>
-                            <input type="text" class="form-control date" id="periodoFin" runat="server" 
+                            <input type="text" class="form-control date" id="periodoFin" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator4','ContentPlaceHolderContenido_RegularExpressionValidator4' ,'divPeriodoFin','span1PeriodoFin');"
                                     placeholder="Ingrese la fecha de vencimiento" maxlength="10"/>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="periodoFin" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Formato inválido" ControlToValidate="periodoFin" ValidationExpression="^\d{2}\/\d{2}\/\d{4}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                            <span class="" aria-hidden="true" id="span1PeriodoFin"></span>
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label" >Observaciones</label>
                                 <textarea name="observaciones" id="observaciones" runat="server" class="form-control"></textarea>
                             </div>
-                          <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Guardar" OnClick="Button1_Click" />
+                          <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Guardar" OnClick="Button1_Click" ValidationGroup="enviar"/>
                         </form>
                     </div>
                 </div>
