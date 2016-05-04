@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderContenido" runat="server">
     <!--mensaje-->
     <div id="mensajes" class="modal" style="display: none; " >
+        <!--Hola-->
             <div class="modal-header">
               <a class="close" data-dismiss="modal">×</a>
               <h3>Mensaje</h3>

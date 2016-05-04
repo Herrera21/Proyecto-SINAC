@@ -428,3 +428,36 @@ C:\Users\ljadr\Desktop\Inge 3\27-4-16\Sistema\Sistema\bin\Microsoft.CodeDom.Prov
 C:\Users\ljadr\Desktop\Inge 3\27-4-16\Sistema\Sistema\obj\Debug\Sistema.csprojResolveAssemblyReference.cache
 C:\Users\ljadr\Desktop\Inge 3\27-4-16\Sistema\Sistema\obj\Debug\Sistema.dll
 C:\Users\ljadr\Desktop\Inge 3\27-4-16\Sistema\Sistema\obj\Debug\Sistema.pdb
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\ApplicationInsights.config
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\roslyn\csc.exe
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\roslyn\vbc.exe
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\roslyn\VBCSCompiler.exe
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\Sistema.dll.config
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\Sistema.dll
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\Sistema.pdb
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\Microsoft.AI.Web.dll
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\Microsoft.AI.Web.xml
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\obj\Debug\Sistema.csprojResolveAssemblyReference.cache
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\obj\Debug\Sistema.dll
+C:\Users\Alejandro\Source\Repos\Proyecto-SINAC\Sistema\Sistema\obj\Debug\Sistema.pdb
