@@ -50,34 +50,34 @@
                 <h1 class="text-center login-title">Registrar usuario</h1><hr />
 
                 <!--columna1-->
-                <div class="col-md-6">
+               <div class="col-md-6">
                     <div class="col-sm-6 col-md-8 col-md-offset-2">
                         <div class="form-group" id="divUsuario">
                             <label>Usuario</label>
-                            <input type="text" class="form-control" id="usuario" onblur="usuar();" onchange="validar('ContentPlaceHolderContenido_RequiredFieldValidator1','ContentPlaceHolderContenido_RegularExpressionValidator1' ,'divUsuario','span1Usuario');" runat="server" maxlength="20" placeholder="Ingrese el usuario que desea" />
+                            <input type="text" class="form-control" id="usuario" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator1','ContentPlaceHolderContenido_RegularExpressionValidator1' ,'divUsuario','span1Usuario');" runat="server" maxlength="20" placeholder="Ingrese el usuario que desea" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="usuario" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="4 a 15 caracteres. Solo se permiten numeros y letras" ControlToValidate="usuario" ValidationExpression="^[A-Za-z0-9_-]{4,15}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" SkinID="divNombre"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="4 a 15 caracteres. Se permiten numeros, letras, _ y -" ControlToValidate="usuario" ValidationExpression="^[A-Za-z0-9_-]{4,15}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" SkinID="divNombre"></asp:RegularExpressionValidator>
                             <span class="" aria-hidden="true" id="span1Usuario"></span>
                         </div>
                         <div class="form-group" id="divCedula">
                             <label>Identificacion</label>
-                            <input type="text" class="form-control" name="identificacion" id="cedula" onchange="validar('ContentPlaceHolderContenido_RequiredFieldValidator6','ContentPlaceHolderContenido_RegularExpressionValidator6' ,'divCedula','span1Cedula');" runat="server" onblur="usuar(); identificacionVal(this,'cedulaRB','pasaporteRB','residenciaRB',idCedula(),'divCedula','span1Cedula','span2Cedula'); usuarios(idBoton());" maxlength="9"
-                                    placeholder="Ingresar identificacion" />
+                            <input type="text" class="form-control" name="identificacion" id="cedula" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator6','ContentPlaceHolderContenido_RegularExpressionValidator6' ,'divCedula','span1Cedula');"
+                                    placeholder="Ingresar identificacion" maxlength="9" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="cedula" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="Solo se permiten numeros" ControlToValidate="cedula" ValidationExpression="^[0-9 ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" SkinID="divNombre"></asp:RegularExpressionValidator>
                             <span class="" aria-hidden="true" id="span1Cedula"></span>
                         </div>
                         <div>
-                            <input type="radio" name="iden" id="cedulaRB" onchange="identificacionV();" checked /> Cedula 
-                            <input type="radio" name="iden" id="pasaporteRB"  /> Pasaporte 
-                            <input type="radio" name="iden" id="residenciaRB" /> Residencia 
+                            <input type="radio" name="iden" id="cedulaRB" onclick="validarId('ContentPlaceHolderContenido_cedula');" checked /> Cedula 
+                            <input type="radio" name="iden" id="pasaporteRB" onclick="validarId('ContentPlaceHolderContenido_cedula');" /> Pasaporte 
+                            <input type="radio" name="iden" id="residenciaRB" onclick="validarId('ContentPlaceHolderContenido_cedula');"/> Residencia 
                         </div>
                          <br />
 
 
                         <div class="form-group" id="divNombre">
                             <label>Nombre</label>
-                            <input type="text" class="form-control" id="nombre" runat="server" onblur="usuar();" onchange="validar('ContentPlaceHolderContenido_RequiredFieldValidator2','ContentPlaceHolderContenido_RegularExpressionValidator2' ,'divNombre','span1Nombre');" maxlength="20" 
+                            <input type="text" class="form-control" id="nombre" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator2','ContentPlaceHolderContenido_RegularExpressionValidator2' ,'divNombre','span1Nombre');" maxlength="20" 
                                     placeholder="Ingrese su nombre" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="nombre" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Solo se permiten letras" ControlToValidate="nombre" ValidationExpression="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" SkinID="divNombre"></asp:RegularExpressionValidator>
@@ -85,7 +85,7 @@
                         </div>
                         <div class="form-group" id="divApellido1">
                             <label>Primer apellido</label>
-                            <input type="text" class="form-control" id="apellido1" runat="server" onblur="usuar();" onchange="validar('ContentPlaceHolderContenido_RequiredFieldValidator3','ContentPlaceHolderContenido_RegularExpressionValidator3' ,'divApellido1','span1Apellido1');"  maxlength="15" 
+                            <input type="text" class="form-control" id="apellido1" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator3','ContentPlaceHolderContenido_RegularExpressionValidator3' ,'divApellido1','span1Apellido1');"  maxlength="15" 
                                     placeholder="Ingrese sus apellidos" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="apellido1" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Solo se permiten letras" ControlToValidate="apellido1" ValidationExpression="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" SkinID="divNombre"></asp:RegularExpressionValidator>
@@ -94,7 +94,7 @@
 
                         <div class="form-group" id="divApellido2">
                             <label>Segundo apellido</label>
-                            <input type="text" class="form-control" id="apellido2" runat="server" onblur="usuar();" onchange="validar('ContentPlaceHolderContenido_RequiredFieldValidator4','ContentPlaceHolderContenido_RegularExpressionValidator4' ,'divApellido2','span1Apellido2');"  maxlength="15" 
+                            <input type="text" class="form-control" id="apellido2" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator4','ContentPlaceHolderContenido_RegularExpressionValidator4' ,'divApellido2','span1Apellido2');"  maxlength="15" 
                                     placeholder="Ingrese sus apellidos" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="apellido2" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Solo se permiten letras" ControlToValidate="apellido2" ValidationExpression="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" SkinID="divNombre"></asp:RegularExpressionValidator>
@@ -103,7 +103,7 @@
 
                         <div class="form-group" id="divEmail">
                             <label>Correo electronico</label>
-                            <input type="text" class="form-control" id="email" runat="server" onblur="usuar();" onchange="validar('ContentPlaceHolderContenido_RequiredFieldValidator5','ContentPlaceHolderContenido_RegularExpressionValidator5' ,'divEmail','span1Email');" maxlength="40" 
+                            <input type="text" class="form-control" id="email" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator5','ContentPlaceHolderContenido_RegularExpressionValidator5' ,'divEmail','span1Email');" maxlength="40" 
                                     placeholder="Ingrese su correo electrónico" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="email" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="Correo electrónico inválido" ControlToValidate="email" ValidationExpression="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" SkinID="divNombre"></asp:RegularExpressionValidator>
@@ -117,13 +117,13 @@
                     <div class="col-md-6">
                         <div class="col-sm-6 col-md-8 col-md-offset-2">
                             
-                          <div class="" id="divAreaCons">
+                          <div class="form-group" id="divAreaCons">
                             <label class="control-label">Área de Conservación</label>
-                                <asp:DropDownList ID="AreaCons" class="form-control" runat="server" onblur="usuar();" onchange="validar('ContentPlaceHolderContenido_vAreaConservacion','ContentPlaceHolderContenido_vAreaConservacion' ,'divAreaCons','span1AreaCons');">
-                                    <asp:listitem value ="0"> seleccionar </asp:listitem>
+                                <asp:DropDownList ID="AreaCons" class="form-control" runat="server" onchange="validarComboBox('ContentPlaceHolderContenido_vAreaConservacion','divAreaCons','span1AreaCons');">
+                                    <asp:listitem value ="0"> Seleccionar </asp:listitem>
                                 </asp:DropDownList>
                               <asp:RequiredFieldValidator id="vAreaConservacion" ControlToValidate="areaCons" ErrorMessage="Seleccione un área de conservación" Display="Static" InitialValue="0" runat="server" CssClass="alert-danger" SetFocusOnError="True"/>
-                                <span class="" aria-hidden="true" id="span1AreaCons" style="right: -30px;"></span>
+                                <span class="" aria-hidden="true" id="span1AreaCons" "></span>
                           </div>
                           <div>
                              <label for="ejemplo_password_1">Rol</label>
@@ -141,18 +141,22 @@
 
                           <div class="form-group" id="divContrasenia">
                             <label for="ejemplo_password_1">Contraseña</label>
-                            <input type="password" class="form-control" id="contrasenia" runat="server" onblur="usuar();" onchange="validar('ContentPlaceHolderContenido_RequiredFieldValidator8','ContentPlaceHolderContenido_RequiredFieldValidator8' ,'divContrasenia','span1Contrasenia');" maxlength="15"
+                            <input type="password" class="form-control" id="contrasenia" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator8','ContentPlaceHolderContenido_RegularExpressionValidator7' ,'divContrasenia','span1Contrasenia');" maxlength="15"
                                    placeholder="Ingrese la contraseña" />
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="contrasenia" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                <span class="" aria-hidden="true" id="span1Contrasenia"></span>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ErrorMessage="8 a 15 caracteres. Se permiten numeros y letras" ControlToValidate="contrasenia" ValidationExpression="^[A-Za-z0-9]{4,15}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True"></asp:RegularExpressionValidator>
+                            
+                              <span class="" aria-hidden="true" id="span1Contrasenia"></span>
                           </div>
                            <div class="form-group" id="divContrasenia2">
                             <label for="ejemplo_password_1">Confirmar contraseña</label>
-                            <input type="password" class="form-control" id="confContrasenia" runat="server" onblur="usuar();" onchange="validar('ContentPlaceHolderContenido_CompareValidator1','ContentPlaceHolderContenido_CompareValidator1' ,'divContrasenia2','span1Contrasenia2');" maxlength="15"
+                            <input type="password" class="form-control" id="confContrasenia" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_CompareValidator1','ContentPlaceHolderContenido_RegularExpressionValidator8' ,'divContrasenia2','span1Contrasenia2');" maxlength="15"
                                    placeholder="Ingrese la contraseña nuevamente" />
                                                           
-                              <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="confContrasenia" ControlToValidate="contrasenia" CssClass="alert-danger" ErrorMessage="Las contraseñas no coinciden" Display="Dynamic" SetFocusOnError="True"></asp:CompareValidator>
-                              <span class="" aria-hidden="true" id="span1Contrasenia2"></span>
+                              <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="confContrasenia" ControlToValidate="contrasenia" CssClass="alert-danger" ErrorMessage="Las contraseñas no coinciden." Display="Dynamic" SetFocusOnError="True"></asp:CompareValidator>
+                              <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ErrorMessage="8 a 15 caracteres. Se permiten numeros y letras" ControlToValidate="confContrasenia" ValidationExpression="^[A-Za-z0-9]{4,15}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True"></asp:RegularExpressionValidator>
+                            
+                               <span class="" aria-hidden="true" id="span1Contrasenia2"></span>
                           </div>
 
                            
