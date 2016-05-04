@@ -4,6 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link rel="icon" type="image/png" href="../../Imagenes/logo.png" />
     <link href="/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="/CapaPresentacion/Css/Estandar.css" rel="stylesheet" />
     <link href="/CapaPresentacion/Css/Formularios.css" rel="stylesheet" />
