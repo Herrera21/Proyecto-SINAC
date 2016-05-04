@@ -144,7 +144,7 @@
                             <input type="password" class="form-control" id="contrasenia" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator8','ContentPlaceHolderContenido_RegularExpressionValidator7' ,'divContrasenia','span1Contrasenia');" maxlength="15"
                                    placeholder="Ingrese la contraseña" />
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="contrasenia" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ErrorMessage="8 a 15 caracteres. Se permiten numeros y letras" ControlToValidate="contrasenia" ValidationExpression="^[A-Za-z0-9]{4,15}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ErrorMessage="8 a 15 caracteres. Se permiten numeros y letras" ControlToValidate="contrasenia" ValidationExpression="^[A-Za-z0-9]{8,15}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True"></asp:RegularExpressionValidator>
                             
                               <span class="" aria-hidden="true" id="span1Contrasenia"></span>
                           </div>
@@ -154,7 +154,7 @@
                                    placeholder="Ingrese la contraseña nuevamente" />
                                                           
                               <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="confContrasenia" ControlToValidate="contrasenia" CssClass="alert-danger" ErrorMessage="Las contraseñas no coinciden." Display="Dynamic" SetFocusOnError="True"></asp:CompareValidator>
-                              <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ErrorMessage="8 a 15 caracteres. Se permiten numeros y letras" ControlToValidate="confContrasenia" ValidationExpression="^[A-Za-z0-9]{4,15}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True"></asp:RegularExpressionValidator>
+                              <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ErrorMessage="8 a 15 caracteres. Se permiten numeros y letras" ControlToValidate="confContrasenia" ValidationExpression="^[A-Za-z0-9]{8,15}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True"></asp:RegularExpressionValidator>
                             
                                <span class="" aria-hidden="true" id="span1Contrasenia2"></span>
                           </div>
