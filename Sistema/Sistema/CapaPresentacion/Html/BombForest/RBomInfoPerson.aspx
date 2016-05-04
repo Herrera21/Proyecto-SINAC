@@ -114,7 +114,7 @@
                         </div>
                         
                         <div class="form-group has-feedback" id="divCedula">
-                            <label>Identificacion</label>
+                            <label>Identificación</label>
                             <input type="text" class="form-control" name="identificacion" id="cedula" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator1','ContentPlaceHolderContenido_RegularExpressionValidator1' ,'divCedula','span1Cedula');" maxlength="9"
                                     placeholder="Ingresar identificacion" />
                             <span class="" aria-hidden="true" id="span1Cedula"></span>
