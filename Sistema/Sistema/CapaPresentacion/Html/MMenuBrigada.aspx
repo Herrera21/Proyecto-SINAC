@@ -38,28 +38,6 @@
                     <h1 class="text-center login-title">Modificar Brigada</h1>
                     <div class="account-wall">
                         <form id="form1" class="form-signin" runat="server">
-                        <%--<!--buscar-->
-                        <div id="buscar" class="modal" style="display: none; ">
-                                <div class="modal-header">
-                                  <a class="close" data-dismiss="modal">×</a>
-                                  <h3>Buscar</h3>
-                                </div>
-                                <div class="modal-body">
-                                   <div class="form-group">
-                                       <label>Área de Conservación</label>
-                                       <asp:DropDownList ID="Area" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="Area_SelectedIndexChanged">
-                                       </asp:DropDownList>
-                                   </div>
-                                   <div class="form-group">
-                                       <label>Brigada</label>
-                                       <asp:DropDownList ID="Brigadas" class="form-control" runat="server">
-                                       </asp:DropDownList>
-                                   </div>
-                                </div>
-                                <div class="modal-footer">
-                                  <asp:Button ID="botonCargar" runat="server" Text="Cargar" class="btn btn-primary" OnClick="ButtonCargar"/>
-                                </div>
-                        </div>--%>
                         <!--alert-->
                         <div id="alert" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
                                 <div class="modal-header">
