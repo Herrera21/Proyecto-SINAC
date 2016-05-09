@@ -364,6 +364,6 @@
         </form>
         </div>
     <script>
-        Configurafecha(true, ".fechaNac", "-65:-18");
+        Configurafecha(false, ".fechaNac", "-65:-18");
     </script>
 </asp:Content>
