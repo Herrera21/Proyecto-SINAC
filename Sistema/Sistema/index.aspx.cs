@@ -29,27 +29,34 @@ namespace Sistema
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if(Logear.activo(usuario.Value))
+            if (Logear.existe(usuario.Value))
             {
-                if (Logear.login(usuario.Value, pass.Value))
+                if (Logear.activo(usuario.Value))
                 {
-                    UsuarioDB userDB = new UsuarioDB();
-                    AreaConservacionDB ACtemp = new AreaConservacionDB();
-                    Usuario user = userDB.seleccionar(usuario.Value);
+                    if (Logear.login(usuario.Value, pass.Value))
+                    {
+                        UsuarioDB userDB = new UsuarioDB();
+                        AreaConservacionDB ACtemp = new AreaConservacionDB();
+                        Usuario user = userDB.seleccionar(usuario.Value);
 
-                    VariablesSeccionControl.Escribe("userRol", user.getRol());
-                    VariablesSeccionControl.Escribe("userAreaConserv", ACtemp.getNombre(user.getAreaConserv()));
-                    VariablesSeccionControl.Escribe("userName", user.getUsuario());
-                    Response.Redirect("CapaPresentacion/Html/MenuPrincipal.aspx");
+                        VariablesSeccionControl.Escribe("userRol", user.getRol());
+                        VariablesSeccionControl.Escribe("userAreaConserv", ACtemp.getNombre(user.getAreaConserv()));
+                        VariablesSeccionControl.Escribe("userName", user.getUsuario());
+                        Response.Redirect("CapaPresentacion/Html/MenuPrincipal.aspx");
+                    }
+                    else
+                    {
+                        mensaje("usuario o contraseña incorrectos");
+                    }
                 }
                 else
                 {
-                    mensaje("usuario o contraseña incorrectos");
+                    mensaje("Este usuario está inactivo");
                 }
             }
             else
             {
-                mensaje("Este usuario está inactivo");
+                mensaje("Este usuario no existe");
             }
         }
     }
