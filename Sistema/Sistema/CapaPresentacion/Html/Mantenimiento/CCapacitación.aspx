@@ -6,7 +6,7 @@
         <ul class="nav nav-tabs">
             <li class="dropdown"><a href="CMenuPoliza.aspx">Pólizas</a></li>
             <li class="dropdown active"><a href="CCapacitación.aspx">Capacitaciones</a></li>
-            <li class="dropdown"><a href="#">Actividades de prevención</a></li>
+            <li class="dropdown"><a href="CActivPrevenc.aspx">Actividades de prevención</a></li>
             <li class="dropdown"><a href="CIncendForest.aspx">Evento de incendio forestal</a></li>
             <li class="dropdown"><a href="../MenuPrincipal.aspx">Salir</a></li>
         </ul>
