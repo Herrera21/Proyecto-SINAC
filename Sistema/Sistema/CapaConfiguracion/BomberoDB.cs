@@ -164,7 +164,7 @@ namespace CapaConfiguracion
                     ing.Parameters.AddWithValue("Ocanton", objeto.getCanton());
                     ing.Parameters.AddWithValue("OlugarResidencia", objeto.getResidencia());
                     ing.Parameters.AddWithValue("Onacionalidad", objeto.getNacionalidad());
-                    ing.Parameters.AddWithValue("OfechaNacimiento", objeto.getFechaNac());   
+                    ing.Parameters.AddWithValue("OfechaNacimiento", objeto.getFechaNac());
                     ing.Parameters.AddWithValue("OtelefonoResidencia", objeto.getTelResidencia());
                     ing.Parameters.AddWithValue("OtelefonoCelular", objeto.getTelCelular());
                     ing.Parameters.AddWithValue("Oocupacion", objeto.getOcupacion());
@@ -275,9 +275,41 @@ namespace CapaConfiguracion
             }
         }
 
-        public void inactivar()
+        public bool inactivar(bool inactiva, string identificacion)
         {
-            
+            if (!conectar())
+            {
+                return false;
+            }
+
+            try
+            {
+                if (inactiva)
+                {
+                    SqlCommand ing = new SqlCommand("update TB_BomberoForestal set estado = 0 where PK_Id_BomberoForestal = @identificacion", coneccion);
+                    ing.Parameters.AddWithValue("identificacion", identificacion);
+
+                    coneccion.Open();
+                    ing.ExecuteNonQuery();
+                    coneccion.Close();
+                    return true;
+                }
+                else
+                {
+                    SqlCommand ing = new SqlCommand("update TB_BomberoForestal set estado = 1 where PK_Id_BomberoForestal = @identificacion", coneccion);
+                    ing.Parameters.AddWithValue("identificacion", identificacion);
+
+                    coneccion.Open();
+                    ing.ExecuteNonQuery();
+                    coneccion.Close();
+                    return true;
+                }
+
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public Bombero seleccionar(string identificacion)
@@ -307,7 +339,7 @@ namespace CapaConfiguracion
                 return null;
             }
         }
-        public DataSet seleccionar_Dataset(bool activo,string brigada, string columna, string operacion, string valor)
+        public DataSet seleccionar_Dataset(bool activo, string brigada, string columna, string operacion, string valor)
         {
             if (!conectar())
             {
@@ -377,8 +409,8 @@ namespace CapaConfiguracion
 
                 while (objReader.Read())
                 {
-                    
-                    temp.Add(objReader.GetString(0)+" "+objReader.GetString(1));
+
+                    temp.Add(objReader.GetString(0) + " " + objReader.GetString(1));
                 }
 
                 coneccion.Close();
@@ -414,6 +446,32 @@ namespace CapaConfiguracion
             catch
             {
                 return -1;
+            }
+        }
+
+        public bool getEstado(string identificacion)
+        {
+            if (!conectar())
+            {
+                return false;
+            }
+
+            try
+            {
+                SqlCommand ing = new SqlCommand("select estado from TB_BomberoForestal where PK_Id_BomberoForestal = @identificacion", coneccion);
+                ing.Parameters.AddWithValue("identificacion", identificacion);
+
+                coneccion.Open();
+                SqlDataReader objReader = ing.ExecuteReader();
+                objReader.Read();
+                bool temp = objReader.GetBoolean(0);
+                coneccion.Close();
+
+                return temp;
+            }
+            catch
+            {
+                return false;
             }
         }
     }
