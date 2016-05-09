@@ -748,3 +748,27 @@ function validarComboBox(v, div, span) {
 
 }
 
+function validarId(campo) {
+
+    if (document.getElementById('cedulaRB').checked) {
+        document.getElementById(campo).value = "";
+        document.getElementById(campo).setAttribute("maxlength", 9);
+        document.getElementById('divCedula').className = "form-group ";
+        document.getElementById('span1Cedula').className = "";
+
+    }
+    if (document.getElementById('pasaporteRB').checked) {
+        document.getElementById(campo).value = "";
+        document.getElementById(campo).setAttribute("maxlength", 15);
+        document.getElementById('divCedula').className = "form-group ";
+        document.getElementById('span1Cedula').className = "";
+    }
+    if (document.getElementById('residenciaRB').checked) {
+        document.getElementById(campo).value = "";
+        document.getElementById(campo).setAttribute("maxlength", 15);
+        document.getElementById('divCedula').className = "form-group ";
+        document.getElementById('span1Cedula').className = "";
+    }
+
+
+}
