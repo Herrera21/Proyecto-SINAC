@@ -22,6 +22,7 @@
     <script src="/FileInput/js/fileinput.js" type="text/javascript"></script>
     <script src="/FileInput/js/fileinput_locale_es.js" type="text/javascript"></script>
     <script src="/Bootstrap/js/bootstrapValidator.js"></script>
+    <script src="/CapaPresentacion/Js/FechasEstandar.js"></script>
     <title>SINAC</title>
     
 </head>
@@ -86,13 +87,6 @@
 
  
         $.datepicker.setDefaults($.datepicker.regional["es"]);
-        $(".date").datepicker({
-            inline: true,
-            changeMonth: true,
-            changeYear: true,
-            yearRange: "-100:+0",
-            maxDate: "+0m +0d"
-        });
 
         $('.img').fileinput({
             language: 'es',
