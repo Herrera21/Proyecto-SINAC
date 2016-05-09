@@ -1,7 +1,5 @@
-﻿function Configurafecha(maxDate, id, rangoFecha)
-{
-    if(maxDate)
-    {
+﻿function Configurafecha(maxDate, id, rangoFecha) {
+    if (maxDate) {
         $(id).datepicker({
             inline: true,
             changeMonth: true,
@@ -9,8 +7,7 @@
             yearRange: rangoFecha,
             maxDate: "+0m +0d"
         });
-    } else
-    {
+    } else {
         $(id).datepicker({
             inline: true,
             changeMonth: true,
