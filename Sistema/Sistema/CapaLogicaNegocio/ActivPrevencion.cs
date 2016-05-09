@@ -9,17 +9,17 @@ namespace Sistema.CapaLogicaNegocio
     {
         private string nombreActiv;
         private string fechaActiv;
-        private int cantHorasPart;
         private string lugarActiv;
+        private string observaciones;
 
         public ActivPrevencion() { }
 
-        public ActivPrevencion(string nombreActiv, string fechaActiv, int cantHorasPart, string lugarActiv)
+        public ActivPrevencion(string nombreActiv, string fechaActiv, string lugarActiv, string observaciones)
         {
             this.nombreActiv = nombreActiv;
-            this.fechaActiv = fechaActiv;
-            this.cantHorasPart = cantHorasPart;
+            this.fechaActiv = fechaActiv;            
             this.lugarActiv = lugarActiv;
+            this.observaciones = observaciones;
         }
 
         public void setNombreActiv(string nombreActiv)
@@ -42,16 +42,6 @@ namespace Sistema.CapaLogicaNegocio
             return fechaActiv;
         }
 
-        public void setCantHorasPart(int cantHorasPart)
-        {
-            this.cantHorasPart = cantHorasPart;
-        }
-
-        public int getCantHorasPart()
-        {
-            return cantHorasPart;
-        }
-
         public void setLugarActiv(string lugarActiv)
         {
             this.lugarActiv = lugarActiv;
@@ -60,6 +50,16 @@ namespace Sistema.CapaLogicaNegocio
         public string getLugarActiv()
         {
             return lugarActiv;
+        }
+
+        public void setObservaciones(string observaciones)
+        {
+            this.observaciones = observaciones;
+        }
+
+        public string getObservaciones()
+        {
+            return observaciones;
         }
     }
 }
