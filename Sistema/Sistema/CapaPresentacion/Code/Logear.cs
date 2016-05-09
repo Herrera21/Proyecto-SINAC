@@ -26,6 +26,20 @@ namespace Sistema
             }
         }
 
+        public static bool existe(string usuario)
+        {
+            try
+            {
+                UsuarioDB userDB = new UsuarioDB();
+
+                return userDB.existe(usuario);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public static bool login(string usuario, string pass)
         {
             try
