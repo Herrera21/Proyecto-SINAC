@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CapaPresentacion/Html/PaginaEstandar.Master" AutoEventWireup="true" CodeBehind="CBomberos.aspx.cs" Inherits="Sistema.CapaPresentacion.Html.CBomberos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CapaPresentacion/Html/PaginaEstandar.Master" AutoEventWireup="true" CodeBehind="CBomberos.aspx.cs" EnableEventValidation = "false" Inherits="Sistema.CapaPresentacion.Html.CBomberos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderContenido" runat="server">
     <!--contenido-->               
      <div class="container">
