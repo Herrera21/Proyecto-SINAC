@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CapaPresentacion/Html/PaginaEstandar.Master" AutoEventWireup="true" CodeBehind="CActivPrevenc.aspx.cs" EnableEventValidation = "false" Inherits="Sistema.CapaPresentacion.Html.Mantenimiento.CActivPrevenc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderContenido" runat="server">
-    <!--contenido-->               
+    <!--contenido-->   
+                
      <div class="container">
          <!-- menu-->
         <ul class="nav nav-tabs">
