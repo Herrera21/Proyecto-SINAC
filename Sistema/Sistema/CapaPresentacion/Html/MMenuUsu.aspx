@@ -20,7 +20,6 @@
     <!--mensaje-->
     <div id="mensajes" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
             <div class="modal-header">
-              <a class="close" data-dismiss="modal">×</a>
               <h3>Mensaje</h3>
             </div>
             <div class="modal-body">
@@ -52,6 +51,7 @@
                 <!--buscar-->
                         <div id="buscar" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
                                 <div class="modal-header">
+                                <a class="close" href="MenuPrincipal.aspx">×</a>
                                   <h3>Buscar</h3>
                                 </div>
                                 <div class="modal-body">
@@ -68,6 +68,7 @@
                         <!--alert-->
                         <div id="alert" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
                                 <div class="modal-header">
+                                <a class="close" data-dismiss="modal">×</a>
                                   <h3>Alerta</h3>
                                 </div>
                                 <div class="modal-body">
