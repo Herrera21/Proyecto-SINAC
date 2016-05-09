@@ -63,12 +63,13 @@ namespace Sistema.CapaPresentacion.Html
                         if (!IsPostBack)
                         {
                             CargarComboboxArea(Area);
+                            CargarComboboxBriga(Brigadas);
                             activaModal("buscar", true);
                         }
                     }
                     else
                     {
-                        //arreglar
+                        //modal para solo seleccionar brigada
                         //VariablesSeccionControl.Escribe("AreaConserv", VariablesSeccionControl.Lee<string>("userAreaConserv"));
                         //cargarTabla();
                     }
@@ -271,9 +272,35 @@ namespace Sistema.CapaPresentacion.Html
             catch { }
         }
 
+        protected void CargarComboboxBriga(DropDownList combobox)
+        {
+            try
+            {
+                BrigadaDB DB = new BrigadaDB();
+                List<string> brigadasList = DB.listaBrigadas(Area.SelectedValue);
+
+                for (int i = 0; i < brigadasList.Count; i++)
+                {
+                    combobox.Items.Add(brigadasList[i]);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        protected void Area_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Brigadas.Items.Clear();
+            CargarComboboxBriga(Brigadas);
+            activaModal("buscar", true);
+        }
+
         protected void ButtonCargar(object sender, EventArgs e)
         {
             VariablesSeccionControl.Escribe("AreaConserv", Area.SelectedValue);
+            VariablesSeccionControl.Escribe("Brigada", Brigadas.SelectedValue);
             cargarTabla();
             activaModal("buscar", false);
         }

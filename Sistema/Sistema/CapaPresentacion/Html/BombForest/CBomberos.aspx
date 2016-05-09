@@ -32,13 +32,12 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>Área de Conservación</label>
-                                <%--<asp:DropDownList ID="Area" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="Area_SelectedIndexChanged">--%>
-                                <asp:DropDownList ID="Area" class="form-control" runat="server" AutoPostBack="true">
+                                <asp:DropDownList ID="Area" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="Area_SelectedIndexChanged">
                                 </asp:DropDownList>
                             </div>
                             <div class="form-group">
                                 <label>Brigada</label>
-                                <asp:DropDownList ID="Brigadas" class="form-control" runat="server" AutoPostBack="true">
+                                <asp:DropDownList ID="Brigadas" class="form-control" runat="server">
                                 </asp:DropDownList>
                             </div>
                         </div>
