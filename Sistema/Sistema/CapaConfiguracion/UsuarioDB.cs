@@ -247,5 +247,38 @@ namespace CapaConfiguracion
                 return false;
             }
         }
+
+        public bool existe(string usuario)
+        {
+            if (!conectar())
+            {
+                return false;
+            }
+
+            try
+            {
+                SqlCommand ing = new SqlCommand("select nickname from TB_Usuario where nickname = @usuario", coneccion);
+                ing.Parameters.AddWithValue("usuario", usuario);
+
+                coneccion.Open();
+                SqlDataReader objReader = ing.ExecuteReader();
+                objReader.Read();
+                string temp = objReader.GetString(0);
+                coneccion.Close();
+
+                if (temp.Equals(null))
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }
