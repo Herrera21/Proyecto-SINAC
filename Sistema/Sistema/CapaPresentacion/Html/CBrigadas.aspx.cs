@@ -58,19 +58,29 @@ namespace Sistema.CapaPresentacion.Html
             {
                 if (VariablesSeccionControl.Lee<string>("AreaConserv") == null)
                 {
-                    Response.Redirect("CAreaConserv.aspx");
+                    if (VariablesSeccionControl.Lee<byte>("userRol") == 0 || VariablesSeccionControl.Lee<byte>("userRol") == 1)
+                    {
+                        if (!IsPostBack)
+                        {
+                            CargarComboboxArea(Area);
+                            activaModal("buscar", true);
+                        }
+                    }
+                    else
+                    {
+                        VariablesSeccionControl.Escribe("AreaConserv", VariablesSeccionControl.Lee<string>("userAreaConserv"));
+                        cargarTabla();
+                    }
                 }
                 else
                 {
-                    this.titulo.InnerText = " Brigadas del " + VariablesSeccionControl.Lee<string>("AreaConserv");
-
-                    filterBindData();
+                    cargarTabla();
                 }
             }
 
         }
 
-        protected void activaInactivaModal(string id, bool activar)
+        protected void activaModal(string id, bool activar)
         {
             if (activar)
             {
@@ -79,10 +89,9 @@ namespace Sistema.CapaPresentacion.Html
             }
             else
             {
-                string script = string.Format("javascript:$('#" + id + "').modal('hide');");
+                string script = string.Format("javascript:$('#" + id + "').modal('hidden');");
                 ScriptManager.RegisterStartupScript(this, Page.ClientScript.GetType(), null, script, true);
             }
-
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -110,6 +119,7 @@ namespace Sistema.CapaPresentacion.Html
             GridView1.DataSource = temp.seleccionar_Dataset(activo, VariablesSeccionControl.Lee<string>("AreaConserv"), columna, operador, valor);
             GridView1.DataBind();
         }
+
         private string seleccionar(int index)
         {
             //
@@ -160,12 +170,12 @@ namespace Sistema.CapaPresentacion.Html
                 VariablesSeccionControl.Escribe("Brigada", seleccionar(GridView1.SelectedRow.RowIndex));
                 Response.Redirect("BombForest/CBomberos.aspx");
             }
-            
+
         }
 
         protected void buttonFiltrar_Click(object sender, ImageClickEventArgs e)
         {
-            activaInactivaModal("filtro", true);
+            activaModal("filtro", true);
         }
 
         protected void buttonFiltrarModal(object sender, EventArgs e)
@@ -175,13 +185,13 @@ namespace Sistema.CapaPresentacion.Html
                 if (botonFiltrar.Text.Equals(buttonName2))
                 {
                     BindData(true, columna.SelectedValue, operador.SelectedValue, valor.Value);
-                    activaInactivaModal("filtro", false);
+                    activaModal("filtro", false);
                     botonFiltrar.Text = "Borrar filtros";
                 }
                 else
                 {
                     BindData(true);
-                    activaInactivaModal("filtro", false);
+                    activaModal("filtro", false);
                     botonFiltrar.Text = buttonName2;
                 }
             }
@@ -190,14 +200,14 @@ namespace Sistema.CapaPresentacion.Html
                 if (botonFiltrar.Text.Equals(buttonName2))
                 {
                     BindData(false, columna.SelectedValue, operador.SelectedValue, valor.Value);
-                    activaInactivaModal("filtro", false);
+                    activaModal("filtro", false);
                     botonFiltrar.Text = "Borrar filtros";
                 }
                 else
                 {
 
                     BindData(false);
-                    activaInactivaModal("filtro", false);
+                    activaModal("filtro", false);
                     botonFiltrar.Text = buttonName2;
                 }
             }
@@ -210,37 +220,67 @@ namespace Sistema.CapaPresentacion.Html
             {
                 ButtonMuestra.Text = "Mostrar elementos activos";
                 BindData(false);
-                activaInactivaModal("filtro", false);
+                activaModal("filtro", false);
             }
             else
             {
                 ButtonMuestra.Text = buttonName;
                 BindData(true);
-                activaInactivaModal("filtro", false);
+                activaModal("filtro", false);
             }
         }
 
         protected void buttonImprimir_Click(object sender, ImageClickEventArgs e)
-            {
-                Response.Clear();
-                Response.Buffer = true;
-                Response.Charset = "";
-                Response.AddHeader("content-disposition", "attachment;filename=ReporteBrigadas.xls");
-                Response.ContentType = "application/ms-excell";
-                StringWriter sw = new StringWriter();
-                HtmlTextWriter hw = new HtmlTextWriter(sw);
-                GridView1.Style.Add("color", "red;");
-                GridView1.AllowPaging = false;
-                GridView1.DataBind();
-                GridView1.RenderControl(hw);
-                Response.Output.Write(sw.ToString());
-                Response.Flush();
-                Response.End();
-            }
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.Charset = "";
+            Response.AddHeader("content-disposition", "attachment;filename=ReporteBrigadas.xls");
+            Response.ContentType = "application/ms-excell";
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+            GridView1.Style.Add("color", "red;");
+            GridView1.AllowPaging = false;
+            GridView1.DataBind();
+            GridView1.RenderControl(hw);
+            Response.Output.Write(sw.ToString());
+            Response.Flush();
+            Response.End();
+        }
 
-            public override void VerifyRenderingInServerForm(Control control)
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            // VerifyRenderingInServerForm(control);
+        }
+
+        protected void CargarComboboxArea(DropDownList combobox)
+        {
+            try
             {
-                // VerifyRenderingInServerForm(control);
+                AreaConservacionDB DB = new AreaConservacionDB();
+                List<string> areasList = DB.listaAreasConserv();
+
+                for (int i = 0; i < areasList.Count; i++)
+                {
+                    combobox.Items.Add(areasList[i]);
+                }
+
+
             }
+            catch { }
+        }
+
+        protected void ButtonCargar(object sender, EventArgs e)
+        {
+            VariablesSeccionControl.Escribe("AreaConserv", Area.SelectedValue);
+            cargarTabla();
+            activaModal("buscar", false);
+        }
+
+        protected void cargarTabla()
+        {
+            this.titulo.InnerText = " Brigadas del " + VariablesSeccionControl.Lee<string>("AreaConserv");
+            filterBindData();
+        }
     }
 }

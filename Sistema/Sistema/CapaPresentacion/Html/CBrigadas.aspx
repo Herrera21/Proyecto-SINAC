@@ -23,6 +23,23 @@
 
 
                 <form id="form1" runat="server">
+                    <!--buscar-->
+                            <div id="buscar" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
+                                    <div class="modal-header">
+                                      <a class="close" href="MenuPrincipal.aspx">×</a>
+                                      <h3>Buscar</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                       <div class="form-group">
+                                           <label>Área de Conservación</label>
+                                           <asp:DropDownList ID="Area" class="form-control" runat="server">
+                                           </asp:DropDownList>
+                                       </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <asp:Button ID="botonCargar" runat="server" Text="Cargar" class="btn btn-primary" OnClick="ButtonCargar"/>
+                                    </div>
+                            </div>
                     <!--filtro-->
                         <div id="filtro" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
                                 <div class="modal-header">
