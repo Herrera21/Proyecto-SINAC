@@ -148,11 +148,11 @@
                         
                         <div class="form-group has-feedback" id="divFechaNacimiento">
                             <label class="control-label">Fecha de nacimiento</label>
-                            <input type="text" class="form-control date" id="fechaNac" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator7','ContentPlaceHolderContenido_RegularExpressionValidator7' ,'divFechaNacimiento','span1FechaNacimiento');" placeholder="Ingrese la fecha de nacimiento" maxlength="10"/>
+                            <input type="text" class="form-control date fechaNac" id="fechaNac" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator7','ContentPlaceHolderContenido_RegularExpressionValidator7' ,'divFechaNacimiento','span1FechaNacimiento');" placeholder="Ingrese la fecha de nacimiento" maxlength="10"/>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="fechaNac" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ErrorMessage="Formato inválido" ControlToValidate="fechaNac" ValidationExpression="^\d{2}\/\d{2}\/\d{4}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="" aria-hidden="true" id="span1FechaNacimiento"></span>
-                            </div>
+                        </div>
                         
                         <div class="form-group has-feedback" id="divTelResid">
                             <label class="control-label">Teléfono de residencia</label>
@@ -256,4 +256,7 @@
             </div>
         </form>
         </div>
+    <script>
+        Configurafecha(true, ".fechaNac", "-65:-18");
+    </script>
 </asp:Content>

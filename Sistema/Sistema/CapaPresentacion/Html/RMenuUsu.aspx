@@ -60,7 +60,7 @@
                             <span class="" aria-hidden="true" id="span1Usuario"></span>
                         </div>
                         <div class="form-group" id="divCedula">
-                            <label>Identificacion</label>
+                            <label>Identificación</label>
                             <input type="text" class="form-control" name="identificacion" id="cedula" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator6','ContentPlaceHolderContenido_RegularExpressionValidator6' ,'divCedula','span1Cedula');"
                                     placeholder="Ingresar identificación" maxlength="9" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="cedula" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True"></asp:RequiredFieldValidator>
