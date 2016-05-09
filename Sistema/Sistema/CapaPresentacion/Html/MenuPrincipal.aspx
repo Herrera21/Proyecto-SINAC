@@ -22,21 +22,6 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li><a href="CAreaConserv.aspx">Administrar</a></li>
-                                <%--<li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Áreas de Conservación<span class="caret"></span></a>
-                                  <ul class="dropdown-menu">
-                                    <li><a href="RMenuAreaConserv.aspx">Registrar</a></li>
-                                    <li><a href="MMenuAreaConserv.aspx">Modificar</a></li>
-                                  </ul>
-                                </li>
-                                <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brigadas<span class="caret"></span></a>
-                                  <ul class="dropdown-menu">
-                                    <li><a href="RMenuBrigada.aspx">Registrar</a></li>
-                                    <li><a href="MMenuBrigada.aspx">Modificar</a></li>
-                                  </ul>
-                                </li>--%>
                                 <li class="dropdown" id="userMenu">
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios<span class="caret"></span></a>
                                   <ul class="dropdown-menu">
@@ -44,23 +29,16 @@
                                     <li><a href="MMenuUsu.aspx">Modificar</a></li>
                                   </ul>
                                 </li>
-                                <li class="dropdown">
+                                <li><a href="CAreaConserv.aspx">Áreas de Conservación</a></li>
+                                <li><a href="CBrigadas.aspx">Brigadas</a></li>
+                                <li><a href="BombForest/CBomberos.aspx">Bomberos Forestales</a></li>
+                                <%--<li class="dropdown">
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bomberos Forestales<span class="caret"></span></a>
                                   <ul class="dropdown-menu">
                                     <li><a href="BombForest/RBomInfoPerson.aspx">Registrar Info. Personal</a></li>
                                     <li><a href="BombForest/MBomInfoPerson.aspx">Modificar Info. Personal</a></li>
                                     <li><a href="BombForest/REquipoProtPerso.aspx">Mantenimiento</a></li>
                                     
-                                  </ul>
-                                </li>
-
-                                <%--<li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Polizas<span class="caret"></span></a>
-                                  <ul class="dropdown-menu">
-                                    
-                                    <li><a href="RMenuPoliza.aspx">Registrar Poliza</a></li>
-                                    <li><a href="MMenuPoliza.aspx">Modificar Poliza</a></li>
-                                    <li><a href="MMenuPoliza.aspx">Asignar Polizas</a></li>
                                   </ul>
                                 </li>--%>
 

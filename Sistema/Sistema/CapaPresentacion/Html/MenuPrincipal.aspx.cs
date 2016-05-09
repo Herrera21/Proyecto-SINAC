@@ -11,6 +11,8 @@ namespace Sistema.CapaPresentacion.Html
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            VariablesSeccionControl.Escribe("AreaConserv", null);
+            VariablesSeccionControl.Escribe("Brigada", null);
             if (VariablesSeccionControl.Lee<string>("userAreaConserv") == null)
             {
                 Response.Redirect("/index.aspx");
