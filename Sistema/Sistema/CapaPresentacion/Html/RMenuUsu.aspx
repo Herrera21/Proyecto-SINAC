@@ -60,9 +60,9 @@
                             <span class="" aria-hidden="true" id="span1Usuario"></span>
                         </div>
                         <div class="form-group" id="divCedula">
-                            <label>Identificacion</label>
+                            <label>Identificación</label>
                             <input type="text" class="form-control" name="identificacion" id="cedula" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator6','ContentPlaceHolderContenido_RegularExpressionValidator6' ,'divCedula','span1Cedula');"
-                                    placeholder="Ingresar identificacion" maxlength="9" />
+                                    placeholder="Ingresar identificación" maxlength="9" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="cedula" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="Solo se permiten numeros" ControlToValidate="cedula" ValidationExpression="^[0-9 ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" SkinID="divNombre"></asp:RegularExpressionValidator>
                             <span class="" aria-hidden="true" id="span1Cedula"></span>
@@ -102,7 +102,7 @@
                         </div>
 
                         <div class="form-group" id="divEmail">
-                            <label>Correo electronico</label>
+                            <label>Correo electrónico</label>
                             <input type="text" class="form-control" id="email" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator5','ContentPlaceHolderContenido_RegularExpressionValidator5' ,'divEmail','span1Email');" maxlength="40" 
                                     placeholder="Ingrese su correo electrónico" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="email" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True"></asp:RequiredFieldValidator>
