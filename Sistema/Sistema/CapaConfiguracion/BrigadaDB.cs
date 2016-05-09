@@ -229,7 +229,7 @@ namespace CapaConfiguracion
 
             try
             {
-                SqlCommand ing = new SqlCommand("select nombre_Brigada from TB_Brigada inner join TB_AreasConservacion on TB_AreasConservacion.nombre = @areaconserv", coneccion);
+                SqlCommand ing = new SqlCommand("select nombre_Brigada from TB_Brigada B inner join TB_AreasConservacion A on B.FK_Id_AreaConservacion = A.PK_Id_AreaConservación where A.nombre = @areaconserv", coneccion);
                 ing.Parameters.AddWithValue("areaconserv", areaconserv);
 
                 coneccion.Open();
