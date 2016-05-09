@@ -49,13 +49,13 @@ namespace Sistema.CapaPresentacion.Html.BombForest {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// tipoActiv control.
+        /// NombreActiv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText tipoActiv;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText NombreActiv;
         
         /// <summary>
         /// fechaActiv control.
@@ -67,15 +67,6 @@ namespace Sistema.CapaPresentacion.Html.BombForest {
         protected global::System.Web.UI.HtmlControls.HtmlInputText fechaActiv;
         
         /// <summary>
-        /// TotHorasPart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl TotHorasPart;
-        
-        /// <summary>
         /// LugarActiv control.
         /// </summary>
         /// <remarks>
@@ -83,6 +74,15 @@ namespace Sistema.CapaPresentacion.Html.BombForest {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText LugarActiv;
+        
+        /// <summary>
+        /// observaciones control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea observaciones;
         
         /// <summary>
         /// Button1 control.
