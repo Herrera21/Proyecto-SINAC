@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CapaPresentacion/Html/PaginaEstandar.Master" AutoEventWireup="true" CodeBehind="MActivPrevenc.aspx.cs" Inherits="Sistema.CapaPresentacion.Html.Mantenimiento.MActivPrevenc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderContenido" runat="server">
     <!--mensaje-->
+
     <div id="mensajes" class="modal" style="display: none; ">
             <div class="modal-header">
               <a class="close" data-dismiss="modal">×</a>
