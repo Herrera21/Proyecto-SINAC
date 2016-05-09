@@ -60,27 +60,6 @@
 
         <form id="form1" runat="server">
             <div class="row" style="background-color:white; width:99.7%">
-                <!--buscar-->
-                <div id="buscar" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
-                    <div class="modal-header">
-                        <h3>Buscar</h3>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>Área de Conservación</label>
-                            <asp:DropDownList ID="Area" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="Area_SelectedIndexChanged">
-                            </asp:DropDownList>
-                        </div>
-                        <div class="form-group">
-                            <label>Brigada</label>
-                            <asp:DropDownList ID="Brigadas" class="form-control" runat="server">
-                            </asp:DropDownList>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <asp:Button ID="botonRegistrar" runat="server" Text="Registrar" class="btn btn-primary" OnClick="ButtonRegistrar"/>
-                    </div>
-                 </div>
                 <!--formulario-->
 
                 <h1 class="text-center login-title">Registrar información personal</h1><hr />
