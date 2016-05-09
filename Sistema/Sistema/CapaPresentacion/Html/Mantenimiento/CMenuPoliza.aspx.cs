@@ -209,7 +209,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             Response.Clear();
             Response.Buffer = true;
             Response.Charset = "";
-            Response.AddHeader("content-disposition", "attachment;filename=ReporteAreas.xls");
+            Response.AddHeader("content-disposition", "attachment;filename=ReportePolizas.xls");
             Response.ContentType = "application/ms-excell";
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);
