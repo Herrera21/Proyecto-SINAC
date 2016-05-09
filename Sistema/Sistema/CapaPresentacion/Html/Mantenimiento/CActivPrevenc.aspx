@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CapaPresentacion/Html/PaginaEstandar.Master" EnableEventValidation = "false" AutoEventWireup="true" CodeBehind="CCapacitación.aspx.cs" Inherits="Sistema.CapaPresentacion.Html.BombForest.CCapacitación" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CapaPresentacion/Html/PaginaEstandar.Master" AutoEventWireup="true" CodeBehind="CActivPrevenc.aspx.cs" EnableEventValidation = "false" Inherits="Sistema.CapaPresentacion.Html.Mantenimiento.CActivPrevenc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderContenido" runat="server">
     <!--contenido-->               
      <div class="container">
@@ -40,12 +40,9 @@
 
                                 <div class="modal-header">
                                     <asp:DropDownList ID="columna" class="form-control" runat="server">
-                                        <asp:listitem value ="nombre_Capacitacion"> Nombre </asp:listitem>
-                                        <asp:listitem value ="lugar_Capacitacion"> Lugar de capacitación </asp:listitem>
-                                        <asp:listitem value ="institucion"> Institución </asp:listitem>
-                                        <asp:listitem value ="cantHoras"> Cantidad de horas </asp:listitem>
-                                        <asp:listitem value ="fechaEmision"> Fecha de la emisión </asp:listitem>
-                                        <asp:listitem value ="fechaCaducidad"> Fecha de caducidad </asp:listitem>
+                                        <asp:listitem value ="nombre"> Nombre de la Actividades de prevención </asp:listitem>
+                                        <asp:listitem value ="fecha"> Fecha de la Actividades de prevención</asp:listitem>
+                                        <asp:listitem value ="lugar"> Lugar de la Actividades de prevención</asp:listitem>
                                     </asp:DropDownList>
                                 </div>
 
@@ -72,11 +69,11 @@
 
                     <div class="row" style="padding-left:20%;">
                         <div class="col-md-2" >
-                            <asp:ImageButton ID="buttonAgregar" data-toggle="tooltip" title="Crear una Capacitación"  runat="server"  ImageUrl="~/Imagenes/Icono_Agregar.png" CssClass="Imagen_boton" Text="Crear"  OnClick="buttonAgregar_Click" />
+                            <asp:ImageButton ID="buttonAgregar" data-toggle="tooltip" title="Crear una Actividad de prevención"  runat="server"  ImageUrl="~/Imagenes/Icono_Agregar.png" CssClass="Imagen_boton" Text="Crear"  OnClick="buttonAgregar_Click" />
                         </div>
 
                         <div class="col-md-2">
-                            <asp:ImageButton ID="buttonModificar" data-toggle="tooltip" title="Modificar una Capacitación" runat="server" ImageUrl="~/Imagenes/Icono_Editar.png" CssClass="Imagen_boton" Text="Modificar" OnClick="buttonModificar_Click" />
+                            <asp:ImageButton ID="buttonModificar" data-toggle="tooltip" title="Modificar una Actividad de prevención" runat="server" ImageUrl="~/Imagenes/Icono_Editar.png" CssClass="Imagen_boton" Text="Modificar" OnClick="buttonModificar_Click" />
                         </div>
 
                         <div class="col-md-2">
@@ -84,11 +81,11 @@
                         </div>
 
                         <div class="col-md-2">
-                            <asp:ImageButton ID="buttonFiltrar"  data-toggle="tooltip" title="Filtrar una Capacitación" runat="server" ImageUrl="~/Imagenes/Icono_Buscar.png" CssClass="Imagen_boton" Text="Buscar" OnClick="buttonFiltrar_Click"  />
+                            <asp:ImageButton ID="buttonFiltrar"  data-toggle="tooltip" title="Filtrar una Actividad de prevención" runat="server" ImageUrl="~/Imagenes/Icono_Buscar.png" CssClass="Imagen_boton" Text="Buscar" OnClick="buttonFiltrar_Click"  />
                         </div>
 
                         <div class="col-md-2">
-                            <asp:ImageButton ID="buttonImprimir" data-toggle="tooltip" title="Imprimir las Capacitaciones" runat="server" ImageUrl="~/Imagenes/Icono_Imprimir.png" CssClass="Imagen_boton" Text="Imprimir" OnClick="buttonImprimir_Click" />
+                            <asp:ImageButton ID="buttonImprimir" data-toggle="tooltip" title="Imprimir las Actividades de prevención" runat="server" ImageUrl="~/Imagenes/Icono_Imprimir.png" CssClass="Imagen_boton" Text="Imprimir" OnClick="buttonImprimir_Click" />
                         </div>
                     </div>
 
@@ -98,40 +95,34 @@
 
                      <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" GridLines="None"  
                         AllowPaging="True" CssClass="mGrid table-responsive" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"  
-                        PageSize="7" onrowcommand="gvPerson_RowCommand" DataKeyNames="PK_Id_Capacitacion,nombre_Capacitacion,lugar_Capacitacion,institucion,cantHoras,fechaEmision,fechaCaducidad" CellPadding="4" ForeColor="#333333" >
+                        PageSize="7" onrowcommand="gvPerson_RowCommand" DataKeyNames="PK_Id_ActividadPrevencion,nombre,fecha,lugar,observaciones" CellPadding="4" ForeColor="#333333" >
         <AlternatingRowStyle CssClass="alt" BackColor="White" ForeColor="#284775"></AlternatingRowStyle>
                     <Columns>
                         <asp:CommandField ButtonType="Image" SelectImageUrl="/Imagenes/editar.gif" ShowSelectButton="True" />
                         <asp:TemplateField HeaderText="Nombre">
                             <ItemTemplate>
-                                <asp:Label ID="Label1" runat="server" Text='<%# Bind("nombre_Capacitacion") %>'></asp:Label>
+                                <asp:Label ID="Label1" runat="server" Text='<%# Bind("nombre") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Lugar de capacitación">
+
+                        <asp:TemplateField HeaderText="Fecha de la actividad">
                             <ItemTemplate>
-                                <asp:Label ID="Label2" runat="server" Text='<%# Bind("lugar_Capacitacion") %>'></asp:Label>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Bind("fecha") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Institución">
+
+                        <asp:TemplateField HeaderText="Lugar donde se realizó la actividad">
                             <ItemTemplate>
-                                <asp:Label ID="Label3" runat="server" Text='<%# Bind("institucion") %>'></asp:Label>
+                                <asp:Label ID="Label3" runat="server" Text='<%# Bind("lugar") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Cantidad de horas">
+
+                        <asp:TemplateField HeaderText="Observaciones">
                             <ItemTemplate>
-                                <asp:Label ID="Label4" runat="server" Text='<%# Bind("cantHoras") %>'></asp:Label>
+                                <asp:Label ID="Label4" runat="server" Text='<%# Bind("observaciones") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Fecha de la emisión">
-                            <ItemTemplate>
-                                <asp:Label ID="Label5" runat="server" Text='<%# Bind("fechaEmision") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Fecha de caducidad">
-                            <ItemTemplate>
-                                <asp:Label ID="Label6" runat="server" Text='<%# Bind("fechaCaducidad") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+
                     </Columns>
 
                          <EditRowStyle BackColor="#999999" />
