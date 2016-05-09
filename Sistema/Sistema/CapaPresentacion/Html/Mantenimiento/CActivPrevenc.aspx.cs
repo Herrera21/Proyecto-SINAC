@@ -205,7 +205,7 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
             Response.Clear();
             Response.Buffer = true;
             Response.Charset = "";
-            Response.AddHeader("content-disposition", "attachment;filename=ReporteAreas.xls");
+            Response.AddHeader("content-disposition", "attachment;filename=ReporteActividadesPrevencion.xls");
             Response.ContentType = "application/ms-excell";
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);
