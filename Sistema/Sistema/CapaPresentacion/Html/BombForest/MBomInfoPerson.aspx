@@ -129,7 +129,7 @@
                           <a id="A1" runat="server" href="#" class="btn" data-dismiss="modal">Cerrar</a>
                         </div>
                 </div>
-                <!--buscar-->
+<%--                <!--buscar-->
                 <div id="buscar" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
                     <div class="modal-header">
                         <h3>Buscar</h3>
@@ -154,7 +154,7 @@
                     <div class="modal-footer">
                         <asp:Button ID="botonCargar" runat="server" Text="Cargar" class="btn btn-primary " OnClick="ButtonCargar"/>
                     </div>
-                 </div>
+                 </div>--%>
                 <!--alert-->
                 <div id="alert" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
                         <div class="modal-header">
