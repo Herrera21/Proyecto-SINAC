@@ -178,31 +178,41 @@
                           <!--contraseña-->
                           <div id="confContraseña" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
                                 <div class="modal-header">
+                                    <a class="close" href="#" data-dismiss="modal">×</a>
                                     <h3>Cambiar contraseña</h3>
                                 </div>
                                 <div class="modal-body">
+
                                     <div class="form-group has-feedback has-success" id="divContrasenia">
                                     <label for="ejemplo_password_1">Nueva contraseña</label>
                                     <input type="password" class="form-control" id="contrasenia" runat="server" onblur="contraseniaVal(this,'divContrasenia','span1Contrasenia','span2Contrasenia'); confirmContr(returnIDconfContrasenia(), this,'divContrasenia2','span1Contrasenia2','span2Contrasenia2'); usuarios(idBoton());" maxlength="15"
                                             placeholder="Ingrese la contraseña" />
+
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="contrasenia" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviarPass"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ErrorMessage="8 a 15 caracteres. Se permiten numeros y letras" ControlToValidate="contrasenia" ValidationExpression="^[A-Za-z0-9]{8,15}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviarPass"></asp:RegularExpressionValidator>
+
                                         <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1Contrasenia"></span>
-                                        <span class="help-block" id="span2Contrasenia"></span>
                                     </div>
+
                                     <div class="form-group has-feedback has-success" id="divContrasenia2">
                                     <label for="ejemplo_password_1">Confirmar contraseña</label>
                                     <input type="password" class="form-control" id="confContrasenia" runat="server" onblur="confirmContr(returnIDcontrasenia(), this,'divContrasenia2','span1Contrasenia2','span2Contrasenia2'); usuarios(idBoton());" maxlength="15"
                                             placeholder="Ingrese la contraseña nuevamente" />
+
+                                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="confContrasenia" ControlToValidate="contrasenia" CssClass="alert-danger" ErrorMessage="Las contraseñas no coinciden." Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviarPass"></asp:CompareValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ErrorMessage="8 a 15 caracteres. Se permiten numeros y letras" ControlToValidate="confContrasenia" ValidationExpression="^[A-Za-z0-9]{8,15}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviarPass"></asp:RegularExpressionValidator>
+
                                         <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1Contrasenia2"></span>
-                                        <span class="help-block" id="span2Contrasenia2"></span>
-                                    </div>     
+                                    </div>   
+                                      
                                 </div>
                                 <div class="modal-footer">
-                                    <a id="A2" runat="server" href="#" class="btn" data-dismiss="modal">Cerrar</a>
+                                    <asp:Button ID="Button4" class="btn btn-primary" runat="server" Text="Guardar contraseña" OnClick="Button_Pass" ValidationGroup="enviarPass"/>
                                 </div>
                          </div>
       
-                            <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Guardar" ValidationGroup="enviar" OnClick="Button1_Click" OnClientClick="usuar()"/>
-                            <asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="Inactivar" OnClick="Button2_Click" OnClientClick="usuar()"/>
+                            <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Guardar" ValidationGroup="enviar" OnClick="Button1_Click"/>
+                            <asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="Inactivar" OnClick="Button2_Click"/>
 
                     </div>
 
