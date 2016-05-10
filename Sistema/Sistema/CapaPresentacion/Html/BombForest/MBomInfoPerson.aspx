@@ -50,33 +50,6 @@
         }
     </script>
 
-
-
- <!-- menu-->
-    <!--<ul class="nav nav-tabs">
-      <li class="active"><a href="RBomInfoPerson.aspx">Información Personal</a></li>
-      <li aria-disabled="true"><a href="REquipoProtPerso.aspx">Equipo de protección personal</a></li>
-      <li><a href="RCarne.aspx">Información del carné</a></li>
-      <li><a href="RCapacitación.aspx">Capacitaciones</a></li>
-      <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Experiencia de campo<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <li><a href="RActivPrevenc.aspx">Actividades de Prevención</a></li>
-              <li><a href="RIncendForest.aspx">Participación en incencios forestales</a></li>
-          </ul>
-      </li>
-      <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Información médica<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <li><a href="RBomPoliza.aspx">Pólizas</li>
-              <li><a href="RBomBenef.aspx">Beneficiarios</a></li>
-              <li><a href="RContactosEmergencia.aspx">Contactos de Emergencia</a></li>
-              <li><a href="RReseniaMedica.aspx">Reseña médica</a></li>
-          </ul>
-      </li>
-      <li><a href="../MenuPrincipal.aspx">Salir</a></li>
-    </ul>-->
-
     <!--mensaje-->
     <div id="mensajes" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
             <div class="modal-header">
