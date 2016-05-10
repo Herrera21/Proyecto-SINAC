@@ -55,13 +55,6 @@
                             <input type="number" class="form-control" id="cantEntreg" runat="server"
                                    placeholder="Ingresar la cantidad entregada"/>
                           </div>
-                            <!--
-                          <div class="form-group">
-                            <label for="ejemplo_email_1">Tallas</label>
-                            <input type="text" class="form-control" id="Text1" runat="server"
-                                   placeholder="Primer apellido">
-                          </div>
-                                -->
                           <div class="form-group">
                             <label>Ubicación</label>
                             <input type="text" class="form-control" id="ubic" runat="server" 
@@ -72,13 +65,6 @@
                             <input type="text" class="form-control date" id="fechEntreg" runat="server" 
                                    placeholder="Ingresar la fecha de entrega"/>
                           </div>
-                            <!--
-                          <div class="form-group">
-                            <label for="ejemplo_password_1">Proceso</label>
-                            <input type="text" class="form-control" id="lugarResid" runat="server" 
-                                   placeholder="Lugar de residencia">
-                          </div>
-                            -->
                           <div class="form-group">
                             <label>Estado</label>
                             <select class="form-control" id="estado">
