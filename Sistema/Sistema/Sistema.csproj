@@ -120,6 +120,7 @@
     <Content Include="CapaPresentacion\Html\MMenuAreaConserv.aspx" />
     <Content Include="CapaPresentacion\Html\MMenuBrigada.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\RMenuPoliza.aspx" />
+    <Content Include="CapaPresentacion\Js\FechasEstandar.js" />
     <Content Include="CapaPresentacion\Js\Validaciones.js" />
     <Content Include="Imagenes\editar.gif" />
     <Content Include="Imagenes\grd_head.png" />
