@@ -1,20 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CapaPresentacion/Html/PaginaEstandar.Master" AutoEventWireup="true" CodeBehind="REquipoProtPerso.aspx.cs" Inherits="Sistema.CapaPresentacion.Html.BombForest.REquipoProtPerso" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderContenido" runat="server">
-    <!-- menu-->
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="REquipoProtPerso.aspx">Equipo de protección personal</a></li>
-      <li><a href="RCarne.aspx">Información del carné</a></li>
-      <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Información médica<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <li><a href="RContactosEmergencia.aspx">Contactos de Emergencia</a></li>
-              <li><a href="RReseniaMedica.aspx">Reseña médica</a></li>
-          </ul>
-      </li>
-      <li><a href="RBomBenef.aspx">Beneficiarios</a></li>
-      <li><a href="../MenuPrincipal.aspx">Salir</a></li>
-    </ul>
-
     <!--mensaje-->
     <div id="mensajes" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
             <div class="modal-header">
@@ -24,6 +9,7 @@
                <label id="labelMensaje" runat="server"></label>		        
             </div>
             <div class="modal-footer">
+              <a id="botonMensaje1" runat="server" href="CEquipoProtPerso.aspx" class="btn">Cerrar</a>
               <a id="botonMensaje2" runat="server" href="#" class="btn" data-dismiss="modal">Cerrar</a>
             </div>
     </div>
@@ -31,14 +17,18 @@
     <!--contenido-->
     <div class="container">
 
-        <!-- Miga -->
-        <div class="row" style="background-color:white; width:99.7%">
-            <ol class="breadcrumb">
-                <li><a href="../MenuPrincipal.aspx"> Menú Principal </a></li>
-                <li class="active">Bomberos Forestales</li>
-                <li class="active">Registrar equipo de protección personal </li>                
-            </ol>
-        </div>
+         <!-- Miga -->
+            <div class="row" style="background-color:white; width:99.7%">
+                <ol class="breadcrumb">
+                    <li><a href="../MenuPrincipal.aspx"> Menú Principal </a></li>
+                    <li><a href="../CAreaConserv.aspx">Áreas de conservación </a></li>
+                    <li><a href="../CBrigadas.aspx">Brigada </a></li>
+                    <li><a href="../CBomberos.aspx">Bomberos </a></li>
+                    <li class="active">Información detallada </li>
+                    <li class="active">Equipo de protección personal </li>
+                    <li class="active">Registrar </li>
+                </ol>
+            </div>
 
             <div class="row" style="background-color:white; width:99.7%">
                 <div class="col-sm-6 col-md-4 col-md-offset-4">
@@ -52,13 +42,8 @@
                           </div>
                           <div class="form-group">
                             <label>Cantidad entregada</label>
-                            <input type="number" class="form-control" id="cantEntreg" runat="server"
+                            <input type="text" class="form-control" id="cantEntre" runat="server" 
                                    placeholder="Ingresar la cantidad entregada"/>
-                          </div>
-                          <div class="form-group">
-                            <label>Ubicación</label>
-                            <input type="text" class="form-control" id="ubic" runat="server" 
-                                   placeholder="Ingresar la ubicación"/>
                           </div>
                           <div class="form-group">
                             <label>Fecha de Entrega</label>
@@ -67,13 +52,18 @@
                           </div>
                           <div class="form-group">
                             <label>Estado</label>
-                            <select class="form-control" id="estado">
-	                            <option selected="selected">Bueno</option>
+                            <select class="form-control" id="estado" runat="server" >
+                                <option selected="selected" value="0">Seleccionar</option>
+	                            <option>Bueno</option>
 	                            <option>Malo</option>
 	                            <option>Regular</option>
                             </select>
                           </div>
-                          <asp:Button ID="Button1" runat="server" Text="Guardar" OnClick="Button1_Click" />
+                          <div class="form-group">
+                                <label class="control-label" >Observaciones</label>
+                                <textarea name="observaciones" id="observaciones" runat="server" class="form-control"></textarea>
+                            </div>
+                          <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Guardar" ValidationGroup="enviar" OnClick="Button1_Click"/>
                         </form>
                     </div>
                 </div>

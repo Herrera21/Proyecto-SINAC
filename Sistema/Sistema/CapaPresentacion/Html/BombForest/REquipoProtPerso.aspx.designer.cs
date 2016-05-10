@@ -22,6 +22,15 @@ namespace Sistema.CapaPresentacion.Html.BombForest {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl labelMensaje;
         
         /// <summary>
+        /// botonMensaje1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor botonMensaje1;
+        
+        /// <summary>
         /// botonMensaje2 control.
         /// </summary>
         /// <remarks>
@@ -49,22 +58,13 @@ namespace Sistema.CapaPresentacion.Html.BombForest {
         protected global::System.Web.UI.HtmlControls.HtmlInputText nombre;
         
         /// <summary>
-        /// cantEntreg control.
+        /// cantEntre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl cantEntreg;
-        
-        /// <summary>
-        /// ubic control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText ubic;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cantEntre;
         
         /// <summary>
         /// fechEntreg control.
@@ -74,6 +74,24 @@ namespace Sistema.CapaPresentacion.Html.BombForest {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText fechEntreg;
+        
+        /// <summary>
+        /// estado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect estado;
+        
+        /// <summary>
+        /// observaciones control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea observaciones;
         
         /// <summary>
         /// Button1 control.
