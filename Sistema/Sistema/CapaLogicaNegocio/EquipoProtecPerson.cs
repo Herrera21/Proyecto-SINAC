@@ -3,37 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Sistema.CapaLogicaNegocio
+namespace CapaLogica
 {
     public class EquipoProtecPerson
     {
-        private string equipo;
+        private string nombre;
         private int cantEntre;
-        private string ubicacion;
         private string fechaEntre;
-        private bool estado;
-        private string motivoEstMal;
+        private string estadoHerram;
+        private string observaciones;
+        private string id_Bombero;
 
         public EquipoProtecPerson() { }
 
-        public EquipoProtecPerson(string equipo, int cantEntre, string ubicacion, string fechaEntre, bool estado, string motivoEstMal)
+        public EquipoProtecPerson(string nombre, int cantEntre, string fechaEntre, string estadoHerram, string observaciones, string id_Bombero)
         {
-            this.equipo = equipo;
+            this.nombre = nombre;
             this.cantEntre = cantEntre;
-            this.ubicacion = ubicacion;
             this.fechaEntre = fechaEntre;
-            this.estado = estado;
-            this.motivoEstMal = motivoEstMal;
+            this.estadoHerram = estadoHerram;
+            this.observaciones = observaciones;
+            this.id_Bombero = id_Bombero;
         }
 
-        public void setEquipo(string equipo)
+        public void setNombre(string nombre)
         {
-            this.equipo = equipo;
+            this.nombre = nombre;
         }
 
-        public string getEquipo()
+        public string getNombre()
         {
-            return this.equipo;
+            return this.nombre;
         }
 
         public void setCantEntre(int cantEntre)
@@ -46,16 +46,6 @@ namespace Sistema.CapaLogicaNegocio
             return this.cantEntre;
         }
 
-        public void setUbicacion(string ubicacion)
-        {
-            this.ubicacion = ubicacion;
-        }
-
-        public string getUbicacion()
-        {
-            return this.ubicacion;
-        }
-
         public void setFechaEntre(string fechaEntre)
         {
             this.fechaEntre = fechaEntre;
@@ -66,24 +56,34 @@ namespace Sistema.CapaLogicaNegocio
             return this.fechaEntre;
         }
 
-        public void setEstado(bool estado)
+        public void setEstadoHerram(string estadoHerram)
         {
-            this.estado = estado;
+            this.estadoHerram = estadoHerram;
         }
 
-        public bool getEstado()
+        public string getEstadoHerram()
         {
-            return this.estado;
+            return this.estadoHerram;
         }
 
-        public void setMotivoEstMal(string motivoEstMal)
+        public void setObservaciones(string observaciones)
         {
-            this.motivoEstMal = motivoEstMal;
+            this.observaciones = observaciones;
         }
 
-        public string getMotivoEstMal()
+        public string getObservaciones()
         {
-            return this.motivoEstMal;
+            return this.observaciones;
+        }
+
+        public void setId_Bombero(string id_Bombero)
+        {
+            this.id_Bombero = id_Bombero;
+        }
+
+        public string getId_Bombero()
+        {
+            return this.id_Bombero;
         }
     }
 }
