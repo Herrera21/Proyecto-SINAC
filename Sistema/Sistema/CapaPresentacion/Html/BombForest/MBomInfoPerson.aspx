@@ -129,32 +129,6 @@
                           <a id="A1" runat="server" href="#" class="btn" data-dismiss="modal">Cerrar</a>
                         </div>
                 </div>
-<%--                <!--buscar-->
-                <div id="buscar" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
-                    <div class="modal-header">
-                        <h3>Buscar</h3>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>Área de Conservación</label>
-                            <asp:DropDownList ID="Area" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="Area_SelectedIndexChanged">
-                            </asp:DropDownList>
-                        </div>
-                        <div class="form-group">
-                            <label>Brigada</label>
-                            <asp:DropDownList ID="Brigadas" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="Brigadas_SelectedIndexChanged">
-                            </asp:DropDownList>
-                        </div>
-                        <div class="form-group">
-                            <label>Bomberos</label>
-                            <asp:DropDownList ID="Bomberos" class="form-control" runat="server">
-                            </asp:DropDownList>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <asp:Button ID="botonCargar" runat="server" Text="Cargar" class="btn btn-primary " OnClick="ButtonCargar"/>
-                    </div>
-                 </div>--%>
                 <!--alert-->
                 <div id="alert" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
                         <div class="modal-header">
@@ -310,7 +284,7 @@
                             </div> 
 
                             <div class="form-group">
-                                <label>Subir la imagen de la cedula</label>
+                                <label>Subir la imagen de la cédula</label>
                                 <img  class="form-control" ID="Image2" style="width: 300px; height: auto;" runat="server" onClick="modalIMG(false);"/>
                             </div>
 
