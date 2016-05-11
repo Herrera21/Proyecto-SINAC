@@ -107,7 +107,10 @@
     <Content Include="CapaPresentacion\Css\Gripviev.css" />
     <Content Include="CapaPresentacion\Html\BombForest\CContactosEmergencia.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\CEquipoProtPerso.aspx" />
+    <Content Include="CapaPresentacion\Html\BombForest\InfPersDetallado.aspx" />
+    <Content Include="CapaPresentacion\Html\BombForest\MContactosEmergencia.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\MEquipoProtPerso.aspx" />
+    <Content Include="CapaPresentacion\Html\Mantenimiento\AsignarPolizas.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\CActivPrevenc.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\CCapacitación.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\CIncendForest.aspx" />
@@ -245,12 +248,29 @@
     <Compile Include="CapaPresentacion\Html\BombForest\CEquipoProtPerso.aspx.designer.cs">
       <DependentUpon>CEquipoProtPerso.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\InfPersDetallado.aspx.designer.cs">
+      <DependentUpon>InfPersDetallado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\MContactosEmergencia.aspx.cs">
+      <DependentUpon>MContactosEmergencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\MContactosEmergencia.aspx.designer.cs">
+      <DependentUpon>MContactosEmergencia.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CapaPresentacion\Html\BombForest\MEquipoProtPerso.aspx.cs">
       <DependentUpon>MEquipoProtPerso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CapaPresentacion\Html\BombForest\MEquipoProtPerso.aspx.designer.cs">
       <DependentUpon>MEquipoProtPerso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\AsignarPolizas.aspx.cs">
+      <DependentUpon>AsignarPolizas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\AsignarPolizas.aspx.designer.cs">
+      <DependentUpon>AsignarPolizas.aspx</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\Html\Mantenimiento\CActivPrevenc.aspx.cs">
       <DependentUpon>CActivPrevenc.aspx</DependentUpon>
