@@ -25,7 +25,7 @@ namespace CapaConfiguracion
                     return false;
                 }
 
-                if (objeto.getLider() == 0)
+                if (objeto.getLider() == "")
                 {
                     SqlCommand ing = new SqlCommand("insert into TB_Brigada(nombre_Brigada, FK_Id_AreaConservacion, estado) values (@nombre, @idAreaConserv, 1)", coneccion);
                     ing.Parameters.AddWithValue("nombre", objeto.getNombre());
@@ -64,7 +64,7 @@ namespace CapaConfiguracion
 
             try
             {
-                if (objeto.getLider() == 0)
+                if (objeto.getLider() == "")
                 {
                     SqlCommand ing = new SqlCommand("update TB_Brigada set nombre_Brigada = @Onombre, FK_Id_AreaConservacion = @Oid_AreaConservacion where nombre_Brigada = @nombre", coneccion);
                     ing.Parameters.AddWithValue("Onombre", objeto.getNombre());
@@ -86,6 +86,34 @@ namespace CapaConfiguracion
                     ing.ExecuteNonQuery();
                     coneccion.Close();
                 }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+       public bool quitarLid(string nombre, Brigada objeto)
+        {
+            if (!conectar())
+            {
+                return false;
+            }
+
+            try
+            {
+                
+                SqlCommand ing = new SqlCommand("update TB_Brigada set nombre_Brigada = @Onombre, FK_Id_BomberoForestal = NULL, FK_Id_AreaConservacion = @Oid_AreaConservacion where nombre_Brigada = @nombre", coneccion);
+                ing.Parameters.AddWithValue("Onombre", objeto.getNombre());
+                ing.Parameters.AddWithValue("Oid_AreaConservacion", objeto.getId_AreaConservacion());
+                //ing.Parameters.AddWithValue("OliderBrig", objeto.getLider());
+                ing.Parameters.AddWithValue("nombre", nombre);
+
+                coneccion.Open();
+                ing.ExecuteNonQuery();
+                coneccion.Close();
+
                 return true;
             }
             catch
@@ -149,14 +177,14 @@ namespace CapaConfiguracion
 
                 if (objReader.IsDBNull(1))
                 {
-                    Brigada temp = new Brigada(objReader.GetString(0), 0, objReader.GetInt32(2));
+                    Brigada temp = new Brigada(objReader.GetString(0), "", objReader.GetInt32(2));
                     coneccion.Close();
 
                     return temp;
                 }
                 else
                 {
-                    Brigada temp = new Brigada(objReader.GetString(0), objReader.GetInt32(1), objReader.GetInt32(2));
+                    Brigada temp = new Brigada(objReader.GetString(0), objReader.GetString(1), objReader.GetInt32(2));
                     coneccion.Close();
 
                     return temp;
