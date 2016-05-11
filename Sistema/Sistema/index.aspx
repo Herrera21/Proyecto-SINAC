@@ -28,7 +28,7 @@
                                    placeholder ="Contraseña" autofocus="autofocus"
                                    required="required"/>
                             <asp:Button ID="Button1" runat="server" Text="Entrar" class="btn btn-lg btn-primary btn-block" OnClick="Button1_Click" />
-                            <a href="#">¿Olvidaste la Contraseña?</a>
+                            <%--<a href="#">¿Olvidaste la Contraseña?</a>--%>
                         </form>
                     </div>
                 </div>
