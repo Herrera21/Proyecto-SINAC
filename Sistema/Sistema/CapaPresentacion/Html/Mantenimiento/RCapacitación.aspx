@@ -51,7 +51,7 @@
                           <div class="form-group" id="divFechaEmiCap">
                             <label>Fecha de emisión</label>
                             <input type="text" class="form-control date fechaEmi" id="fechaEmiCap" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator3','ContentPlaceHolderContenido_RegularExpressionValidator3' ,'divFechaEmiCap','span1FechaEmiCap');"
-                                   placeholder="Ingrese la fecha de emisión" maxlength="10"/>
+                                   placeholder="Ingrese la fecha de emisión" maxlength="10" readonly/>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="fechaEmiCap" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Formato inválido" ControlToValidate="fechaEmiCap" ValidationExpression="^\d{2}\/\d{2}\/\d{4}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="" aria-hidden="true" id="span1FechaEmiCap"></span>
@@ -59,7 +59,7 @@
                           <div class="form-group" id="divFechaCad">
                             <label>Fecha de caducidad</label>
                             <input type="text" class="form-control date fechaCad" id="fechaCad" runat="server"  onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator4','ContentPlaceHolderContenido_RegularExpressionValidator4' ,'divFechaCad','span1FechaCad');"
-                                   placeholder="Ingrese la fecha de caducidad" maxlength="10"/>
+                                   placeholder="Ingrese la fecha de caducidad" maxlength="10" readonly/>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="fechaCad" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Formato inválido" ControlToValidate="fechaCad" ValidationExpression="^\d{2}\/\d{2}\/\d{4}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="" aria-hidden="true" id="span1FechaCad"></span>
