@@ -135,37 +135,6 @@ namespace CapaConfiguracion
             }
         }
 
-        //// seccion activos
-        //public List<string> listaAreasConserv()
-        //{
-        //    if (!conectar())
-        //    {
-        //        return null;
-        //    }
-
-        //    try
-        //    {
-        //        SqlCommand ing = new SqlCommand("select nombre from TB_EquipoProtecPersonal where estado = 1", coneccion);
-
-        //        coneccion.Open();
-        //        SqlDataReader objReader = ing.ExecuteReader();
-        //        List<string> temp = new List<string>();
-
-        //        while (objReader.Read())
-        //        {
-        //            temp.Add(objReader.GetString(0));
-        //        }
-
-        //        coneccion.Close();
-
-        //        return temp;
-        //    }
-        //    catch
-        //    {
-        //        return null;
-        //    }
-        //}
-
         // filtros doble funcion
         public DataSet seleccionar_Dataset(bool activo, string bombero, string columna, string operacion, string valor)
         {
