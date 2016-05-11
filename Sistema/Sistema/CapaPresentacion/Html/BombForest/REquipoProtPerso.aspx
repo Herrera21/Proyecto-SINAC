@@ -25,7 +25,7 @@
                     <li><a href="../CBrigadas.aspx">Brigada </a></li>
                     <li><a href="../CBomberos.aspx">Bomberos </a></li>
                     <li class="active">Información detallada </li>
-                    <li class="active">Equipo de protección personal </li>
+                    <li><a href="../CEquipoProtPerso.aspx">Equipo de protección personal </a></li>
                     <li class="active">Registrar </li>
                 </ol>
             </div>
