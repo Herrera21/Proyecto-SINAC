@@ -52,12 +52,12 @@
                           </div>
                           <div class="form-group">
                             <label>Estado</label>
-                            <select class="form-control" id="estado" runat="server" >
-                                <option selected="selected" value="0">Seleccionar</option>
-	                            <option>Bueno</option>
-	                            <option>Malo</option>
-	                            <option>Regular</option>
-                            </select>
+                            <asp:DropDownList ID="estado" class="form-control" runat="server" onchange="validarComboBox('ContentPlaceHolderContenido_vAreaConservacion','divAreaCons','span1AreaCons');">
+                                <asp:listitem value ="0"> Seleccionar </asp:listitem>
+                                <asp:listitem value ="Bueno"> Bueno </asp:listitem>
+                                <asp:listitem value ="Malo"> Malo </asp:listitem>
+                                <asp:listitem value ="Regular"> Regular </asp:listitem>
+                            </asp:DropDownList>
                           </div>
                           <div class="form-group">
                                 <label class="control-label" >Observaciones</label>
