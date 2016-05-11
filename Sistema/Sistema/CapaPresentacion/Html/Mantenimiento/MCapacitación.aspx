@@ -63,12 +63,12 @@
                           </div>
                           <div class="form-group">
                             <label>Fecha de emisión</label>
-                            <input type="text" class="form-control date" id="fechaEmiCap" runat="server" 
+                            <input type="text" class="form-control date fechaEmi" id="fechaEmiCap" runat="server" 
                                    placeholder="Ingrese la fecha de emisión"/>
                           </div>
                           <div class="form-group">
                             <label>Fecha de caducidad</label>
-                            <input type="text" class="form-control date" id="fechaCad" runat="server" 
+                            <input type="text" class="form-control date fechaCad" id="fechaCad" runat="server" 
                                    placeholder="Ingrese la fecha de caducidad"/>
                           </div>
                           <div class="form-group">
@@ -96,4 +96,8 @@
                 </div>
             </div>
         </div>
+    <script>
+        Configurafecha("+0m +0d +0y", ".fechaEmi", "-65:+0");
+        Configurafecha("+0m +0d +15y", ".fechaCad", "-15:+15");
+    </script>
 </asp:Content>

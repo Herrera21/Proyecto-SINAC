@@ -50,7 +50,7 @@
 
                             <div class="form-group" id="divPeriodoInicio">
                             <label>Periodo de inicio</label>
-                            <input type="text" class="form-control date" id="periodoInicio" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator3','ContentPlaceHolderContenido_RegularExpressionValidator3' ,'divPeriodoInicio','span1PeriodoInicio');"
+                            <input type="text" class="form-control date fechaIni" id="periodoInicio" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator3','ContentPlaceHolderContenido_RegularExpressionValidator3' ,'divPeriodoInicio','span1PeriodoInicio');"
                                     placeholder="Ingrese la fecha de inicio de póliza" maxlength="10"/>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="periodoInicio" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Formato inválido" ControlToValidate="periodoInicio" ValidationExpression="^\d{2}\/\d{2}\/\d{4}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
@@ -59,7 +59,7 @@
 
                             <div class="form-group" id="divPeriodoFin">
                             <label>Vencimiento de la póliza</label>
-                            <input type="text" class="form-control date" id="periodoFin" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator4','ContentPlaceHolderContenido_RegularExpressionValidator4' ,'divPeriodoFin','span1PeriodoFin');"
+                            <input type="text" class="form-control date fechaVec" id="periodoFin" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator4','ContentPlaceHolderContenido_RegularExpressionValidator4' ,'divPeriodoFin','span1PeriodoFin');"
                                     placeholder="Ingrese la fecha de vencimiento" maxlength="10"/>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="periodoFin" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Formato inválido" ControlToValidate="periodoFin" ValidationExpression="^\d{2}\/\d{2}\/\d{4}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
@@ -76,4 +76,8 @@
                 </div>
             </div>
         </div>
+    <script>
+        Configurafecha("+0m +0d +0y", ".fechaIni", "-65:+0");
+        Configurafecha("+0m +0d +20y", ".fechaVec", "+0:+20");
+    </script>
 </asp:Content>
