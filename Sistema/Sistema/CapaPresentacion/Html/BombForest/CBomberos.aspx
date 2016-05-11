@@ -107,11 +107,11 @@
 
                 <div class="row" style="padding-left:20%;">
                         <div class="col-md-2 col-md-offset-3" >
-                            <asp:ImageButton ID="ImageButton1" data-toggle="tooltip" title="Asignar Líder"  runat="server"  ImageUrl="~/Imagenes/Icono_Agregar.png" CssClass="Imagen_boton" Text="Asignar Líder"  OnClick="buttonAsignaLid_Click" />
+                            <asp:ImageButton ID="ImageButton1" data-toggle="tooltip" title="Asignar Líder"  runat="server"  ImageUrl="~/Imagenes/add_user.png" CssClass="Imagen_boton" Text="Asignar Líder"  OnClick="buttonAsignaLid_Click" />
                         </div>
 
                        <div class="col-md-2">
-                            <asp:ImageButton ID="ImageButton2" data-toggle="tooltip" title="Quitar Líder" runat="server" ImageUrl="~/Imagenes/Icono_Editar.png" CssClass="Imagen_boton" Text="Quitar Líder" OnClick="buttonQuitarLid_Click"/>
+                            <asp:ImageButton ID="ImageButton2" data-toggle="tooltip" title="Quitar Líder" runat="server" ImageUrl="~/Imagenes/remove_user.png" CssClass="Imagen_boton" Text="Quitar Líder" OnClick="buttonQuitarLid_Click"/>
                         </div>
                       </div>
                       
