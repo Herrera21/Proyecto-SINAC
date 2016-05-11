@@ -61,7 +61,7 @@
                           </div>
                           <div class="form-group has-feedback has-success" id="divFechaPart">
                             <label class="control-label">Fecha de participación</label>
-                            <input type="text" class="form-control date fechaInc" id="fechaPart" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator2','ContentPlaceHolderContenido_RegularExpressionValidator2' ,'divFechaPart','span1FechaPart');" placeholder="Ingrese la fecha de participación" maxlength="10"/>
+                            <input type="text" class="form-control date fechaInc" id="fechaPart" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator2','ContentPlaceHolderContenido_RegularExpressionValidator2' ,'divFechaPart','span1FechaPart');" placeholder="Ingrese la fecha de participación" maxlength="10" readonlyus/>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="fechaPart" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Formato inválido" ControlToValidate="fechaPart" ValidationExpression="^\d{2}\/\d{2}\/\d{4}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1FechaPart"></span>
