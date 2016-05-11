@@ -133,7 +133,7 @@ namespace Sistema.CapaPresentacion.Html
             AreaConservacionDB DB2 = new AreaConservacionDB();
             AreaConservacion temp = DB2.seleccionar(areaCons.SelectedValue);
 
-            if (DB.actualizar(VariablesSeccionControl.Lee<string>("Brigada"), new Brigada(brigada.Value, 0, DB2.getId(temp.getNombre()))))
+            if (DB.actualizar(VariablesSeccionControl.Lee<string>("Brigada"), new Brigada(brigada.Value, "", DB2.getId(temp.getNombre()))))
             {
                 mensaje("La brigada ha sido modificada", true);
             }
