@@ -9,10 +9,11 @@ namespace Sistema.CapaLogicaNegocio
     {
         private string telCelular;
         private string telCasa;
+        private string id_Bombero;
 
         public ContEmerg() { }
 
-        public ContEmerg(string identificacion, string nombre, string apellido1, string apellido2, string parentesco, string telCelular, string telCasa)
+        public ContEmerg(string identificacion, string nombre, string apellido1, string apellido2, string parentesco, string telCelular, string telCasa, string id_Bombero)
         {
             this.identificacion = identificacion;
             this.nombre = nombre;
@@ -21,6 +22,7 @@ namespace Sistema.CapaLogicaNegocio
             this.parentesco = parentesco;
             this.telCelular = telCelular;
             this.telCasa = telCasa;
+            this.id_Bombero = id_Bombero;
         }
 
         public void setTelCelular(string telCelular)
@@ -32,7 +34,7 @@ namespace Sistema.CapaLogicaNegocio
         {
             return telCelular;
         }
-
+        
         public void setTelCasa(string telCasa)
         {
             this.telCasa = telCasa;
@@ -41,6 +43,15 @@ namespace Sistema.CapaLogicaNegocio
         public string getTelCasa()
         {
             return telCasa;
+        }
+        public void setId_Bombero(string id_Bombero)
+        {
+            this.id_Bombero = id_Bombero;
+        }
+
+        public string getId_Bombero()
+        {
+            return id_Bombero;
         }
     }
 }
