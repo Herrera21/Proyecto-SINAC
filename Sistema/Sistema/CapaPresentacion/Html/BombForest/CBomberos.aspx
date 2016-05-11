@@ -105,6 +105,63 @@
                         </div>
                     </div>
 
+                <div class="row" style="padding-left:20%;">
+                        <div class="col-md-2 col-md-offset-3" >
+                            <asp:ImageButton ID="ImageButton1" data-toggle="tooltip" title="Asignar Líder"  runat="server"  ImageUrl="~/Imagenes/Icono_Agregar.png" CssClass="Imagen_boton" Text="Asignar Líder"  OnClick="buttonAsignaLid_Click" />
+                        </div>
+
+                       <div class="col-md-2">
+                            <asp:ImageButton ID="ImageButton2" data-toggle="tooltip" title="Quitar Líder" runat="server" ImageUrl="~/Imagenes/Icono_Editar.png" CssClass="Imagen_boton" Text="Quitar Líder" OnClick="buttonQuitarLid_Click"/>
+                        </div>
+                      </div>
+                      
+
+                    <hr />
+
+                     <h1 class="text-center login-title" id="liderBriga" runat="server"></h1>
+
+                     <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" GridLines="None"  
+                        AllowPaging="True" CssClass="mGrid table-responsive" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"  
+                        PageSize="7" onrowcommand="gvPerson_RowCommand" DataKeyNames="PK_Id_BomberoForestal, nombre, apellido1, apellido2" CellPadding="4" ForeColor="#333333" >
+        <AlternatingRowStyle CssClass="alt" BackColor="White" ForeColor="#284775"></AlternatingRowStyle>
+                    <Columns>
+                        <asp:CommandField ButtonType="Image" SelectImageUrl="/Imagenes/editar.gif" ShowSelectButton="True" />
+                        <asp:TemplateField HeaderText="C&#233dula">
+                            <ItemTemplate>
+                                <asp:Label ID="Label1" runat="server" Text='<%# Bind("PK_Id_BomberoForestal") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Nombre">
+                            <ItemTemplate>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Bind("nombre") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                          <asp:TemplateField HeaderText="Primer Apellido">
+                            <ItemTemplate>
+                                <asp:Label ID="Label3" runat="server" Text='<%# Bind("apellido1") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                          <asp:TemplateField HeaderText="Segundo Apellido">
+                            <ItemTemplate>
+                                <asp:Label ID="Label4" runat="server" Text='<%# Bind("apellido2") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+
+                         <EditRowStyle BackColor="#999999" />
+                         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                         <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+
+        <PagerStyle CssClass="pgr" BackColor="#284775" ForeColor="White" HorizontalAlign="Center"></PagerStyle>
+                         <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                         <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                         <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView>
                     <hr />
 
                     <h1 class="text-center login-title" id="titulo" runat="server"></h1>

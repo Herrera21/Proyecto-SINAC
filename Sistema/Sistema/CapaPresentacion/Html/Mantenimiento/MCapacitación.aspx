@@ -51,35 +51,53 @@
                                 </div>
                         </div>
                           <!--formulario-->
-                         <div class="form-group">
+                         <div class="form-group" id="divNombre">
                             <label>Nombre de la capacitación</label>
-                            <input type="text" class="form-control" id="nombreCap" runat="server"
-                                placeholder="Ingrese el nombre de la capacitación" required autofocus/>
+                            <input type="text" class="form-control" id="nombreCap" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator1','ContentPlaceHolderContenido_RegularExpressionValidator1' ,'divNombre','span1Nombre');"
+                                placeholder="Ingrese el nombre de la capacitación" maxlength="20" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1"  runat="server" ControlToValidate="nombreCap" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Solo se permiten letras" ControlToValidate="nombreCap" ValidationExpression="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                            <span class="" aria-hidden="true" id="span1Nombre"></span>
                           </div>
-                          <div class="form-group">
-                            <label>Lugar donde recibió la capacitación</label>
-                            <input type="text" class="form-control" id="lugarCap" runat="server"
-                                   placeholder="Ingrese el lugar donde recibió la capacitación"/>
+                          <div class="form-group" id="divLugarCap">
+                            <label>Lugar donde se recibió la capacitación</label>
+                            <input type="text" class="form-control" id="lugarCap" runat="server"  onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator2','ContentPlaceHolderContenido_RegularExpressionValidator2' ,'divLugarCap','span1LugarCap');"
+                                   placeholder="Ingrese el lugar donde recibió la capacitación" maxlength="50"/>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2"  runat="server" ControlToValidate="lugarCap" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Solo se permiten letras" ControlToValidate="lugarCap" ValidationExpression="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                            <span class="" aria-hidden="true" id="span1LugarCap"></span>
                           </div>
-                          <div class="form-group">
+                          <div class="form-group" id="divFechaEmiCap">
                             <label>Fecha de emisión</label>
-                            <input type="text" class="form-control date" id="fechaEmiCap" runat="server" 
-                                   placeholder="Ingrese la fecha de emisión"/>
+                            <input type="text" class="form-control date fechaEmi" id="fechaEmiCap" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator3','ContentPlaceHolderContenido_RegularExpressionValidator3' ,'divFechaEmiCap','span1FechaEmiCap');"
+                                   placeholder="Ingrese la fecha de emisión" maxlength="10" readonly/>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="fechaEmiCap" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Formato inválido" ControlToValidate="fechaEmiCap" ValidationExpression="^\d{2}\/\d{2}\/\d{4}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                            <span class="" aria-hidden="true" id="span1FechaEmiCap"></span>
                           </div>
-                          <div class="form-group">
+                          <div class="form-group" id="divFechaCad">
                             <label>Fecha de caducidad</label>
-                            <input type="text" class="form-control date" id="fechaCad" runat="server" 
-                                   placeholder="Ingrese la fecha de caducidad"/>
+                            <input type="text" class="form-control date fechaCad" id="fechaCad" runat="server"  onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator4','ContentPlaceHolderContenido_RegularExpressionValidator4' ,'divFechaCad','span1FechaCad');"
+                                   placeholder="Ingrese la fecha de caducidad" maxlength="10" readonly/>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="fechaCad" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Formato inválido" ControlToValidate="fechaCad" ValidationExpression="^\d{2}\/\d{2}\/\d{4}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                            <span class="" aria-hidden="true" id="span1FechaCad"></span>
                           </div>
-                          <div class="form-group">
+                          <div class="form-group" id="divInstitut">
                             <label>Institución</label>
-                            <input type="text" class="form-control" id="institut" runat="server" 
-                                   placeholder="Ingrese la institución donde recibió la capacitación"/>
+                            <input type="text" class="form-control" id="institut" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator5','ContentPlaceHolderContenido_RegularExpressionValidator5' ,'divInstitut','span1Institut');"
+                                   placeholder="Ingrese la institución donde recibió la capacitación" maxlength="20"/>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5"  runat="server" ControlToValidate="institut" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="Solo se permiten letras" ControlToValidate="institut" ValidationExpression="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                            <span class="" aria-hidden="true" id="span1Institut"></span>
                           </div>
-                          <div class="form-group">
+                          <div class="form-group" id="divCantHoras">
                             <label>Cantidad de horas</label>
-                            <input type="text" class="form-control" id="cantHoras" runat="server" 
-                                   placeholder="Ingrese la cantidad de horas de la capacitación"/>
+                            <input type="text" class="form-control" id="cantHoras" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator6','ContentPlaceHolderContenido_RegularExpressionValidator6' ,'divCantHoras','span1CantHoras');"
+                                   placeholder="Ingrese la cantidad de horas de la capacitación" maxlength="4"/>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="cantHoras" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
+                             <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="Solo se permiten numeros" ControlToValidate="cantHoras" ValidationExpression="^[0-9 ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                             <span class="" aria-hidden="true" id="span1CantHoras"></span>
                           </div>
                           <%--<div class="form-group">
                             <label>Capacitación aprobada</label>
@@ -96,4 +114,8 @@
                 </div>
             </div>
         </div>
+    <script>
+        Configurafecha("+0m +0d +0y", ".fechaEmi", "-65:+0");
+        Configurafecha("+0m +0d +15y", ".fechaCad", "-15:+15");
+    </script>
 </asp:Content>

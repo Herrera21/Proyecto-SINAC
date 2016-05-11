@@ -152,7 +152,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
 
             if (DB.actualizar(cedula.Value, new Bombero(cedula.Value, nombre.Value, p_Ape.Value, s_Ape.Value, tipoBombero.SelectedIndex, provincia.Value,
                 canton.Value, lugarResid.Value, nacionalidad.SelectedIndex.ToString(), fechaNac.Value, telResid.Value, telCel.Value, ocupacion.Value, correo.Value,
-                Convert.ToInt32(aniosBrig.Value), ImageControl.fileInpTObyteVec(FileUpload1), ImageControl.fileInpTObyteVec(FileUpload2), DB.idBrigada(temp.getNombre()))))
+                Convert.ToInt32(aniosBrig.Value), ImageControl.fileInpTObyteVec(FileUpload1), ImageControl.fileInpTObyteVec(FileUpload2), DB.idBrigada(VariablesSeccionControl.Lee<string>("Brigada")))))
             {
                 mensaje("El bombero ha sido modificado", true);
             }

@@ -56,8 +56,8 @@
                           </div>
                           <div class="form-group" id="divFechaActiv">
                             <label>Fecha de la actividad</label>
-                            <input type="text" class="form-control date" id="fechaActiv" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator2','ContentPlaceHolderContenido_RegularExpressionValidator2' ,'divFechaActiv','span1FechaActiv');"
-                                   placeholder="Ingrese la fecha de la actividad"/>
+                            <input type="text" class="form-control date activPrevenc" id="fechaActiv" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator2','ContentPlaceHolderContenido_RegularExpressionValidator2' ,'divFechaActiv','span1FechaActiv');"
+                                   placeholder="Ingrese la fecha de la actividad" readonly/>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="fechaActiv" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Formato inválido" ControlToValidate="fechaActiv" ValidationExpression="^\d{2}\/\d{2}\/\d{4}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="" aria-hidden="true" id="span1FechaActiv"></span>
@@ -86,4 +86,7 @@
                 </div>
             </div>
         </div>
+    <script>
+        Configurafecha("+0m +0d +20y", ".activPrevenc", "-65:+20");
+    </script>
 </asp:Content>
