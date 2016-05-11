@@ -78,9 +78,9 @@
                             <asp:ImageButton ID="buttonModificar" data-toggle="tooltip" title="Modificar una Actividad de prevención" runat="server" ImageUrl="~/Imagenes/Icono_Editar.png" CssClass="Imagen_boton" Text="Modificar" OnClick="buttonModificar_Click" />
                         </div>
 
-                        <div class="col-md-2">
+                        <%--<div class="col-md-2">
                             <asp:ImageButton ID="buttonConsultar" data-toggle="tooltip" title="Asignar a Bomberos" ImageUrl="~/Imagenes/Icono_Consultar.jpg" CssClass="Imagen_boton" Text="Consultar" runat="server" OnClick="buttonConsultar_Click" />
-                        </div>
+                        </div>--%>
 
                         <div class="col-md-2">
                             <asp:ImageButton ID="buttonFiltrar"  data-toggle="tooltip" title="Filtrar una Actividad de prevención" runat="server" ImageUrl="~/Imagenes/Icono_Buscar.png" CssClass="Imagen_boton" Text="Buscar" OnClick="buttonFiltrar_Click"  />
