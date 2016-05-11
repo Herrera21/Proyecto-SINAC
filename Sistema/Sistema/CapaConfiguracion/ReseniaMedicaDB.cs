@@ -13,39 +13,10 @@ namespace Sistema.CapaConfiguracion
 {
     public class ReseniaMedicaDB : ControlBD
     {
-        private string text1;
-        private string text2;
-        private string text3;
-        private string text4;
-        private string text5;
-        private string text6;
-        private string text7;
-        private byte v1;
-        private byte v2;
-        private byte v3;
-        private byte v4;
-        private byte v5;
-        private byte v6;
-        private string v7;
-
         public ReseniaMedicaDB() { }
 
         public ReseniaMedicaDB(byte v1, string text1, byte v2, string text2, byte v3, string text3, byte v4, string text4, byte v5, string text5, byte v6, string text6, string text7, string v7)
         {
-            this.v1 = v1;
-            this.text1 = text1;
-            this.v2 = v2;
-            this.text2 = text2;
-            this.v3 = v3;
-            this.text3 = text3;
-            this.v4 = v4;
-            this.text4 = text4;
-            this.v5 = v5;
-            this.text5 = text5;
-            this.v6 = v6;
-            this.text6 = text6;
-            this.text7 = text7;
-            this.v7 = v7;
         }
 
         public bool insertar(ReseniaMedic objeto)
@@ -83,5 +54,7 @@ namespace Sistema.CapaConfiguracion
                 return false;
             }
         }
+
+         
     }
 }
