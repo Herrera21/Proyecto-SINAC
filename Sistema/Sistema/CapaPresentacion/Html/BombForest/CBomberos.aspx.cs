@@ -224,8 +224,8 @@ namespace Sistema.CapaPresentacion.Html
         {
             if (GridView1.SelectedRow != null && ButtonMuestra.Text.Equals(buttonName))
             {
-                //VariablesSeccionControl.Escribe("Bombero", seleccionar(GridView1.SelectedRow.RowIndex));
-                //Response.Redirect("BombForest/CBomberos.aspx");
+                VariablesSeccionControl.Escribe("Bombero", seleccionar(GridView1.SelectedRow.RowIndex));
+                Response.Redirect("CEquipoProtPerso.aspx");
             }
 
         }
