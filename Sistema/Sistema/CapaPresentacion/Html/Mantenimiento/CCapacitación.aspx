@@ -35,6 +35,7 @@
                     <!--filtro-->
                         <div id="filtro" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
                                 <div class="modal-header">
+                                  <a class="close" data-dismiss="modal">×</a>
                                   <h3>Filtrar</h3>
                                 </div>
 
