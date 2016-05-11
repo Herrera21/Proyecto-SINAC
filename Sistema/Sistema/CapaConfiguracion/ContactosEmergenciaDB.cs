@@ -54,7 +54,7 @@ namespace CapaConfiguracion
 
             try
             {
-                SqlCommand ing = new SqlCommand("update TB_ContactoEmergencia set nombre = @Onombre, apellido1 = @Oapellido1, apellido2 = @Oapellido2, parentesco = @Oparentesco, telefonoResidencia = @OtelefonoResidencia, telefonoCelular = @OtelefonoCelular where id = @id", coneccion);
+                SqlCommand ing = new SqlCommand("update TB_ContactoEmergencia set nombre = @Onombre, apellido1 = @Oapellido1, apellido2 = @Oapellido2, parentesco = @Oparentesco, telefonoResidencia = @OtelefonoResidencia, telefonoCelular = @OtelefonoCelular where PK_Id_ContactoEmergencia = @id", coneccion);
                 ing.Parameters.AddWithValue("Onombre", objeto.getNombre());
                 ing.Parameters.AddWithValue("Oapellido1", objeto.getApellido1());
                 ing.Parameters.AddWithValue("Oapellido2", objeto.getApellido2());
@@ -86,7 +86,7 @@ namespace CapaConfiguracion
             {
                 if (inactiva)
                 {
-                    SqlCommand ing = new SqlCommand("update TB_ContactoEmergencia set estado = 0 where id = @id", coneccion);
+                    SqlCommand ing = new SqlCommand("update TB_ContactoEmergencia set estado = 0 where PK_Id_ContactoEmergencia = @id", coneccion);
                     ing.Parameters.AddWithValue("id", id);
 
                     coneccion.Open();
@@ -96,7 +96,7 @@ namespace CapaConfiguracion
                 }
                 else
                 {
-                    SqlCommand ing = new SqlCommand("update TB_ContactoEmergencia set estado = 1 where id = @id", coneccion);
+                    SqlCommand ing = new SqlCommand("update TB_ContactoEmergencia set estado = 1 where PK_Id_ContactoEmergencia = @id", coneccion);
                     ing.Parameters.AddWithValue("id", id);
 
                     coneccion.Open();
@@ -122,7 +122,7 @@ namespace CapaConfiguracion
 
             try
             {
-                SqlCommand ing = new SqlCommand("select PK_Id_ContactoEmergencia, nombre, apellido1, apellido2, parentesco, telefonoResidencia, telefonoCelular, FK_Id_BomberoForestal from TB_ContactoEmergencia where id = @id", coneccion);
+                SqlCommand ing = new SqlCommand("select PK_Id_ContactoEmergencia, nombre, apellido1, apellido2, parentesco, telefonoResidencia, telefonoCelular, FK_Id_BomberoForestal from TB_ContactoEmergencia where PK_Id_ContactoEmergencia = @id", coneccion);
                 ing.Parameters.AddWithValue("id", id);
 
                 coneccion.Open();
@@ -191,7 +191,7 @@ namespace CapaConfiguracion
             }
         }
 
-        public bool getEstado(int id)
+        public bool getEstado(string id)
         {
             if (!conectar())
             {
