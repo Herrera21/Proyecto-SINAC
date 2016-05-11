@@ -9,7 +9,7 @@
                <label id="labelMensaje" runat="server"></label>		        
             </div>
             <div class="modal-footer">
-              <a id="botonMensaje1" runat="server" href="MenuPrincipal.aspx" class="btn">Cerrar</a>
+              <a id="botonMensaje1" runat="server" href="CContactosEmergencia.aspx" class="btn">Cerrar</a>
               <a id="botonMensaje2" runat="server" href="#" class="btn" data-dismiss="modal">Cerrar</a>
             </div>
     </div>
