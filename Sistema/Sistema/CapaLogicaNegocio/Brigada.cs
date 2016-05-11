@@ -9,14 +9,14 @@ namespace CapaLogica
     public class Brigada
     {
         private string nombre;
-        private int lider;
+        private string lider;
         private int id_AreaConservacion;
 
         public Brigada()
         {
         }
 
-        public Brigada(string nombre, int lider, int id_AreaConservacion)
+        public Brigada(string nombre, string lider, int id_AreaConservacion)
         {
             this.nombre = nombre;
             this.id_AreaConservacion = id_AreaConservacion;
@@ -43,12 +43,12 @@ namespace CapaLogica
             return nombre;
         }
 
-        public void setLider(int lider)
+        public void setLider(string lider)
         {
             this.lider = lider;
         }
 
-        public int getLider()
+        public string getLider()
         {
             return lider;
         }
