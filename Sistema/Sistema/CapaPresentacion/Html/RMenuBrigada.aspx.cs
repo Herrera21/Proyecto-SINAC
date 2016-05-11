@@ -55,7 +55,7 @@ namespace Sistema.CapaPresentacion.Html
 
             int x = DB.getId(VariablesSeccionControl.Lee<string>("AreaConserv"));
 
-            if (registrar.insertar(new Brigada(brigada.Value, 0, x)))
+            if (registrar.insertar(new Brigada(brigada.Value, "", x)))
             {
                 mensaje("La brigada ha sido creada", true);
             }
