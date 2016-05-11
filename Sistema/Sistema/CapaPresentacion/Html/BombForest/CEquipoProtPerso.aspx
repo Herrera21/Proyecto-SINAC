@@ -62,7 +62,7 @@
                     <!-- menu-->
                     <ul class="nav nav-tabs">
                         <li><a href="RBomInfoPerson.aspx">Información Personal</a></li>
-                        <li class="active"><a href="REquipoProtPerso.aspx">Equipo de protección personal</a></li>
+                        <li class="active"><a href="CEquipoProtPerso.aspx">Equipo de protección personal</a></li>
                         <li><a href="RCarne.aspx">Información del carné</a></li>
                         <li><a href="RCapacitación.aspx">Capacitaciones</a></li>
                         <li class="dropdown">
@@ -77,7 +77,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="RBomPoliza.aspx">Pólizas</li>
                                 <li><a href="RBomBenef.aspx">Beneficiarios</a></li>
-                                <li><a href="RContactosEmergencia.aspx">Contactos de Emergencia</a></li>
+                                <li><a href="CContactosEmergencia.aspx">Contactos de Emergencia</a></li>
                                 <li><a href="RReseniaMedica.aspx">Reseña médica</a></li>
                             </ul>
                         </li>
