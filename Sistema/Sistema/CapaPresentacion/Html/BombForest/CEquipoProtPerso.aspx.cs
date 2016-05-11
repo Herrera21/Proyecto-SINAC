@@ -1,16 +1,21 @@
 ﻿using CapaConfiguracion;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text.html;
+using iTextSharp.text.html.simpleparser;
+using System.Text;
 
 namespace Sistema.CapaPresentacion.Html.BombForest
 {
-    public partial class CMenuPoliza : System.Web.UI.Page
-    {
+	public partial class CEquipoProtPerso : System.Web.UI.Page
+	{
         private const string buttonName = "Mostrar elementos inactivos";
         private const string buttonName2 = "Filtrar";
 
@@ -51,7 +56,14 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             }
             else
             {
-                filterBindData();
+                if (VariablesSeccionControl.Lee<string>("Bombero") == null)
+                {
+                    Response.Redirect("CBomberos.aspx");
+                }
+                else
+                {
+                    filterBindData();
+                }
             }
         }
 
@@ -84,15 +96,15 @@ namespace Sistema.CapaPresentacion.Html.BombForest
 
         private void BindData(bool activo)
         {
-            PolizaDB temp = new PolizaDB();
-            GridView1.DataSource = temp.seleccionar_Dataset(activo, null, null, null);
+            EquipoProtPersoDB temp = new EquipoProtPersoDB();
+            GridView1.DataSource = temp.seleccionar_Dataset(activo, VariablesSeccionControl.Lee<string>("Bombero"), null, null, null);
             GridView1.DataBind();
         }
 
         private void BindData(bool activo, string columna, string operador, string valor)
         {
-            PolizaDB temp = new PolizaDB();
-            GridView1.DataSource = temp.seleccionar_Dataset(activo, columna, operador, valor);
+            EquipoProtPersoDB temp = new EquipoProtPersoDB();
+            GridView1.DataSource = temp.seleccionar_Dataset(activo, VariablesSeccionControl.Lee<string>("Bombero"), columna, operador, valor);
             GridView1.DataBind();
         }
         private int seleccionar(int index)
@@ -102,7 +114,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             // en este caso de la entidad Person
             //
 
-            return Convert.ToInt32(GridView1.DataKeys[index].Values["PK_Id_Poliza"]);
+            return Convert.ToInt32(GridView1.DataKeys[index].Values["PK_Id_EquipoProtecPersonal"]);
         }
 
         protected void gvPerson_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -126,25 +138,15 @@ namespace Sistema.CapaPresentacion.Html.BombForest
 
         protected void buttonAgregar_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("RMenuPoliza.aspx");
+            Response.Redirect("REquipoProtPerso.aspx");
         }
 
         protected void buttonModificar_Click(object sender, ImageClickEventArgs e)
         {
             if (GridView1.SelectedRow != null)
             {
-                VariablesSeccionControl.Escribe("Poliza", seleccionar(GridView1.SelectedRow.RowIndex));
-                Response.Redirect("MMenuPoliza.aspx");
-            }
-        }
-
-        protected void buttonConsultar_Click(object sender, ImageClickEventArgs e)
-        {
-
-            if (GridView1.SelectedRow != null)
-            {
-                VariablesSeccionControl.Escribe("Poliza", seleccionar(GridView1.SelectedRow.RowIndex));
-                Response.Redirect("AsignarPolizas.aspx");
+                VariablesSeccionControl.Escribe("EquipoProtPerso", seleccionar(GridView1.SelectedRow.RowIndex));
+                Response.Redirect("MEquipoProtPerso.aspx");
             }
         }
 
@@ -210,7 +212,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             Response.Clear();
             Response.Buffer = true;
             Response.Charset = "";
-            Response.AddHeader("content-disposition", "attachment;filename=ReportePolizas.xls");
+            Response.AddHeader("content-disposition", "attachment;filename=ReporteAreas.xls");
             Response.ContentType = "application/ms-excell";
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);

@@ -50,33 +50,6 @@
         }
     </script>
 
-
-
- <!-- menu-->
-    <!--<ul class="nav nav-tabs">
-      <li class="active"><a href="RBomInfoPerson.aspx">Información Personal</a></li>
-      <li aria-disabled="true"><a href="REquipoProtPerso.aspx">Equipo de protección personal</a></li>
-      <li><a href="RCarne.aspx">Información del carné</a></li>
-      <li><a href="RCapacitación.aspx">Capacitaciones</a></li>
-      <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Experiencia de campo<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <li><a href="RActivPrevenc.aspx">Actividades de Prevención</a></li>
-              <li><a href="RIncendForest.aspx">Participación en incencios forestales</a></li>
-          </ul>
-      </li>
-      <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Información médica<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <li><a href="RBomPoliza.aspx">Pólizas</li>
-              <li><a href="RBomBenef.aspx">Beneficiarios</a></li>
-              <li><a href="RContactosEmergencia.aspx">Contactos de Emergencia</a></li>
-              <li><a href="RReseniaMedica.aspx">Reseña médica</a></li>
-          </ul>
-      </li>
-      <li><a href="../MenuPrincipal.aspx">Salir</a></li>
-    </ul>-->
-
     <!--mensaje-->
     <div id="mensajes" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
             <div class="modal-header">
@@ -129,32 +102,6 @@
                           <a id="A1" runat="server" href="#" class="btn" data-dismiss="modal">Cerrar</a>
                         </div>
                 </div>
-<%--                <!--buscar-->
-                <div id="buscar" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
-                    <div class="modal-header">
-                        <h3>Buscar</h3>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>Área de Conservación</label>
-                            <asp:DropDownList ID="Area" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="Area_SelectedIndexChanged">
-                            </asp:DropDownList>
-                        </div>
-                        <div class="form-group">
-                            <label>Brigada</label>
-                            <asp:DropDownList ID="Brigadas" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="Brigadas_SelectedIndexChanged">
-                            </asp:DropDownList>
-                        </div>
-                        <div class="form-group">
-                            <label>Bomberos</label>
-                            <asp:DropDownList ID="Bomberos" class="form-control" runat="server">
-                            </asp:DropDownList>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <asp:Button ID="botonCargar" runat="server" Text="Cargar" class="btn btn-primary " OnClick="ButtonCargar"/>
-                    </div>
-                 </div>--%>
                 <!--alert-->
                 <div id="alert" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
                         <div class="modal-header">
@@ -201,11 +148,11 @@
                         </div>
                         
                         <div class="form-group has-feedback has-success" id="divCedula">
-                            <label>Identificacion</label>
-                            <input type="text" class="form-control" name="identificacion" id="cedula" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator6','ContentPlaceHolderContenido_RegularExpressionValidator6' ,'divCedula','span1Cedula');"
-                                    placeholder="Ingresar identificacion" maxlength="9" />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="cedula" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator13" runat="server" ErrorMessage="Solo se permiten numeros" ControlToValidate="cedula" ValidationExpression="^[0-9 ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" SkinID="divNombre"></asp:RegularExpressionValidator>
+                            <label class="control-label">Identificación</label>
+                            <input type="text" class="form-control" name="identificacion" id="cedula" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator13','ContentPlaceHolderContenido_RegularExpressionValidator13' ,'divCedula','span1Cedula');"
+                                    placeholder="Ingresar identificación" maxlength="9" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="cedula" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator13" runat="server" ErrorMessage="Solo se permiten numeros. Minimo 9 números" ControlToValidate="cedula" ValidationExpression="^[0-9 ]{9,15}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" SkinID="divNombre" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1Cedula"></span>
                         </div>
                         <div>
@@ -265,7 +212,7 @@
                             <label class="control-label">Teléfono de residencia</label>
                             <input type="text" id="telResid" runat="server" class="form-control" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator8','ContentPlaceHolderContenido_RegularExpressionValidator8' ,'divTelResid','span1TelefonoResidencia');" placeholder="Ingrese el teléfono de residencia" maxlength="8" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="telResid" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ErrorMessage="Solo se permiten numeros" ControlToValidate="telResid" ValidationExpression="^[0-9 ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ErrorMessage="Solo se permiten 8 numeros" ControlToValidate="telResid" ValidationExpression="^[0-9 ]{8,9}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1TelefonoResidencia"></span>
                         </div>
                         
@@ -273,7 +220,7 @@
                             <label class="control-label">Teléfono celular</label>
                             <input type="text" id="telCel" runat="server" class="form-control" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator9','ContentPlaceHolderContenido_RegularExpressionValidator9' ,'divTelCel','span1TelefonoCelular');" placeholder="Ingrese el teléfono celular" maxlength="8" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="telCel" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ErrorMessage="Solo se permiten numeros" ControlToValidate="telCel" ValidationExpression="^[0-9 ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ErrorMessage="Solo se permiten 8 numeros" ControlToValidate="telCel" ValidationExpression="^[0-9 ]{8,9}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1TelefonoCelular"></span>
                         </div>
                         
@@ -310,7 +257,7 @@
                             </div> 
 
                             <div class="form-group">
-                                <label>Subir la imagen de la cedula</label>
+                                <label>Subir la imagen de la cédula</label>
                                 <img  class="form-control" ID="Image2" style="width: 300px; height: auto;" runat="server" onClick="modalIMG(false);"/>
                             </div>
 
@@ -329,11 +276,12 @@
                             </div>
 
                         <div class="form-group has-feedback has-success" id="divAniosBrig">
-                            <label class="control-label">Años de servicio</label>
-                            <input type="text" id="aniosBrig" runat="server" class="form-control" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator12','ContentPlaceHolderContenido_RegularExpressionValidator12' ,'divAniosBrig','span1AniosBrigada');" placeholder="Ingrese los años en la brigada" maxlength="2" />
-                            <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1AniosBrig"></span>
-                            
-                        </div>
+                                <label class="control-label">Años de servicio</label>
+                                <input type="text" id="aniosBrig" runat="server" class="form-control" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator12','ContentPlaceHolderContenido_RegularExpressionValidator12' ,'divAniosBrig','span1AniosBrigada');" placeholder="Ingrese los años en la brigada" maxlength="2" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="aniosBrig" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator12" runat="server" ErrorMessage="Solo se permiten numeros" ControlToValidate="aniosBrig" ValidationExpression="^[0-9 ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                                <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1AniosBrigada"></span>
+                            </div>
 
                             <%--<div class="form-group">
                                 <label>Asignar Poliza</label>

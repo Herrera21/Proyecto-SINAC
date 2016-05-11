@@ -157,21 +157,13 @@ namespace Sistema.CapaPresentacion.Html
             UsuarioDB registrar = new UsuarioDB();
             AreaConservacionDB temp = new AreaConservacionDB();
 
-            if (contrasenia.Value.Equals(confContrasenia.Value))
+            if (registrar.actualizar(B_Usuario.Value, new Usuario(cedula.Value, nombre.Value, apellido1.Value, apellido2.Value, usuario.Value, email.Value, null, Convert.ToByte(radioButtonFuncion.SelectedItem.Value), temp.getId(AreaCons.SelectedValue))))
             {
-                if (registrar.actualizar(B_Usuario.Value, new Usuario(cedula.Value, nombre.Value, apellido1.Value, apellido2.Value, usuario.Value, email.Value, contrasenia.Value, Convert.ToByte(radioButtonFuncion.SelectedItem.Value), temp.getId(AreaCons.SelectedValue))))
-                {
-                    mensaje("El usuario ha sido modificado", true);
-                }
-                else
-                {
-                    mensaje("Ocurrio un error al guardar la información", false);
-                }
+                mensaje("El usuario ha sido modificado", true);
             }
             else
             {
-                mensaje("Las contraseñas no coinciden", false);
-
+                mensaje("Ocurrio un error al guardar la información", false);
             }
         }
 
@@ -198,6 +190,22 @@ namespace Sistema.CapaPresentacion.Html
         protected void Button3_Click(object sender, EventArgs e)
         {
             activaModal("confContraseña", true);
+        }
+
+        protected void Button_Pass(object sender, EventArgs e)
+        {
+            //guarda la contraseña en la base de datos
+            UsuarioDB registrar = new UsuarioDB();
+            AreaConservacionDB temp = new AreaConservacionDB();
+
+            if (registrar.cambiaPass(B_Usuario.Value, contrasenia.Value))
+            {
+                mensaje("La contraseña ha sido modificada", true);
+            }
+            else
+            {
+                mensaje("Ocurrio un error al guardar la información", false);
+            }
         }
     }
 }

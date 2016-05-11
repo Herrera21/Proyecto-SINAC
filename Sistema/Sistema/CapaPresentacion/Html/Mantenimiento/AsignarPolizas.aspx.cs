@@ -1,15 +1,20 @@
 ﻿using CapaConfiguracion;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text.html;
+using iTextSharp.text.html.simpleparser;
+using System.Text;
 
-namespace Sistema.CapaPresentacion.Html.BombForest
+namespace Sistema.CapaPresentacion.Html.Mantenimiento
 {
-    public partial class CMenuPoliza : System.Web.UI.Page
+    public partial class AsignarPolizas : System.Web.UI.Page
     {
         private const string buttonName = "Mostrar elementos inactivos";
         private const string buttonName2 = "Filtrar";
@@ -41,6 +46,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
                 }
             }
             GridView1.PageIndexChanging += GridView1_PageIndexChanging;
+            GridView2.PageIndexChanging += GridView2_PageIndexChanging;
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -51,11 +57,33 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             }
             else
             {
-                filterBindData();
+                if (VariablesSeccionControl.Lee<string>("Brigada") == null || VariablesSeccionControl.Lee<string>("AreaConserv") == null)
+                {
+                    if (VariablesSeccionControl.Lee<byte>("userRol") == 0 || VariablesSeccionControl.Lee<byte>("userRol") == 1)
+                    {
+                        if (!IsPostBack)
+                        {
+                            CargarComboboxArea(Area);
+                            CargarComboboxBriga(Brigadas);
+                            activaModal("buscar", true);
+                        }
+                    }
+                    else
+                    {
+                        //modal para solo seleccionar brigada
+                        //VariablesSeccionControl.Escribe("AreaConserv", VariablesSeccionControl.Lee<string>("userAreaConserv"));
+                        //cargarTabla();
+                    }
+                }
+                else
+                {
+                    cargarTabla();
+                }
             }
+
         }
 
-        protected void activaInactivaModal(string id, bool activar)
+        protected void activaModal(string id, bool activar)
         {
             if (activar)
             {
@@ -64,10 +92,9 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             }
             else
             {
-                string script = string.Format("javascript:$('#" + id + "').modal('hide');");
+                string script = string.Format("javascript:$('#" + id + "').modal('hidden');");
                 ScriptManager.RegisterStartupScript(this, Page.ClientScript.GetType(), null, script, true);
             }
-
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -81,30 +108,65 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             }
         }
 
+        protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView2.PageIndex = e.NewPageIndex;
+            filterBindData();
+
+            if (GridView2.SelectedRow != null)
+            {
+                seleccionar(GridView2.SelectedRow.RowIndex);
+            }
+        }
+
 
         private void BindData(bool activo)
         {
-            PolizaDB temp = new PolizaDB();
-            GridView1.DataSource = temp.seleccionar_Dataset(activo, null, null, null);
+            BomberoDB temp = new BomberoDB();
+            GridView1.DataSource = temp.seleccionar_Dataset(activo, VariablesSeccionControl.Lee<string>("Brigada"), null, null, null);
             GridView1.DataBind();
+
+            BomberoDB temp1 = new BomberoDB();
+            GridView2.DataSource = temp1.seleccionar_Dataset(activo, VariablesSeccionControl.Lee<string>("Brigada"), null, null, null);
+            GridView2.DataBind();
+
+
+
         }
 
         private void BindData(bool activo, string columna, string operador, string valor)
         {
-            PolizaDB temp = new PolizaDB();
-            GridView1.DataSource = temp.seleccionar_Dataset(activo, columna, operador, valor);
+            BomberoDB temp = new BomberoDB();
+            GridView1.DataSource = temp.seleccionar_Dataset(activo, VariablesSeccionControl.Lee<string>("Brigada"), columna, operador, valor);
             GridView1.DataBind();
+
+            BomberoDB temp1 = new BomberoDB();
+            GridView2.DataSource = temp1.seleccionar_Dataset(activo, VariablesSeccionControl.Lee<string>("Brigada"), columna, operador, valor);
+            GridView2.DataBind();
         }
-        private int seleccionar(int index)
+
+        private string seleccionar(int index)
         {
             //
             // Obtengo el id de la entidad que se esta editando
             // en este caso de la entidad Person
             //
 
-            return Convert.ToInt32(GridView1.DataKeys[index].Values["PK_Id_Poliza"]);
+            return Convert.ToString(GridView1.DataKeys[index].Values["PK_Id_BomberoForestal"]);
+
+            return Convert.ToString(GridView2.DataKeys[index].Values["PK_Id_BomberoForestal"]);
         }
 
+        private string seleccionarlos(int index)
+        {
+            //
+            // Obtengo el id de la entidad que se esta editando
+            // en este caso de la entidad Person
+            //
+
+
+            return Convert.ToString(GridView2.DataKeys[index].Values["PK_Id_BomberoForestal"]);
+        }
         protected void gvPerson_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "Select")
@@ -115,6 +177,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
                 int index = Convert.ToInt32(e.CommandArgument);
 
                 seleccionar(index);
+                seleccionarlos(index);
             }
 
         }
@@ -126,31 +189,31 @@ namespace Sistema.CapaPresentacion.Html.BombForest
 
         protected void buttonAgregar_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("RMenuPoliza.aspx");
+            Response.Redirect("RBomInfoPerson.aspx");
         }
 
         protected void buttonModificar_Click(object sender, ImageClickEventArgs e)
         {
             if (GridView1.SelectedRow != null)
             {
-                VariablesSeccionControl.Escribe("Poliza", seleccionar(GridView1.SelectedRow.RowIndex));
-                Response.Redirect("MMenuPoliza.aspx");
+                VariablesSeccionControl.Escribe("Bombero", seleccionar(GridView1.SelectedRow.RowIndex));
+                Response.Redirect("MBomInfoPerson.aspx");
             }
         }
 
         protected void buttonConsultar_Click(object sender, ImageClickEventArgs e)
         {
-
-            if (GridView1.SelectedRow != null)
+            if (GridView1.SelectedRow != null && ButtonMuestra.Text.Equals(buttonName))
             {
-                VariablesSeccionControl.Escribe("Poliza", seleccionar(GridView1.SelectedRow.RowIndex));
-                Response.Redirect("AsignarPolizas.aspx");
+                //VariablesSeccionControl.Escribe("Bombero", seleccionar(GridView1.SelectedRow.RowIndex));
+                //Response.Redirect("BombForest/CBomberos.aspx");
             }
+
         }
 
         protected void buttonFiltrar_Click(object sender, ImageClickEventArgs e)
         {
-            activaInactivaModal("filtro", true);
+            activaModal("filtro", true);
         }
 
         protected void buttonFiltrarModal(object sender, EventArgs e)
@@ -160,13 +223,13 @@ namespace Sistema.CapaPresentacion.Html.BombForest
                 if (botonFiltrar.Text.Equals(buttonName2))
                 {
                     BindData(true, columna.SelectedValue, operador.SelectedValue, valor.Value);
-                    activaInactivaModal("filtro", false);
+                    activaModal("filtro", false);
                     botonFiltrar.Text = "Borrar filtros";
                 }
                 else
                 {
                     BindData(true);
-                    activaInactivaModal("filtro", false);
+                    activaModal("filtro", false);
                     botonFiltrar.Text = buttonName2;
                 }
             }
@@ -175,14 +238,14 @@ namespace Sistema.CapaPresentacion.Html.BombForest
                 if (botonFiltrar.Text.Equals(buttonName2))
                 {
                     BindData(false, columna.SelectedValue, operador.SelectedValue, valor.Value);
-                    activaInactivaModal("filtro", false);
+                    activaModal("filtro", false);
                     botonFiltrar.Text = "Borrar filtros";
                 }
                 else
                 {
 
                     BindData(false);
-                    activaInactivaModal("filtro", false);
+                    activaModal("filtro", false);
                     botonFiltrar.Text = buttonName2;
                 }
             }
@@ -195,13 +258,13 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             {
                 ButtonMuestra.Text = "Mostrar elementos activos";
                 BindData(false);
-                activaInactivaModal("filtro", false);
+                activaModal("filtro", false);
             }
             else
             {
                 ButtonMuestra.Text = buttonName;
                 BindData(true);
-                activaInactivaModal("filtro", false);
+                activaModal("filtro", false);
             }
         }
 
@@ -210,7 +273,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             Response.Clear();
             Response.Buffer = true;
             Response.Charset = "";
-            Response.AddHeader("content-disposition", "attachment;filename=ReportePolizas.xls");
+            Response.AddHeader("content-disposition", "attachment;filename=ReporteBrigadas.xls");
             Response.ContentType = "application/ms-excell";
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);
@@ -221,12 +284,67 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             Response.Output.Write(sw.ToString());
             Response.Flush();
             Response.End();
-
         }
 
         public override void VerifyRenderingInServerForm(Control control)
         {
             // VerifyRenderingInServerForm(control);
+        }
+
+        protected void CargarComboboxArea(DropDownList combobox)
+        {
+            try
+            {
+                AreaConservacionDB DB = new AreaConservacionDB();
+                List<string> areasList = DB.listaAreasConserv();
+
+                for (int i = 0; i < areasList.Count; i++)
+                {
+                    combobox.Items.Add(areasList[i]);
+                }
+
+
+            }
+            catch { }
+        }
+
+        protected void CargarComboboxBriga(DropDownList combobox)
+        {
+            try
+            {
+                BrigadaDB DB = new BrigadaDB();
+                List<string> brigadasList = DB.listaBrigadas(Area.SelectedValue);
+
+                for (int i = 0; i < brigadasList.Count; i++)
+                {
+                    combobox.Items.Add(brigadasList[i]);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        protected void Area_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Brigadas.Items.Clear();
+            CargarComboboxBriga(Brigadas);
+            activaModal("buscar", true);
+        }
+
+        protected void ButtonCargar(object sender, EventArgs e)
+        {
+            VariablesSeccionControl.Escribe("AreaConserv", Area.SelectedValue);
+            VariablesSeccionControl.Escribe("Brigada", Brigadas.SelectedValue);
+            cargarTabla();
+            activaModal("buscar", false);
+        }
+
+        protected void cargarTabla()
+        {
+            this.titulo.InnerText = " Bomberos de la " + VariablesSeccionControl.Lee<string>("Brigada");
+            filterBindData();
         }
     }
 }

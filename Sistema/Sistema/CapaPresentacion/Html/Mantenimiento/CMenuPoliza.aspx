@@ -35,6 +35,7 @@
                     <!--filtro-->
                         <div id="filtro" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
                                 <div class="modal-header">
+                                  <a class="close" data-dismiss="modal">×</a>
                                   <h3>Filtrar</h3>
                                 </div>
 
@@ -78,7 +79,7 @@
                         </div>
 
                         <div class="col-md-2">
-                            <asp:ImageButton ID="buttonConsultar" data-toggle="tooltip" title="Consultar" ImageUrl="~/Imagenes/Icono_Consultar.jpg" CssClass="Imagen_boton" Text="Consultar" runat="server" OnClick="buttonConsultar_Click" />
+                            <asp:ImageButton ID="buttonConsultar" data-toggle="tooltip" title="Asignar Póliza" ImageUrl="~/Imagenes/Icono_Consultar.jpg" CssClass="Imagen_boton" Text="Asignar Poliza" runat="server" OnClick="buttonConsultar_Click" />
                         </div>
 
                         <div class="col-md-2">

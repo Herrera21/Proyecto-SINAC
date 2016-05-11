@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CapaPresentacion/Html/PaginaEstandar.Master" AutoEventWireup="true" CodeBehind="RBomBenef.aspx.cs" Inherits="Sistema.CapaPresentacion.Html.BombForest.RBomBenef" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderContenido" runat="server">
+    <section>
+        prueba
+    </section>
+
     <!-- menu-->
     <ul class="nav nav-tabs">
       <li class="active"><a href="REquipoProtPerso.aspx">Equipo de protección personal</a></li>

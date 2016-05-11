@@ -105,10 +105,12 @@
     <Content Include="CapaPresentacion\Css\fonts.css" />
     <Content Include="CapaPresentacion\Css\Formularios.css" />
     <Content Include="CapaPresentacion\Css\Gripviev.css" />
+    <Content Include="CapaPresentacion\Html\Mantenimiento\CActivPrevenc.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\CCapacitación.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\CIncendForest.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\CMenuPoliza.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\MBomInfoPerson.aspx" />
+    <Content Include="CapaPresentacion\Html\Mantenimiento\MActivPrevenc.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\MCapacitación.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\MIncendForest.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\MMenuPoliza.aspx" />
@@ -118,6 +120,7 @@
     <Content Include="CapaPresentacion\Html\MMenuAreaConserv.aspx" />
     <Content Include="CapaPresentacion\Html\MMenuBrigada.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\RMenuPoliza.aspx" />
+    <Content Include="CapaPresentacion\Js\FechasEstandar.js" />
     <Content Include="CapaPresentacion\Js\Validaciones.js" />
     <Content Include="Imagenes\editar.gif" />
     <Content Include="Imagenes\grd_head.png" />
@@ -225,6 +228,13 @@
     <Compile Include="CapaLogicaNegocio\AreaConservacion.cs" />
     <Compile Include="CapaPresentacion\Code\ImageControl.cs" />
     <Compile Include="CapaPresentacion\Code\VariablesSeccionControl.cs" />
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\CActivPrevenc.aspx.cs">
+      <DependentUpon>CActivPrevenc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\CActivPrevenc.aspx.designer.cs">
+      <DependentUpon>CActivPrevenc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CapaPresentacion\Html\Mantenimiento\CCapacitación.aspx.cs">
       <DependentUpon>CCapacitación.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -252,6 +262,13 @@
     </Compile>
     <Compile Include="CapaPresentacion\Html\BombForest\MBomInfoPerson.aspx.designer.cs">
       <DependentUpon>MBomInfoPerson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\MActivPrevenc.aspx.cs">
+      <DependentUpon>MActivPrevenc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\MActivPrevenc.aspx.designer.cs">
+      <DependentUpon>MActivPrevenc.aspx</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\Html\Mantenimiento\MCapacitación.aspx.cs">
       <DependentUpon>MCapacitación.aspx</DependentUpon>

@@ -56,45 +56,47 @@ namespace CapaConfiguracion
 
             try
             {
-                if (objeto.getPass() != "")
-                {
-                    SqlCommand ing = new SqlCommand("update TB_Usuario set PK_Id_Usuario = @Oidentificacion, nombre = @Onombre, apellido1 = @Oapellido1, apellido2 = @Oapellido2, nickname = @Ousuario, correo = @Ocorreo, contrasenia = @Opass, rol = @Orol, FK_Id_AreaConservación = @OareaConserv where nickname = @usuario", coneccion);
-                    ing.Parameters.AddWithValue("Oidentificacion", objeto.getIdentificacion());
-                    ing.Parameters.AddWithValue("Onombre", objeto.getNombre());
-                    ing.Parameters.AddWithValue("Oapellido1", objeto.getApellido1());
-                    ing.Parameters.AddWithValue("Oapellido2", objeto.getApellido2());
-                    ing.Parameters.AddWithValue("Ousuario", objeto.getUsuario());
-                    ing.Parameters.AddWithValue("Ocorreo", objeto.getCorreo());
-                    ing.Parameters.AddWithValue("Opass", objeto.getPass());
-                    ing.Parameters.AddWithValue("Orol", objeto.getRol());
-                    ing.Parameters.AddWithValue("OareaConserv", objeto.getAreaConserv());
+                SqlCommand ing = new SqlCommand("update TB_Usuario set PK_Id_Usuario = @Oidentificacion, nombre = @Onombre, apellido1 = @Oapellido1, apellido2 = @Oapellido2, nickname = @Ousuario, correo = @Ocorreo, rol = @Orol, FK_Id_AreaConservación = @OareaConserv where nickname = @usuario", coneccion);
+                ing.Parameters.AddWithValue("Oidentificacion", objeto.getIdentificacion());
+                ing.Parameters.AddWithValue("Onombre", objeto.getNombre());
+                ing.Parameters.AddWithValue("Oapellido1", objeto.getApellido1());
+                ing.Parameters.AddWithValue("Oapellido2", objeto.getApellido2());
+                ing.Parameters.AddWithValue("Ousuario", objeto.getUsuario());
+                ing.Parameters.AddWithValue("Ocorreo", objeto.getCorreo());
+                ing.Parameters.AddWithValue("Orol", objeto.getRol());
+                ing.Parameters.AddWithValue("OareaConserv", objeto.getAreaConserv());
 
-                    ing.Parameters.AddWithValue("usuario", usuario);
+                ing.Parameters.AddWithValue("usuario", usuario);
 
-                    coneccion.Open();
-                    ing.ExecuteNonQuery();
-                    coneccion.Close();
-                    return true;
-                }
-                else
-                {
-                    SqlCommand ing = new SqlCommand("update TB_Usuario set PK_Id_Usuario = @Oidentificacion, nombre = @Onombre, apellido1 = @Oapellido1, apellido2 = @Oapellido2, nickname = @Ousuario, correo = @Ocorreo, rol = @Orol, FK_Id_AreaConservación = @OareaConserv where nickname = @usuario", coneccion);
-                    ing.Parameters.AddWithValue("Oidentificacion", objeto.getIdentificacion());
-                    ing.Parameters.AddWithValue("Onombre", objeto.getNombre());
-                    ing.Parameters.AddWithValue("Oapellido1", objeto.getApellido1());
-                    ing.Parameters.AddWithValue("Oapellido2", objeto.getApellido2());
-                    ing.Parameters.AddWithValue("Ousuario", objeto.getUsuario());
-                    ing.Parameters.AddWithValue("Ocorreo", objeto.getCorreo());
-                    ing.Parameters.AddWithValue("Orol", objeto.getRol());
-                    ing.Parameters.AddWithValue("OareaConserv", objeto.getAreaConserv());
+                coneccion.Open();
+                ing.ExecuteNonQuery();
+                coneccion.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
-                    ing.Parameters.AddWithValue("usuario", usuario);
+        public bool cambiaPass(string usuario, string pass)
+        {
+            if (!conectar())
+            {
+                return false;
+            }
 
-                    coneccion.Open();
-                    ing.ExecuteNonQuery();
-                    coneccion.Close();
-                    return true;
-                }
+            try
+            {
+                SqlCommand ing = new SqlCommand("update TB_Usuario set contrasenia = @Opass where nickname = @usuario", coneccion);
+                ing.Parameters.AddWithValue("Opass", pass);
+
+                ing.Parameters.AddWithValue("usuario", usuario);
+
+                coneccion.Open();
+                ing.ExecuteNonQuery();
+                coneccion.Close();
+                return true;
             }
             catch
             {
