@@ -90,11 +90,11 @@
 
                     <div class="row" style="padding-left:20%;">
                         <div class="col-md-2" >
-                            <asp:ImageButton ID="buttonAgregar" data-toggle="tooltip" title="Crear una nuevo elemento"  runat="server"  ImageUrl="~/Imagenes/Icono_Agregar.png" CssClass="Imagen_boton" Text="Crear"  OnClick="buttonAgregar_Click" />
+                            <asp:ImageButton ID="buttonAgregar" data-toggle="tooltip" title="Crear un nuevo equipo"  runat="server"  ImageUrl="~/Imagenes/Icono_Agregar.png" CssClass="Imagen_boton" Text="Crear"  OnClick="buttonAgregar_Click" />
                         </div>
 
                         <div class="col-md-2">
-                            <asp:ImageButton ID="buttonModificar" data-toggle="tooltip" title="Modificar una elemento" runat="server" ImageUrl="~/Imagenes/Icono_Editar.png" CssClass="Imagen_boton" Text="Modificar" OnClick="buttonModificar_Click" />
+                            <asp:ImageButton ID="buttonModificar" data-toggle="tooltip" title="Modificar un equipo" runat="server" ImageUrl="~/Imagenes/Icono_Editar.png" CssClass="Imagen_boton" Text="Modificar" OnClick="buttonModificar_Click" />
                         </div>
 
                         <div class="col-md-2">
