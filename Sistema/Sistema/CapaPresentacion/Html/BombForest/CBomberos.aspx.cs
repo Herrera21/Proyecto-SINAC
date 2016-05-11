@@ -11,6 +11,7 @@ using iTextSharp.text.pdf;
 using iTextSharp.text.html;
 using iTextSharp.text.html.simpleparser;
 using System.Text;
+using CapaLogica;
 
 namespace Sistema.CapaPresentacion.Html
 {
@@ -48,6 +49,35 @@ namespace Sistema.CapaPresentacion.Html
             GridView1.PageIndexChanging += GridView1_PageIndexChanging;
         }
 
+        private void filterBindData2()
+        {
+            if (ButtonMuestra.Text.Equals(buttonName))
+            {
+                if (botonFiltrar.Text.Equals(buttonName2))
+                {
+                    BindData2(true);
+
+                }
+                else
+                {
+                    BindData2(true, columna.SelectedValue, operador.SelectedValue, valor.Value);
+                }
+            }
+            else
+            {
+                if (botonFiltrar.Text.Equals(buttonName2))
+                {
+                    BindData2(false);
+
+                }
+                else
+                {
+                    BindData2(false, columna.SelectedValue, operador.SelectedValue, valor.Value);
+                }
+            }
+            GridView2.PageIndexChanging += GridView2_PageIndexChanging;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (VariablesSeccionControl.Lee<string>("userAreaConserv") == null)
@@ -77,6 +107,7 @@ namespace Sistema.CapaPresentacion.Html
                 else
                 {
                     cargarTabla();
+                    cargarLider();
                 }
             }
 
@@ -107,6 +138,17 @@ namespace Sistema.CapaPresentacion.Html
             }
         }
 
+        protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView2.PageIndex = e.NewPageIndex;
+            filterBindData();
+
+            if (GridView2.SelectedRow != null)
+            {
+                seleccionar(GridView2.SelectedRow.RowIndex);
+            }
+        }
+
 
         private void BindData(bool activo)
         {
@@ -114,12 +156,25 @@ namespace Sistema.CapaPresentacion.Html
             GridView1.DataSource = temp.seleccionar_Dataset(activo, VariablesSeccionControl.Lee<string>("Brigada"), null, null, null);
             GridView1.DataBind();
         }
+        private void BindData2(bool activo)
+        {
+            BomberoDB temp = new BomberoDB();
+            GridView2.DataSource = temp.seleccionar_Dataset2(activo, VariablesSeccionControl.Lee<string>("Brigada"), null, null, null);
+            GridView2.DataBind();
+        }
 
         private void BindData(bool activo, string columna, string operador, string valor)
         {
             BomberoDB temp = new BomberoDB();
             GridView1.DataSource = temp.seleccionar_Dataset(activo, VariablesSeccionControl.Lee<string>("Brigada"), columna, operador, valor);
             GridView1.DataBind();
+        }
+
+        private void BindData2(bool activo, string columna, string operador, string valor)
+        {
+            BomberoDB temp = new BomberoDB();
+            GridView2.DataSource = temp.seleccionar_Dataset2(activo, VariablesSeccionControl.Lee<string>("Brigada"), columna, operador, valor);
+            GridView2.DataBind();
         }
 
         private string seleccionar(int index)
@@ -187,12 +242,14 @@ namespace Sistema.CapaPresentacion.Html
                 if (botonFiltrar.Text.Equals(buttonName2))
                 {
                     BindData(true, columna.SelectedValue, operador.SelectedValue, valor.Value);
+                    BindData2(true, columna.SelectedValue, operador.SelectedValue, valor.Value);
                     activaModal("filtro", false);
                     botonFiltrar.Text = "Borrar filtros";
                 }
                 else
                 {
                     BindData(true);
+                    BindData2(true);
                     activaModal("filtro", false);
                     botonFiltrar.Text = buttonName2;
                 }
@@ -202,6 +259,7 @@ namespace Sistema.CapaPresentacion.Html
                 if (botonFiltrar.Text.Equals(buttonName2))
                 {
                     BindData(false, columna.SelectedValue, operador.SelectedValue, valor.Value);
+                    BindData2(false, columna.SelectedValue, operador.SelectedValue, valor.Value);
                     activaModal("filtro", false);
                     botonFiltrar.Text = "Borrar filtros";
                 }
@@ -209,6 +267,7 @@ namespace Sistema.CapaPresentacion.Html
                 {
 
                     BindData(false);
+                    BindData2(false);
                     activaModal("filtro", false);
                     botonFiltrar.Text = buttonName2;
                 }
@@ -222,12 +281,14 @@ namespace Sistema.CapaPresentacion.Html
             {
                 ButtonMuestra.Text = "Mostrar elementos activos";
                 BindData(false);
+                BindData2(false);
                 activaModal("filtro", false);
             }
             else
             {
                 ButtonMuestra.Text = buttonName;
                 BindData(true);
+                BindData2(true);
                 activaModal("filtro", false);
             }
         }
@@ -237,7 +298,7 @@ namespace Sistema.CapaPresentacion.Html
             Response.Clear();
             Response.Buffer = true;
             Response.Charset = "";
-            Response.AddHeader("content-disposition", "attachment;filename=ReporteBrigadas.xls");
+            Response.AddHeader("content-disposition", "attachment;filename=ReporteBomberos.xls");
             Response.ContentType = "application/ms-excell";
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);
@@ -248,6 +309,34 @@ namespace Sistema.CapaPresentacion.Html
             Response.Output.Write(sw.ToString());
             Response.Flush();
             Response.End();
+        }
+
+        protected void buttonAsignaLid_Click(object sender, ImageClickEventArgs e)
+        {
+            if (GridView1.SelectedRow != null)
+            {
+                VariablesSeccionControl.Escribe("Bombero", seleccionar(GridView1.SelectedRow.RowIndex));
+                BrigadaDB DB = new BrigadaDB();
+                Brigada temp = DB.seleccionar(VariablesSeccionControl.Lee<string>("Brigada"));
+                temp.setLider(VariablesSeccionControl.Lee<string>("Bombero"));
+                DB.actualizar(temp.getNombre(),temp);
+                cargarTabla();
+                cargarLider();
+            }
+        }
+    
+        protected void buttonQuitarLid_Click(object sender, ImageClickEventArgs e)
+        {
+            if (GridView2.SelectedRow != null)
+            {
+                VariablesSeccionControl.Escribe("Bombero", seleccionar(GridView2.SelectedRow.RowIndex));
+                BrigadaDB DB = new BrigadaDB();
+                Brigada temp = DB.seleccionar(VariablesSeccionControl.Lee<string>("Brigada"));
+                temp.setLider("NULL");
+                DB.quitarLid(temp.getNombre(), temp);
+                cargarTabla();
+                cargarLider();
+            }
         }
 
         public override void VerifyRenderingInServerForm(Control control)
@@ -302,6 +391,7 @@ namespace Sistema.CapaPresentacion.Html
             VariablesSeccionControl.Escribe("AreaConserv", Area.SelectedValue);
             VariablesSeccionControl.Escribe("Brigada", Brigadas.SelectedValue);
             cargarTabla();
+            cargarLider();
             activaModal("buscar", false);
         }
 
@@ -309,6 +399,12 @@ namespace Sistema.CapaPresentacion.Html
         {
             this.titulo.InnerText = " Bomberos de la " + VariablesSeccionControl.Lee<string>("Brigada");
             filterBindData();
+        }
+
+        protected void cargarLider()
+        {
+            this.liderBriga.InnerText = " Líder de la " + VariablesSeccionControl.Lee<string>("Brigada");
+            filterBindData2();
         }
     }
 }
