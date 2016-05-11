@@ -107,14 +107,14 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             GridView1.DataSource = temp.seleccionar_Dataset(activo, VariablesSeccionControl.Lee<string>("Bombero"), columna, operador, valor);
             GridView1.DataBind();
         }
-        private int seleccionar(int index)
+        private string seleccionar(int index)
         {
             //
             // Obtengo el id de la entidad que se esta editando
             // en este caso de la entidad Person
             //
 
-            return Convert.ToInt32(GridView1.DataKeys[index].Values["PK_Id_ContactoEmergencia"]);
+            return Convert.ToString(GridView1.DataKeys[index].Values["PK_Id_ContactoEmergencia"]);
         }
 
         protected void gvPerson_RowCommand(object sender, GridViewCommandEventArgs e)
