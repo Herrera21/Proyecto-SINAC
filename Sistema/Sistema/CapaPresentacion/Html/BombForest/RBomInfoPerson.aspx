@@ -17,7 +17,7 @@
                <label id="labelMensaje" runat="server"></label>
             </div>
             <div class="modal-footer">
-              <a id="botonMensaje1" runat="server" href="../MenuPrincipal.aspx" class="btn">Cerrar</a>
+              <a id="botonMensaje1" runat="server" href="../BombForest/CBomberos.aspx" class="btn">Cerrar</a>
               <a id="botonMensaje2" runat="server" href="#" class="btn" data-dismiss="modal">Cerrar</a>
             </div>
     </div>
@@ -132,16 +132,16 @@
                         <div class="form-group has-feedback" id="divTelResid">
                             <label class="control-label">Teléfono de residencia</label>
                             <input type="text" id="telResid" runat="server" class="form-control" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator8','ContentPlaceHolderContenido_RegularExpressionValidator8' ,'divTelResid','span1TelefonoResidencia');" placeholder="Ingrese el teléfono de residencia" maxlength="8" />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="telResid" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ErrorMessage="Solo se permiten 8 numeros" ControlToValidate="telResid" ValidationExpression="^[0-9 ]{8,9}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                            <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="telCel" ControlToValidate="telResid" CssClass="alert-danger" Display="Dynamic" ErrorMessage="Verificar. Los telefonos son iguales" Operator="NotEqual"></asp:CompareValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ErrorMessage="El teléfono debe ser de 8 numeros" ControlToValidate="telResid" ValidationExpression="^[0-9 ]{8,9}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="" aria-hidden="true" id="span1TelefonoResidencia"></span>
                         </div>
                         
                         <div class="form-group has-feedback" id="divTelCel">
                             <label class="control-label">Teléfono celular</label>
                             <input type="text" id="telCel" runat="server" class="form-control" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator9','ContentPlaceHolderContenido_RegularExpressionValidator9' ,'divTelCel','span1TelefonoCelular');" placeholder="Ingrese el teléfono celular" maxlength="8" />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="telCel" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ErrorMessage="Solo se permiten 8 numeros" ControlToValidate="telCel" ValidationExpression="^[0-9 ]{8,9}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                            <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToCompare="telResid" ControlToValidate="telCel" CssClass="alert-danger" Display="Dynamic" ErrorMessage="Verificar. Los telefonos son iguales" Operator="NotEqual"></asp:CompareValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ErrorMessage="El teléfono debe ser de 8 numeros" ControlToValidate="telCel" ValidationExpression="^[0-9 ]{8,9}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="" aria-hidden="true" id="span1TelefonoCelular"></span>
                         </div>
                         
