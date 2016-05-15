@@ -31,7 +31,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label>Área de Conservación</label>
+                                <label id="labelArea" runat="server">Área de Conservación</label>
                                 <asp:DropDownList ID="Area" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="Area_SelectedIndexChanged">
                                 </asp:DropDownList>
                             </div>

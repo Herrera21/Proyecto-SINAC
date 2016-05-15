@@ -99,9 +99,12 @@ namespace Sistema.CapaPresentacion.Html
                     }
                     else
                     {
-                        //modal para solo seleccionar brigada
-                        //VariablesSeccionControl.Escribe("AreaConserv", VariablesSeccionControl.Lee<string>("userAreaConserv"));
-                        //cargarTabla();
+                        if (!IsPostBack)
+                        {
+                            ocultaComboAreaCons();
+                            CargarComboboxBriga(Brigadas, VariablesSeccionControl.Lee<string>("userAreaConserv"));
+                            activaModal("buscar", true);
+                        }
                     }
                 }
                 else
@@ -361,6 +364,14 @@ namespace Sistema.CapaPresentacion.Html
             catch { }
         }
 
+        protected void Area_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Brigadas.Items.Clear();
+            CargarComboboxBriga(Brigadas);
+            activaModal("buscar", true);
+        }
+
+        // cargar para rol nacional y ti
         protected void CargarComboboxBriga(DropDownList combobox)
         {
             try
@@ -379,16 +390,42 @@ namespace Sistema.CapaPresentacion.Html
             }
         }
 
-        protected void Area_SelectedIndexChanged(object sender, EventArgs e)
+        // cargar para rol regional
+        protected void CargarComboboxBriga(DropDownList combobox, string bombero)
         {
-            Brigadas.Items.Clear();
-            CargarComboboxBriga(Brigadas);
-            activaModal("buscar", true);
+            try
+            {
+                BrigadaDB DB = new BrigadaDB();
+                List<string> brigadasList = DB.listaBrigadas(bombero);
+
+                for (int i = 0; i < brigadasList.Count; i++)
+                {
+                    combobox.Items.Add(brigadasList[i]);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        protected void ocultaComboAreaCons()
+        {
+            Area.Visible = false;
+            labelArea.Visible = false;
         }
 
         protected void ButtonCargar(object sender, EventArgs e)
         {
-            VariablesSeccionControl.Escribe("AreaConserv", Area.SelectedValue);
+            if (VariablesSeccionControl.Lee<byte>("userRol") == 0 || VariablesSeccionControl.Lee<byte>("userRol") == 1)
+            {
+                VariablesSeccionControl.Escribe("AreaConserv", Area.SelectedValue);
+            }
+            else
+            {
+                VariablesSeccionControl.Escribe("AreaConserv", VariablesSeccionControl.Lee<string>("userAreaConserv"));
+            }
+                
             VariablesSeccionControl.Escribe("Brigada", Brigadas.SelectedValue);
             cargarTabla();
             cargarLider();
