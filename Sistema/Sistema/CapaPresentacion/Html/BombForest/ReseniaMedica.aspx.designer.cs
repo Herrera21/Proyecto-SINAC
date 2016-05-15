@@ -10,7 +10,7 @@
 namespace Sistema.CapaPresentacion.Html.BombForest {
     
     
-    public partial class RReseniaMedica {
+    public partial class ReseniaMedica {
         
         /// <summary>
         /// labelMensaje control.
