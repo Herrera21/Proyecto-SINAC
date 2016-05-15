@@ -1,4 +1,5 @@
 ﻿using Sistema.CapaConfiguracion;
+using Sistema.CapaLogicaNegocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,19 +23,16 @@ namespace Sistema.CapaPresentacion.Html.BombForest
         {
             ReseniaMedicaDB registrar = new ReseniaMedicaDB();
 
-            
-
             if (
-            registrar.insertar(new ReseniaMedicaDB(Convert.ToByte(internado.Checked), inter.Text, Convert.ToByte(tratMedic.Checked), tratamiento.Text, Convert.ToByte(lentesContacto.Checked), TextBox1.Text,Convert.ToByte(operado.Checked), TextBox2.Text, Convert.ToByte(limitfisic.Checked),limitacionFisica.Text, Convert.ToByte(CheckBox1.Checked), limitacion.Text, "sgd", VariablesSeccionControl.Lee<string>("Bombero"))))
+            registrar.insertar(new ReseniaMedic(internado.Checked, inter.Text, tratMedic.Checked, tratamiento.Text, lentesContacto.Checked, lentContText.Text, operado.Checked, operadoText.Text, limitFisic.Checked, limitacionFisica.Text, checkMedic.Checked, Chequeado.Text, TipoSangre.SelectedValue, VariablesSeccionControl.Lee<string>("Bombero"))))
             {
-                mensaje("La reseña medica ha sido creada", true);
+                mensaje("Reseña medica guardada", false);
             }
 
             else
             {
                 mensaje("Ocurrio un error al guardar la información", false);
             }
-
         }
 
         protected void mensaje(String mensaje, Boolean redireccionar)
