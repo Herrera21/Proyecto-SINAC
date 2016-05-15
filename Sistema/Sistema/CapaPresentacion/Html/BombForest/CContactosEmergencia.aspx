@@ -75,16 +75,15 @@
                                 <li><a href="RIncendForest.aspx">Participación en incencios forestales</a></li>
                             </ul>
                         </li>--%>
-                        <%--<li class="dropdown">
+                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Información médica<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="RBomPoliza.aspx">Pólizas</li>
                                 <li><a href="RBomBenef.aspx">Beneficiarios</a></li>
                                 <li class="active"><a href="CContactosEmergencia.aspx">Contactos de Emergencia</a></li>
-                                <li><a href="RReseniaMedica.aspx">Reseña médica</a></li>
+                                <li><a href="ReseniaMedica.aspx">Reseña médica</a></li>
                             </ul>
-                        </li>--%>
-                        <li class="active"><a href="CContactosEmergencia.aspx">Contactos de Emergencia</a></li>
+                        </li>
                         <li><a href="../MenuPrincipal.aspx">Salir</a></li>
                     </ul>
 
