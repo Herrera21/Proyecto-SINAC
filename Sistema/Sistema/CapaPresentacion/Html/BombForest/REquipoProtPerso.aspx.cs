@@ -21,7 +21,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             {
                 if (VariablesSeccionControl.Lee<string>("Bombero") == null)
                 {
-                    Response.Redirect("CAreaConserv.aspx");
+                    Response.Redirect("CBomberos.aspx");
                 }
             }
         }
