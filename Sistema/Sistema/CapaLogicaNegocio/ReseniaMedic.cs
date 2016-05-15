@@ -38,7 +38,7 @@ namespace Sistema.CapaLogicaNegocio
             this.limitFisic = limitFisic;
             this.tipoLimitFisic = tipoLimitFisic;
             this.checkMedic = checkMedic;
-            this.diagnostico = "prueba";
+            this.diagnostico = diagnostico;
             this.tipoSangre = tipoSangre;
             this.id_Bombero = id_Bombero;
         }
@@ -155,12 +155,12 @@ namespace Sistema.CapaLogicaNegocio
 
         public void setDiagnostico(string diagnostico)
         {
-            this.diagnostico = "prueba";
+            this.diagnostico = diagnostico;
         }
 
         public string getDiagnostico()
         {
-            return "prueba";
+            return diagnostico;
         }
 
         public void setTipoSangre(string tipoSangre)
