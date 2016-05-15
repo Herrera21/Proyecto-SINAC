@@ -66,7 +66,7 @@
                     <ul class="nav nav-tabs">
                         <%--<li><a href="RBomInfoPerson.aspx">Información Personal</a></li>--%>
                         <li><a href="CEquipoProtPerso.aspx">Equipo de protección personal</a></li>
-                        <%--<li><a href="RCarne.aspx">Información del carné</a></li>--%>
+                        <li><a href="Carne.aspx">Información del carné</a></li>
                         <%--<li><a href="RCapacitación.aspx">Capacitaciones</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Experiencia de campo<span class="caret"></span></a>
