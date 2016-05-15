@@ -36,7 +36,7 @@
                     <ul class="nav nav-tabs">
                         <%--<li><a href="RBomInfoPerson.aspx">Información Personal</a></li>--%>
                         <li><a href="CEquipoProtPerso.aspx">Equipo de protección personal</a></li>
-                        <li><a href="Carne.aspx">Información del carné</a></li>
+                        <li class="active"><a href="Carne.aspx">Información del carné</a></li>
                         <%--<li><a href="RCapacitación.aspx">Capacitaciones</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Experiencia de campo<span class="caret"></span></a>
@@ -51,7 +51,7 @@
                                 <li><a href="RBomPoliza.aspx">Pólizas</li>
                                 <li><a href="RBomBenef.aspx">Beneficiarios</a></li>
                                 <li><a href="CContactosEmergencia.aspx">Contactos de Emergencia</a></li>
-                                <li class="active"><a href="ReseniaMedica.aspx">Reseña médica</a></li>
+                                <li><a href="ReseniaMedica.aspx">Reseña médica</a></li>
                             </ul>
                         </li>
                         <li><a href="../MenuPrincipal.aspx">Salir</a></li>
@@ -65,20 +65,17 @@
                              <!-- cargar de info person -->
                                   <div class="form-group">
                                     <label for="ejemplo_email_1">Nombre</label>
-                                    <input type="text" class="form-control" id="nombre" runat="server"
-                                        placeholder="Ingresar el nombre" required autofocus/>
+                                    <input type="text" class="form-control" id="nombre" runat="server"/>
                                   </div>
                                     <!-- cargar de info person -->
                                   <div class="form-group">
                                     <label for="ejemplo_email_1">Primer apellido</label>
-                                    <input type="text" class="form-control" id="p_Ape" runat="server"
-                                           placeholder="Ingresar el Primer apellido"/>
+                                    <input type="text" class="form-control" id="p_Ape" runat="server"/>
                                   </div>
                                     <!-- cargar de info person -->
                                   <div class="form-group">
                                     <label for="ejemplo_email_1">Segundo apellido</label>
-                                    <input type="text" class="form-control" id="a_Ape" runat="server"
-                                           placeholder="Ingresar el Segundo apellido"/>
+                                    <input type="text" class="form-control" id="s_Ape" runat="server"/>
                                   </div>
                                   <div class="form-group">
                                     <label for="ejemplo_password_1">Año del carné</label>
@@ -98,14 +95,12 @@
                                     <!-- cargar de info medica -->
                                   <div class="form-group">
                                     <label for="ejemplo_password_1">Tipo de sangre del bombero</label>
-                                    <input type="text" class="form-control" id="tipoSangre" runat="server" 
-                                           placeholder="ingrese el tipo de sangre"/>
+                                    <input type="text" class="form-control" id="tipoSangre" runat="server"/>
                                   </div>
                                     <!-- cargar de info person -->
                                   <div class="form-group">
                                     <label for="ejemplo_password_1">Fecha de nacimiento de bombero</label>
-                                    <input type="text" class="form-control date" id="fechaNacim" runat="server" 
-                                           placeholder="ingrese la fecha de nacimiento"/>
+                                    <input type="text" class="form-control date" id="fechaNacim" runat="server"/>
                                   </div>
                                   <div class="form-group">
                                     <label>Imagen de perfil</label>

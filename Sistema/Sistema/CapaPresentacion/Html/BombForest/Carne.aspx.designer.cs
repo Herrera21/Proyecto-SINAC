@@ -67,13 +67,13 @@ namespace Sistema.CapaPresentacion.Html.BombForest {
         protected global::System.Web.UI.HtmlControls.HtmlInputText p_Ape;
         
         /// <summary>
-        /// a_Ape control.
+        /// s_Ape control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText a_Ape;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText s_Ape;
         
         /// <summary>
         /// anioCarne control.

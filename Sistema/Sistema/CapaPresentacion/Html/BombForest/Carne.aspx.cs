@@ -1,4 +1,8 @@
-﻿using System;
+﻿using CapaConfiguracion;
+using CapaLogica;
+using Sistema.CapaConfiguracion;
+using Sistema.CapaLogicaNegocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,30 +15,30 @@ namespace Sistema.CapaPresentacion.Html.BombForest
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-            //    if (VariablesSeccionControl.Lee<string>("userAreaConserv") == null)
-            //    {
-            //        Response.Redirect("/index.aspx");
-            //    }
-            //    else
-            //    {
-            //        if (VariablesSeccionControl.Lee<string>("Bombero") == null)
-            //        {
-            //            Response.Redirect("CBomberos.aspx");
-            //        }
-            //        else
-            //        {
-            //            ReseniaMedicaDB DB = new ReseniaMedicaDB();
-            //            ReseniaMedic temp = DB.seleccionar(VariablesSeccionControl.Lee<string>("Bombero"));
-            //            if (temp != null)
-            //            {
-            //                cargarInfo(temp.getInternado(), temp.getMotivoIN(), temp.getTratMedic(), temp.getMotivoTM(), temp.getLentCont(), temp.getMotivoLC(), temp.getOperado(), temp.getMotivoOP(), temp.getLimitFisic(), temp.getTipoLimitFisic(), temp.getCheckMedic(), temp.getDiagnostico(), temp.getTipoSangre());
-            //            }
+            if (!IsPostBack)
+            {
+                if (VariablesSeccionControl.Lee<string>("userAreaConserv") == null)
+                {
+                    Response.Redirect("/index.aspx");
+                }
+                else
+                {
+                    if (VariablesSeccionControl.Lee<string>("Bombero") == null)
+                    {
+                        Response.Redirect("CBomberos.aspx");
+                    }
+                    else
+                    {
+                        CarneDB DB = new CarneDB();
+                        Carnet temp = DB.seleccionar(VariablesSeccionControl.Lee<string>("Bombero"));
+                        if (temp != null)
+                        {
+                            cargarInfo(temp.getAnioCarnet(), temp.getEmisionCarnet(), temp.getFechaVencimiento());
+                        }
 
-            //        }
-            //    }
-            //}
+                    }
+                }
+            }
         }
         protected void mensaje(String mensaje)
         {
@@ -42,18 +46,18 @@ namespace Sistema.CapaPresentacion.Html.BombForest
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //ReseniaMedicaDB registrar = new ReseniaMedicaDB();
+            CarneDB registrar = new CarneDB();
 
-            //if (registrar.insertar(new ReseniaMedic(internado.Checked, inter.Text, tratMedic.Checked, tratamiento.Text, lentesContacto.Checked, lentContText.Text, operado.Checked, operadoText.Text, limitFisic.Checked, limitacionFisica.Text, checkMedic.Checked, Chequeado.Text, TipoSangre.SelectedValue, VariablesSeccionControl.Lee<string>("Bombero")))
-            // || registrar.actualizar(VariablesSeccionControl.Lee<string>("Bombero"), new ReseniaMedic(internado.Checked, inter.Text, tratMedic.Checked, tratamiento.Text, lentesContacto.Checked, lentContText.Text, operado.Checked, operadoText.Text, limitFisic.Checked, limitacionFisica.Text, checkMedic.Checked, Chequeado.Text, TipoSangre.SelectedValue, VariablesSeccionControl.Lee<string>("Bombero"))))
-            //{
-            //    mensaje("Reseña médica guardada", false);
-            //}
+            if (registrar.insertar(new Carnet(Convert.ToInt32(anioCarne.Value), emiCarne.Value, FechaVencim.Value, VariablesSeccionControl.Lee<string>("Bombero")))
+             || registrar.actualizar(VariablesSeccionControl.Lee<string>("Bombero"), new Carnet(Convert.ToInt32(anioCarne.Value), emiCarne.Value, FechaVencim.Value, VariablesSeccionControl.Lee<string>("Bombero"))))
+            {
+                mensaje("Reseña médica guardada", false);
+            }
 
-            //else
-            //{
-            //    mensaje("Ocurrio un error al guardar la información", false);
-            //}
+            else
+            {
+                mensaje("Ocurrio un error al guardar la información", false);
+            }
         }
 
         protected void mensaje(String mensaje, Boolean redireccionar)
@@ -78,23 +82,28 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             ScriptManager.RegisterStartupScript(this, Page.ClientScript.GetType(), null, script, true);
         }
 
-        protected void cargarInfo(bool internado, String motivoIN,
-            bool tratMedic, String motivoTM, bool lentCont, String motivoLC, bool operado, String motivoOP, bool limitFisic,
-            String tipoLimitFisic, bool checkMedic, String diagnostico, String tipoSangre)
+        protected void cargarInfo(int anioCarnet, string emisionCarnet, string fechaVencimiento)
         {
-            //this.internado.Checked = internado;
-            //this.inter.Text = motivoIN;
-            //this.tratMedic.Checked = tratMedic;
-            //this.tratamiento.Text = motivoTM;
-            //this.lentesContacto.Checked = lentCont;
-            //this.lentContText.Text = motivoLC;
-            //this.operado.Checked = operado;
-            //this.operadoText.Text = motivoOP;
-            //this.limitFisic.Checked = limitFisic;
-            //this.limitacionFisica.Text = tipoLimitFisic;
-            //this.checkMedic.Checked = checkMedic;
-            //this.Chequeado.Text = diagnostico;
-            //this.TipoSangre.SelectedValue = tipoSangre;
+            //parte de info person
+            BomberoDB B_DB = new BomberoDB();
+            Bombero B_temp = B_DB.seleccionar(VariablesSeccionControl.Lee<string>("Bombero"));
+
+            this.nombre.Value = B_temp.getNombre();
+            this.p_Ape.Value = B_temp.getApellido1();
+            this.s_Ape.Value = B_temp.getApellido2();
+            this.fechaNacim.Value = B_temp.getFechaNac();
+            this.Image1.Src = ImageControl.byteVecToIMG(B_temp.getImgPerfil());
+
+            // parte de carne
+            this.anioCarne.Value = Convert.ToString(anioCarnet);
+            this.emiCarne.Value = emisionCarnet;
+            this.FechaVencim.Value = fechaVencimiento;
+
+            // parte de reseña medica
+            ReseniaMedicaDB R_DB = new ReseniaMedicaDB();
+            ReseniaMedic R_temp = R_DB.seleccionar(VariablesSeccionControl.Lee<string>("Bombero"));
+
+            this.tipoSangre.Value = R_temp.getTipoSangre();
         }
     }
 }
