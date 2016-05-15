@@ -174,7 +174,6 @@
     <Content Include="CapaPresentacion\Html\BombForest\RBomBenef.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\RBomInfoPerson.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\RCapacitación.aspx" />
-    <Content Include="CapaPresentacion\Html\BombForest\RCarne.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\RContactosEmergencia.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\REquipoProtPerso.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\RIncendForest.aspx" />
@@ -377,13 +376,6 @@
     </Compile>
     <Compile Include="CapaPresentacion\Html\Mantenimiento\RCapacitación.aspx.designer.cs">
       <DependentUpon>RCapacitación.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\Html\BombForest\RCarne.aspx.cs">
-      <DependentUpon>RCarne.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\Html\BombForest\RCarne.aspx.designer.cs">
-      <DependentUpon>RCarne.aspx</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\Html\BombForest\RContactosEmergencia.aspx.cs">
       <DependentUpon>RContactosEmergencia.aspx</DependentUpon>
