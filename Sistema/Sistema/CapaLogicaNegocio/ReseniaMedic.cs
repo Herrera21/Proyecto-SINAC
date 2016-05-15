@@ -20,11 +20,12 @@ namespace Sistema.CapaLogicaNegocio
         private bool checkMedic;
         private string diagnostico;
         private string tipoSangre;
+        private string id_Bombero;
 
         public ReseniaMedic() { }
 
         public ReseniaMedic(bool internado, string motivoIN, bool tratMedic, string motivoTM, bool lentCont, string motivoLC,
-            bool operado, string motivoOP, bool limitFisic, string tipoLimitFisic, bool checkMedic, string diagnostico, string tipoSangre)
+            bool operado, string motivoOP, bool limitFisic, string tipoLimitFisic, bool checkMedic, string diagnostico, string tipoSangre, string id_Bombero)
         {
             this.internado = internado;
             this.motivoIN = motivoIN;
@@ -37,8 +38,9 @@ namespace Sistema.CapaLogicaNegocio
             this.limitFisic = limitFisic;
             this.tipoLimitFisic = tipoLimitFisic;
             this.checkMedic = checkMedic;
-            this.diagnostico = diagnostico;
+            this.diagnostico = "prueba";
             this.tipoSangre = tipoSangre;
+            this.id_Bombero = id_Bombero;
         }
 
         public void setInternado(bool internado)
@@ -153,12 +155,12 @@ namespace Sistema.CapaLogicaNegocio
 
         public void setDiagnostico(string diagnostico)
         {
-            this.diagnostico = diagnostico;
+            this.diagnostico = "prueba";
         }
 
         public string getDiagnostico()
         {
-            return diagnostico;
+            return "prueba";
         }
 
         public void setTipoSangre(string tipoSangre)
@@ -169,6 +171,15 @@ namespace Sistema.CapaLogicaNegocio
         public string getTipoSangre()
         {
             return tipoSangre;
+        }
+        public void setId_Bombero(string id_Bombero)
+        {
+            this.id_Bombero = id_Bombero;
+        }
+
+        public string getId_Bombero()
+        {
+            return id_Bombero;
         }
     }
 }
