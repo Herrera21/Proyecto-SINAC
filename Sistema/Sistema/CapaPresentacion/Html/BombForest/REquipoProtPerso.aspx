@@ -23,7 +23,7 @@
                     <li><a href="../MenuPrincipal.aspx"> Menú Principal </a></li>
                     <li><a href="../CAreaConserv.aspx">Áreas de conservación </a></li>
                     <li><a href="../CBrigadas.aspx">Brigada </a></li>
-                    <li><a href="../CBomberos.aspx">Bomberos </a></li>
+                    <li><a href="../BombForest/CBomberos.aspx">Bomberos </a></li>
                     <li class="active">Información detallada </li>
                     <li><a href="../CEquipoProtPerso.aspx">Equipo de protección personal </a></li>
                     <li class="active">Registrar </li>
