@@ -84,7 +84,7 @@ namespace Sistema.CapaConfiguracion
                 coneccion.Open();
                 SqlDataReader objReader = ing.ExecuteReader();
                 objReader.Read();
-                Carnet temp = new Carnet(objReader.GetInt32(0), objReader.GetString(1), objReader.GetString(2), objReader.GetString(3));
+                Carnet temp = new Carnet(objReader.GetInt32(2), objReader.GetString(0), objReader.GetString(1), objReader.GetString(3));
                 coneccion.Close();
 
                 return temp;
