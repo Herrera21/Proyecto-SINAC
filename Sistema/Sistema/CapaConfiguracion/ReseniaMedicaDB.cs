@@ -35,7 +35,7 @@ namespace Sistema.CapaConfiguracion
                 ing.Parameters.AddWithValue("operado", objeto.getOperado());
                 ing.Parameters.AddWithValue("motivoOP", objeto.getMotivoOP());
                 ing.Parameters.AddWithValue("limitacionFisica", objeto.getLimitFisic());
-                ing.Parameters.AddWithValue("tipoLimitFisic", objeto.getLimitFisic());
+                ing.Parameters.AddWithValue("tipoLimitFisic", objeto.getTipoLimitFisic());
                 ing.Parameters.AddWithValue("checkMedic", objeto.getCheckMedic());
                 ing.Parameters.AddWithValue("diagnostico", objeto.getDiagnostico());
                 ing.Parameters.AddWithValue("tipoSangre", objeto.getTipoSangre());
@@ -71,7 +71,7 @@ namespace Sistema.CapaConfiguracion
                 ing.Parameters.AddWithValue("Ooperado", objeto.getOperado());
                 ing.Parameters.AddWithValue("OmotivoOP", objeto.getMotivoOP());
                 ing.Parameters.AddWithValue("OlimitacionFisica", objeto.getLimitFisic());
-                ing.Parameters.AddWithValue("OtipoLimitFisic", objeto.getLimitFisic());
+                ing.Parameters.AddWithValue("OtipoLimitFisic", objeto.getTipoLimitFisic());
                 ing.Parameters.AddWithValue("OcheckMedic", objeto.getCheckMedic());
                 ing.Parameters.AddWithValue("Odiagnostico", objeto.getDiagnostico());
                 ing.Parameters.AddWithValue("OtipoSangre", objeto.getTipoSangre());
