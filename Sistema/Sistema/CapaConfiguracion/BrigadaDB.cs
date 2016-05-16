@@ -210,14 +210,14 @@ namespace CapaConfiguracion
                 {
                     if (columna == null || valor == null)
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT nombre_Brigada, BF.nombre FROM TB_Brigada B Left join TB_BomberoForestal BF on B.FK_Id_BomberoForestal = BF.PK_Id_BomberoForestal inner join TB_AreasConservacion AC on AC.PK_Id_AreaConservación = FK_Id_AreaConservacion where B.estado = 1 and AC.nombre = '" + areaConserv + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT nombre_Brigada, BF.nombre, BF.apellido1, BF.apellido2 FROM TB_Brigada B Left join TB_BomberoForestal BF on B.FK_Id_BomberoForestal = BF.PK_Id_BomberoForestal inner join TB_AreasConservacion AC on AC.PK_Id_AreaConservación = FK_Id_AreaConservacion where B.estado = 1 and AC.nombre = '" + areaConserv + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
                     }
                     else
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT nombre_Brigada, BF.nombre FROM TB_Brigada B Left join TB_BomberoForestal BF on B.FK_Id_BomberoForestal = BF.PK_Id_BomberoForestal inner join TB_AreasConservacion AC on AC.PK_Id_AreaConservación = FK_Id_AreaConservacion where B.estado = 1 and AC.nombre = '" + areaConserv + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT nombre_Brigada, BF.nombre, BF.apellido1, BF.apellido2 FROM TB_Brigada B Left join TB_BomberoForestal BF on B.FK_Id_BomberoForestal = BF.PK_Id_BomberoForestal inner join TB_AreasConservacion AC on AC.PK_Id_AreaConservación = FK_Id_AreaConservacion where B.estado = 1 and AC.nombre = '" + areaConserv + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
@@ -227,14 +227,14 @@ namespace CapaConfiguracion
                 {
                     if (columna == null || valor == null)
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT nombre_Brigada, BF.nombre FROM TB_Brigada B Left join TB_BomberoForestal BF on B.FK_Id_BomberoForestal = BF.PK_Id_BomberoForestal inner join TB_AreasConservacion AC on AC.PK_Id_AreaConservación = FK_Id_AreaConservacion where B.estado = 0 and AC.nombre = '" + areaConserv + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT nombre_Brigada, BF.nombre, BF.apellido1, BF.apellido2 FROM TB_Brigada B Left join TB_BomberoForestal BF on B.FK_Id_BomberoForestal = BF.PK_Id_BomberoForestal inner join TB_AreasConservacion AC on AC.PK_Id_AreaConservación = FK_Id_AreaConservacion where B.estado = 0 and AC.nombre = '" + areaConserv + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
                     }
                     else
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT nombre_Brigada, BF.nombre FROM TB_Brigada B Left join TB_BomberoForestal BF on B.FK_Id_BomberoForestal = BF.PK_Id_BomberoForestal inner join TB_AreasConservacion AC on AC.PK_Id_AreaConservación = FK_Id_AreaConservacion where B.estado = 0 and AC.nombre = '" + areaConserv + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT nombre_Brigada, BF.nombre, BF.apellido1, BF.apellido2 FROM TB_Brigada B Left join TB_BomberoForestal BF on B.FK_Id_BomberoForestal = BF.PK_Id_BomberoForestal inner join TB_AreasConservacion AC on AC.PK_Id_AreaConservación = FK_Id_AreaConservacion where B.estado = 0 and AC.nombre = '" + areaConserv + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
