@@ -35,6 +35,10 @@ namespace Sistema.CapaPresentacion.Html.BombForest
                         {
                             cargarInfo(temp.getAnioCarnet(), temp.getEmisionCarnet(), temp.getFechaVencimiento());
                         }
+                        else
+                        {
+                            cargarInfo();
+                        }
 
                     }
                 }
@@ -84,26 +88,37 @@ namespace Sistema.CapaPresentacion.Html.BombForest
 
         protected void cargarInfo(int anioCarnet, string emisionCarnet, string fechaVencimiento)
         {
-            //parte de info person
-            BomberoDB B_DB = new BomberoDB();
-            Bombero B_temp = B_DB.seleccionar(VariablesSeccionControl.Lee<string>("Bombero"));
-
-            this.nombre.Value = B_temp.getNombre();
-            this.p_Ape.Value = B_temp.getApellido1();
-            this.s_Ape.Value = B_temp.getApellido2();
-            this.fechaNacim.Value = B_temp.getFechaNac();
-            this.Image1.Src = ImageControl.byteVecToIMG(B_temp.getImgPerfil());
-
             // parte de carne
             this.anioCarne.Value = Convert.ToString(anioCarnet);
             this.emiCarne.Value = emisionCarnet;
             this.FechaVencim.Value = fechaVencimiento;
 
+            cargarInfo();
+        }
+
+        protected void cargarInfo()
+        {
+            //parte de info person
+            BomberoDB B_DB = new BomberoDB();
+            Bombero B_temp = B_DB.seleccionar(VariablesSeccionControl.Lee<string>("Bombero"));
+
+            if (B_temp != null)
+            {
+                this.nombre.Value = B_temp.getNombre();
+                this.p_Ape.Value = B_temp.getApellido1();
+                this.s_Ape.Value = B_temp.getApellido2();
+                this.fechaNacim.Value = B_temp.getFechaNac();
+                this.Image1.Src = ImageControl.byteVecToIMG(B_temp.getImgPerfil());
+            }
+
             // parte de reseña medica
             ReseniaMedicaDB R_DB = new ReseniaMedicaDB();
             ReseniaMedic R_temp = R_DB.seleccionar(VariablesSeccionControl.Lee<string>("Bombero"));
 
-            this.tipoSangre.Value = R_temp.getTipoSangre();
+            if (R_temp != null)
+            {
+                this.tipoSangre.Value = R_temp.getTipoSangre();
+            }
         }
     }
 }
