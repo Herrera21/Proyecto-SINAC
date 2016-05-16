@@ -209,5 +209,31 @@ namespace Sistema.CapaConfiguracion
                 return false;
             }
         }
+
+        public string getNombre(int id)
+        {
+            if (!conectar())
+            {
+                return null;
+            }
+
+            try
+            {
+                SqlCommand ing = new SqlCommand("select nombre from TB_ActividadPrevencion where PK_Id_ActividadPrevencion = @id", coneccion);
+                ing.Parameters.AddWithValue("id", id);
+
+                coneccion.Open();
+                SqlDataReader objReader = ing.ExecuteReader();
+                objReader.Read();
+                string temp = objReader.GetString(0);
+                coneccion.Close();
+
+                return temp;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }
