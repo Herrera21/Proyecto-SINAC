@@ -136,11 +136,11 @@ namespace Sistema.CapaPresentacion.Html.BombForest
 
         protected void buttonConsultar_Click(object sender, ImageClickEventArgs e)
         {
-            //if (GridView1.SelectedRow != null && ButtonMuestra.Text.Equals(buttonName))
-            //{
-            //    VariablesSeccionControl.Escribe("AreaConserv", seleccionar(GridView1.SelectedRow.RowIndex));
-            //    Response.Redirect("CBrigadas.aspx");
-            //}
+            if (GridView1.SelectedRow != null && ButtonMuestra.Text.Equals(buttonName))
+            {
+                VariablesSeccionControl.Escribe("Capacit", seleccionar(GridView1.SelectedRow.RowIndex));
+                Response.Redirect("AsignarCapacit.aspx");
+            }
         }
 
         protected void buttonFiltrar_Click(object sender, ImageClickEventArgs e)
