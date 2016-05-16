@@ -138,8 +138,8 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
         {
             if (GridView1.SelectedRow != null && ButtonMuestra.Text.Equals(buttonName))
             {
-                VariablesSeccionControl.Escribe("AreaConserv", seleccionar(GridView1.SelectedRow.RowIndex));
-                Response.Redirect("CBrigadas.aspx");
+                VariablesSeccionControl.Escribe("ActivPrevenc", seleccionar(GridView1.SelectedRow.RowIndex));
+                Response.Redirect("AsignarActivPrevenc.aspx");
             }
         }
 
