@@ -49,16 +49,16 @@
         <div id="footer">
             <div id="footerBody">
                 <div  class="col-md-2">
-                    <h4>&#169; 2015, SINAC.</h4>
+                    <h4>&#169; 2016, SINAC.</h4>
                 </div>
                 <!--<img src="imagenes/acercade.jpg" alt="">
                 <img src="imagenes/ayuda.jpg" alt="">
                 --> 
                 <div class="col-md-offset-6 col-md-2">
-                    <a href="#" title="Acerca" target="_blank"><img src="/Imagenes/Acerca2.png"  class="img-responsive" style="max-width: 80%; height: auto;"></a>
+                    <a href="/CapaPresentacion/Html/AcercaDe.aspx" title="Acerca de" ><img src="/Imagenes/Acerca2.png"  class="img-responsive" style="max-width: 80%; height: auto;"></a>
                 </div>
                 <div class="col-md-2">
-                    <a href="#" title="Ayuda" target="_blank"><img src="/Imagenes/Ayuda2.png" class="img-responsive" style="max-width: 80%; height: auto;"></a>
+                    <a href="Ayuda.aspx" title="Ayuda" ><img src="/Imagenes/Ayuda2.png" class="img-responsive" style="max-width: 80%; height: auto;"></a>
                 </div>
                 
             </div>

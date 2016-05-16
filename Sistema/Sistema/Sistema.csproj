@@ -105,6 +105,7 @@
     <Content Include="CapaPresentacion\Css\fonts.css" />
     <Content Include="CapaPresentacion\Css\Formularios.css" />
     <Content Include="CapaPresentacion\Css\Gripviev.css" />
+    <Content Include="CapaPresentacion\Html\AcercaDe.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\Carne.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\CContactosEmergencia.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\CEquipoProtPerso.aspx" />
@@ -206,6 +207,7 @@
     <Compile Include="CapaConfiguracion\ActivPrevencDB.cs" />
     <Compile Include="CapaConfiguracion\BomBenefDB.cs" />
     <Compile Include="CapaConfiguracion\BomberoDB.cs" />
+    <Compile Include="CapaConfiguracion\BombPolizaDB.cs" />
     <Compile Include="CapaConfiguracion\BrigadaDB.cs" />
     <Compile Include="CapaConfiguracion\CapacitacionDB.cs" />
     <Compile Include="CapaConfiguracion\CarneDB.cs" />
@@ -234,6 +236,13 @@
     <Compile Include="CapaLogicaNegocio\AreaConservacion.cs" />
     <Compile Include="CapaPresentacion\Code\ImageControl.cs" />
     <Compile Include="CapaPresentacion\Code\VariablesSeccionControl.cs" />
+    <Compile Include="CapaPresentacion\Html\AcercaDe.aspx.cs">
+      <DependentUpon>AcercaDe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\AcercaDe.aspx.designer.cs">
+      <DependentUpon>AcercaDe.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CapaPresentacion\Html\BombForest\Carne.aspx.cs">
       <DependentUpon>Carne.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
