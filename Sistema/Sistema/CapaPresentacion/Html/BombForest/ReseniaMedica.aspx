@@ -54,7 +54,7 @@
                                 <li class="active"><a href="ReseniaMedica.aspx">Reseña médica</a></li>
                             </ul>
                         </li>
-                        <li><a href="../MenuPrincipal.aspx">Salir</a></li>
+                        <li><a href="CBomberos.aspx">Salir</a></li>
                     </ul>
 
                     <%--formulario--%>
