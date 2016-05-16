@@ -31,13 +31,13 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// aprobCapacit control.
+        /// cantHoras control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox aprobCapacit;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cantHoras;
         
         /// <summary>
         /// ButtonAceptar control.
