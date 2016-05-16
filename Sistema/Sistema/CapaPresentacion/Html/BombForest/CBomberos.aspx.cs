@@ -186,8 +186,13 @@ namespace Sistema.CapaPresentacion.Html
             // Obtengo el id de la entidad que se esta editando
             // en este caso de la entidad Person
             //
-
-            return Convert.ToString(GridView1.DataKeys[index].Values["PK_Id_BomberoForestal"]);
+            try
+            {
+                return Convert.ToString(GridView1.DataKeys[index].Values["PK_Id_BomberoForestal"]);
+            }
+            catch {
+                return Convert.ToString(GridView2.DataKeys[index].Values["PK_Id_BomberoForestal"]);
+            }
         }
 
         protected void gvPerson_RowCommand(object sender, GridViewCommandEventArgs e)
