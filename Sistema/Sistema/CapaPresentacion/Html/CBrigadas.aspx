@@ -103,7 +103,7 @@
 
                      <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" GridLines="None"  
                         AllowPaging="True" CssClass="mGrid table-responsive" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"  
-                        PageSize="7" onrowcommand="gvPerson_RowCommand" DataKeyNames="nombre_Brigada,nombre" CellPadding="4" ForeColor="#333333" >
+                        PageSize="7" onrowcommand="gvPerson_RowCommand" DataKeyNames="nombre_Brigada,nombre,apellido1,apellido2" CellPadding="4" ForeColor="#333333" >
         <AlternatingRowStyle CssClass="alt" BackColor="White" ForeColor="#284775"></AlternatingRowStyle>
                     <Columns>
                         <asp:CommandField ButtonType="Image" SelectImageUrl="/Imagenes/editar.gif" ShowSelectButton="True" />
@@ -112,9 +112,19 @@
                                 <asp:Label ID="Label1" runat="server" Text='<%# Bind("nombre_Brigada") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Líder de brigada">
+                        <asp:TemplateField HeaderText="Nombre del líder">
                             <ItemTemplate>
                                 <asp:Label ID="Label2" runat="server" Text='<%# Bind("nombre") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Primer apellido">
+                            <ItemTemplate>
+                                <asp:Label ID="Label3" runat="server" Text='<%# Bind("apellido1") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Segundo apellido">
+                            <ItemTemplate>
+                                <asp:Label ID="Label4" runat="server" Text='<%# Bind("apellido2") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
