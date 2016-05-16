@@ -156,9 +156,9 @@
                             <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1Cedula"></span>
                         </div>
                         <div>
-                            <input type="radio" name="iden" id="cedulaRB" onclick="validarId('ContentPlaceHolderContenido_cedula');" checked /> Cedula 
-                            <input type="radio" name="iden" id="pasaporteRB" onclick="validarId('ContentPlaceHolderContenido_cedula');" /> Pasaporte 
-                            <input type="radio" name="iden" id="residenciaRB" onclick="validarId('ContentPlaceHolderContenido_cedula');"/> Residencia 
+                            <input type="radio" name="iden" id="cedulaRB"  checked /> Cedula 
+                            <input type="radio" name="iden" id="pasaporteRB"  /> Pasaporte 
+                            <input type="radio" name="iden" id="residenciaRB" /> Residencia 
                         </div>
                          <br />
 

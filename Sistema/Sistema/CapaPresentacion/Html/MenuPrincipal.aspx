@@ -42,7 +42,16 @@
                                   </ul>
                                 </li>--%>
 
-                                <li><a href="Mantenimiento/CMenuPoliza.aspx">Mantenimientos</a></li>
+                                <%--<li><a href="Mantenimiento/CMenuPoliza.aspx">Mantenimientos</a></li>--%>
+                                <li class="dropdown" id="userMenu">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mantenimientos<span class="caret"></span></a>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="Mantenimiento/CMenuPoliza.aspx">Pólizas</a></li>
+                                    <li><a href="Mantenimiento/CCapacitación.aspx">Capacitaciones</a></li>
+                                    <li><a href="Mantenimiento/CActivPrevenc.aspx">Actividades de prevención</a></li>
+                                    <li><a href="Mantenimiento/CIncendForest.aspx">Eventos de incendios forestales</a></li>
+                                  </ul>
+                                </li>
                             </ul>
                             <form class="navbar-form navbar-right" role="search" runat="server">
                                 <!--mensaje-->
