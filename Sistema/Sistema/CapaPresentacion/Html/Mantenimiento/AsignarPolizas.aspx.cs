@@ -88,15 +88,12 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
             {
                 if (VariablesSeccionControl.Lee<string>("Brigada") == null || VariablesSeccionControl.Lee<string>("AreaConserv") == null)
                 {
-                    PolizaDB P_DB = new PolizaDB();
-
-                    string poliza = P_DB.getNombre(VariablesSeccionControl.Lee<int>("Poliza"));
+                    
 
                     if (VariablesSeccionControl.Lee<byte>("userRol") == 0 || VariablesSeccionControl.Lee<byte>("userRol") == 1)
                     {
                         if (!IsPostBack)
                         {
-                            this.tituloPrincipal.InnerText = " Asignar Póliza " + poliza;
                             CargarComboboxArea(Area);
                             CargarComboboxBriga(Brigadas);
                             activaModal("buscar", true);
@@ -106,7 +103,6 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
                     {
                         if (!IsPostBack)
                         {
-                            this.tituloPrincipal.InnerText = " Asignar Póliza " + poliza;
                             ocultaComboAreaCons();
                             CargarComboboxBriga(Brigadas, VariablesSeccionControl.Lee<string>("userAreaConserv"));
                             activaModal("buscar", true);
@@ -438,6 +434,12 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
             VariablesSeccionControl.Escribe("Brigada", Brigadas.SelectedValue);
             cargarTabla();
             cargarAsignados();
+
+            PolizaDB P_DB = new PolizaDB();
+
+            string poliza = P_DB.getNombre(VariablesSeccionControl.Lee<int>("Poliza"));
+            this.tituloPrincipal.InnerText = " Asignar Póliza " + poliza;
+
             activaModal("buscar", false);
         }
 

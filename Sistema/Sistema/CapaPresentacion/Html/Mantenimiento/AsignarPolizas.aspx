@@ -1,16 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CapaPresentacion/Html/PaginaEstandar.Master" AutoEventWireup="true" CodeBehind="AsignarPolizas.aspx.cs" Inherits="Sistema.CapaPresentacion.Html.Mantenimiento.AsignarPolizas" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderContenido" runat="server">
-
-   
-
-       <div class="container">
-             <!-- Miga -->
+    <div class="container">
+            <!-- Miga -->
             <div class="row" style="background-color:white; width:99.7%">
                 <ol class="breadcrumb">
                     <li><a href="../MenuPrincipal.aspx"> Menú Principal </a></li>
-                    <li><a href="../CAreaConserv.aspx">Áreas de conservación </a></li>
-                    <li><a href="../CBrigadas.aspx">Brigada </a></li>
-                     <li>Bomberos</li>
+                    <li class="active">Mantenimientos</li>
+                    <li class="active"><a href="CMenuPoliza.aspx"> Pólizas </a> </li>
+                    <li class="active">Asignar </li>
                 </ol>
             </div>
 
@@ -22,7 +19,7 @@
                     $('[data-toggle="tooltip"]').tooltip();
                 });
             </script>
-                 <h3 class="text-center login-title" id="tituloPrincipal" runat="server">Bomberos Forestales</h3>
+                 <h3 class="text-center login-title" id="tituloPrincipal" runat="server"></h3>
 
                 <form id="form1" runat="server">
                     <!--buscar-->
@@ -214,5 +211,4 @@
                 &nbsp;</form>
             </div>
         </div>
-
 </asp:Content>
