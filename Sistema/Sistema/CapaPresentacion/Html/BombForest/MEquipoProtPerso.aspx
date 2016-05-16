@@ -37,7 +37,7 @@
 
             <div class="row" style="background-color:white; width:99.7%">
                 <div class="col-sm-6 col-md-4 col-md-offset-4">
-                    <h1 class="text-center login-title">Modificar Área de Conservación</h1>
+                    <h1 class="text-center login-title">Modificar equipo de protección personal</h1>
                     <div class="account-wall">
                         <form id="form1" class="form-signin" runat="server">
                         <!--alert-->
@@ -54,13 +54,32 @@
                                 </div>
                         </div>
                           <!--formulario-->
-                           <div class="form-group has-feedback has-success" id="divNombre">
+                          <div class="form-group has-feedback has-success" id="divNombre">
                             <label>Equipo</label>
-                            <input type="text" class="form-control" id="nombre" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator1','ContentPlaceHolderContenido_RegularExpressionValidator1' ,'divNombre','span1Nombre');"
-                                placeholder="Ingresar el nombre"/>
-                              <asp:RequiredFieldValidator ID="RequiredFieldValidator1"  runat="server" ControlToValidate="nombre" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Solo se permiten letras" ControlToValidate="nombre" ValidationExpression="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
-                            <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1Nombre"></span>
+                           <asp:DropDownList ID="nombreList" class="form-control" runat="server" onchange="validarComboBox('ContentPlaceHolderContenido_RequiredFieldValidator1','divNombre','span1Nombre');">
+                                <asp:listitem value ="0"> Seleccionar </asp:listitem>
+                                <asp:listitem value ="Barbiquejo"> Barbiquejo </asp:listitem>
+                                <asp:listitem value ="Botas"> Botas </asp:listitem>
+                                <asp:listitem value ="Botiquin"> Botiquin </asp:listitem>
+                                <asp:listitem value ="Camisa manga larga"> Camisa manga larga </asp:listitem>
+                                <asp:listitem value ="Camiseta"> Camiseta </asp:listitem>
+                                <asp:listitem value ="Casco"> Casco </asp:listitem>
+                                <asp:listitem value ="Cantimplora"> Cantimplora </asp:listitem>
+                                <asp:listitem value ="Cinturon"> Cinturón / Faja </asp:listitem>
+                                <asp:listitem value ="Cubrenucas"> Cubrenucas </asp:listitem>
+                                <asp:listitem value ="Guantes"> Guantes </asp:listitem>
+                                <asp:listitem value ="Lentes"> Lentes </asp:listitem>
+                                <asp:listitem value ="Lentes"> Linterna </asp:listitem>
+                                <asp:listitem value ="Machete"> Machete </asp:listitem>
+                                <asp:listitem value ="Mascarilla antihumo"> Mascarilla antihumo </asp:listitem>
+                                <asp:listitem value ="Pañuelo"> Pañuelo </asp:listitem>
+                                <asp:listitem value ="Pantalon"> Pantalón </asp:listitem>
+                                <asp:listitem value ="Protector facial"> Protector facial </asp:listitem>
+                                <asp:listitem value ="Radio de comunicacion"> Radio de comunicación </asp:listitem>
+                                <asp:listitem value ="Salveque"> Salveque </asp:listitem>
+                            </asp:DropDownList>
+                               <asp:RequiredFieldValidator id="RequiredFieldValidator1" ControlToValidate="nombreList" ErrorMessage="Seleccione un equipo" Display="Dynamic" InitialValue="0" runat="server" CssClass="alert-danger" SetFocusOnError="True" ValidationGroup="enviar"/>
+                            <span class="form-group has-feedback has-success" aria-hidden="true" id="span1Nombre"></span>
                           </div>
                           <div class="form-group has-feedback has-success" id="divCantEntre">
                             <label>Cantidad entregada</label>

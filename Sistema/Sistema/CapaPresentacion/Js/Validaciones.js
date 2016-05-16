@@ -772,3 +772,25 @@ function validarId(campo) {
 
 
 }
+
+function checkReseniaMedica(checkB, campo) {
+
+    if (document.getElementById(checkB).checked) {
+        document.getElementById(campo).disabled = false;
+
+    }
+    else {
+        document.getElementById(campo).disabled = true;
+
+        confirmar = confirm("Se borrará la informacion al desmarcar");
+        if (confirmar) {
+
+            document.getElementById(campo).value = "";
+        }
+        else {
+            document.getElementById(campo).disabled = false;
+            document.getElementById(checkB).checked = true;
+
+        }
+    }
+}

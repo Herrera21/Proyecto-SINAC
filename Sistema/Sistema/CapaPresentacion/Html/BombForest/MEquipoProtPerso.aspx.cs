@@ -106,7 +106,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
 
         protected void cargarInfo(string nombre, int cantEntre, string fechaEntre, string estadoHerram, string observaciones)
         {
-            this.nombre.Value = nombre;
+            this.nombreList.SelectedValue = nombre;
             this.cantEntre.Value = Convert.ToString(cantEntre);
             this.fechEntreg.Value = fechaEntre;
             this.estado.SelectedValue = estadoHerram;
@@ -128,7 +128,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
         {
             //guarda la informacion en la base de datos
             EquipoProtPersoDB DB = new EquipoProtPersoDB(); 
-            if (DB.actualizar(VariablesSeccionControl.Lee<int>("EquipoProtPerso"), new EquipoProtecPerson(nombre.Value, Convert.ToInt32(cantEntre.Value), fechEntreg.Value, estado.SelectedValue, observaciones.Value, null)))
+            if (DB.actualizar(VariablesSeccionControl.Lee<int>("EquipoProtPerso"), new EquipoProtecPerson(nombreList.SelectedValue, Convert.ToInt32(cantEntre.Value), fechEntreg.Value, estado.SelectedValue, observaciones.Value, null)))
             {
                 mensaje("El equipo de protección ha sido modificado", true);
             }

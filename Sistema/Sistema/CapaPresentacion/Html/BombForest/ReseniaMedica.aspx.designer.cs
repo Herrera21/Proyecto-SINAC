@@ -166,6 +166,15 @@ namespace Sistema.CapaPresentacion.Html.BombForest {
         protected global::System.Web.UI.WebControls.DropDownList TipoSangre;
         
         /// <summary>
+        /// RequiredFieldValidatorTipo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorTipo;
+        
+        /// <summary>
         /// Button1 control.
         /// </summary>
         /// <remarks>

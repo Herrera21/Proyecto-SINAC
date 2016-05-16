@@ -32,7 +32,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
 
 
             if (
-            registrar.insertar(new EquipoProtecPerson(nombre.Value, Convert.ToInt32(cantEntre.Value), fechEntreg.Value, estado.SelectedValue, observaciones.Value, VariablesSeccionControl.Lee<string>("Bombero"))))
+            registrar.insertar(new EquipoProtecPerson(nombreList.SelectedValue, Convert.ToInt32(cantEntre.Value), fechEntreg.Value, estado.SelectedValue, observaciones.Value, VariablesSeccionControl.Lee<string>("Bombero"))))
             {
                 mensaje("El equipo de protección ha sido creado", true);
             }

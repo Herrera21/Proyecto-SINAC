@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CapaPresentacion/Html/PaginaEstandar.Master" AutoEventWireup="true" CodeBehind="ReseniaMedica.aspx.cs" Inherits="Sistema.CapaPresentacion.Html.BombForest.ReseniaMedica" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderContenido" runat="server">
-        <!--mensaje-->
+       <!--mensaje-->
     <div id="mensajes" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
             <div class="modal-header">
               <h3>Mensaje</h3>
@@ -31,7 +31,7 @@
             <div class="row" style="background-color:white; width:99.7%">
 
 
-                <form id="form1" runat="server">
+                <form id="form1" runat="server" >
                     <!-- menu-->
                     <ul class="nav nav-tabs">
                         <%--<li><a href="RBomInfoPerson.aspx">Información Personal</a></li>--%>
@@ -59,12 +59,12 @@
 
                     <%--formulario--%>
 
-                    <h1 class="text-center login-title">Reseña médica</h1>
+                    <h1 class="text-center login-title">Reseña médica</h1><hr />
 
                     <table style="width:80%; margin:0 auto">
                <thead>
                 <tr >
-                    <th style="text-align:center">Reseña Médica</th>
+                    <th style="text-align:left">Reseña médica</th>
                     <th style="text-align:center">Descripción</th>
                   </tr>
                 </thead>
@@ -72,49 +72,51 @@
                     <tr style="height:60px">
                         <td style="align-content:center">
                             <div class="checkbox">
-                            <asp:CheckBox text=" Internado" ID="internado" runat="server"/>
+                            <asp:CheckBox text=" Internado" ID="internado" runat="server" OnClick="checkReseniaMedica('ContentPlaceHolderContenido_internado','ContentPlaceHolderContenido_inter')"/>
                             </div>
                         </td>
-                        <td style="width:65%; border:1px" ><asp:TextBox ID="inter" runat="server" CssClass="form-control"></asp:TextBox> </td>
+                        <td style="width:65%; border:1px" >
+                            <asp:TextBox ID="inter" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox> </td>
                     </tr>
                   <tr style="height:60px">
                     <td><div class="checkbox">
-                    <asp:CheckBox text="Tiene tratamiento médico" ID="tratMedic" runat="server" />
+                    <asp:CheckBox text="Tiene tratamiento médico" ID="tratMedic" runat="server" OnClick="checkReseniaMedica('ContentPlaceHolderContenido_tratMedic','ContentPlaceHolderContenido_tratamiento')" />
                     </div></td>
-                    <td>  <asp:TextBox ID="tratamiento" runat="server" CssClass="form-control"></asp:TextBox></td>
+                    <td>  <asp:TextBox ID="tratamiento" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox></td>
                   </tr>
                   <tr style="height:60px">
                     <td><div class="checkbox">
-                     <asp:CheckBox text="Usa lentes de contacto" ID="lentesContacto" runat="server" />
+                     <asp:CheckBox text="Usa lentes de contacto" ID="lentesContacto" runat="server" OnClick="checkReseniaMedica('ContentPlaceHolderContenido_lentesContacto','ContentPlaceHolderContenido_lentContText')"/>
                      </div>  </td>
-                    <td><asp:TextBox ID="lentContText" runat="server" CssClass="form-control"></asp:TextBox></td>
+                    <td><asp:TextBox ID="lentContText" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox></td>
                   </tr>
                     <tr style="height:60px">
                     <td> <div class="checkbox">
-                     <asp:CheckBox text="Operado" ID="operado" runat="server" />
+                     <asp:CheckBox text="Operado" ID="operado" runat="server" OnClick="checkReseniaMedica('ContentPlaceHolderContenido_operado','ContentPlaceHolderContenido_operadoText')"/>
                      </div>  </td>
-                    <td><asp:TextBox ID="operadoText" runat="server" CssClass="form-control"></asp:TextBox></td>
+                    <td><asp:TextBox ID="operadoText" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox></td>
                   </tr>
                     <tr style="height:60px">
                     <td> <div class="checkbox">
-                    <asp:CheckBox text="Cuenta con limitación física" ID="limitFisic" runat="server" />
+                    <asp:CheckBox text="Cuenta con limitación física" ID="limitFisic" runat="server" OnClick="checkReseniaMedica('ContentPlaceHolderContenido_limitFisic','ContentPlaceHolderContenido_limitacionFisica')"/>
                     </div>  </td>
-                    <td><asp:TextBox ID="limitacionFisica" runat="server" CssClass="form-control"></asp:TextBox></td>
+                    <td><asp:TextBox ID="limitacionFisica" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox></td>
                   </tr>
                     <tr style="height:60px">
                     <td> <div class="checkbox">
-                     <asp:CheckBox text="Chequeado recientemente por médico" ID="checkMedic" runat="server" />
+                     <asp:CheckBox text="Chequeado recientemente por médico" ID="checkMedic" runat="server" OnClick="checkReseniaMedica('ContentPlaceHolderContenido_checkMedic','ContentPlaceHolderContenido_Chequeado')"/>
                      </div></td>
                     <td>
-                        <asp:TextBox ID="Chequeado" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="Chequeado" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                     </td>
                   </tr>
                 </tbody>
               </table>
-
-              <div class="form-group form-signin" id="divTipoSangre">
+                    <hr />
+                <div class="col-sm-6 col-md-4 col-md-offset-4">
+              <div class="form-group has-feedback" id="divTipoSangre">
                 <label class="control-label">Tipo de sangre</label>
-                    <asp:DropDownList ID="TipoSangre" class="form-control" runat="server">
+                    <asp:DropDownList ID="TipoSangre" class="form-control" runat="server" onchange="validarComboBox('ContentPlaceHolderContenido_RequiredFieldValidatorTipo','divTipoSangre','span1TipoSangre');">
                         <asp:listitem value ="0"> Seleccionar </asp:listitem>
                         <asp:listitem value ="A+"> A+ </asp:listitem>
                         <asp:listitem value ="A-"> A- </asp:listitem>
@@ -125,11 +127,14 @@
                         <asp:listitem value ="O+"> O+ </asp:listitem>
                         <asp:listitem value ="O-"> O- </asp:listitem>
                     </asp:DropDownList>
+                  <asp:RequiredFieldValidator id="RequiredFieldValidatorTipo" ControlToValidate="TipoSangre" ErrorMessage="Seleccione un tipo de sangre" Display="Dynamic" InitialValue="0" runat="server" CssClass="alert-danger" SetFocusOnError="True" ValidationGroup="enviar"/>
+                            <span class="" aria-hidden="true" id="span1TipoSangre"></span>
 
                     <br />
                     <br />
-                    <asp:Button ID="Button1" runat="server" Text="Guardar" OnClick="Button1_Click" class="btn btn-lg btn-primary btn-block" />
+                    <asp:Button ID="Button1" runat="server" Text="Guardar" OnClick="Button1_Click" class="btn btn-lg btn-primary btn-block" ValidationGroup="enviar"/>
                  </div>
+                    </div>
                 </form>
             </div>
         </div>

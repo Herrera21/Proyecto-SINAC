@@ -76,13 +76,13 @@ namespace Sistema.CapaPresentacion.Html.BombForest {
         protected global::System.Web.UI.WebControls.Button ButtonCancelar;
         
         /// <summary>
-        /// nombre control.
+        /// nombreList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nombre;
+        protected global::System.Web.UI.WebControls.DropDownList nombreList;
         
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -92,15 +92,6 @@ namespace Sistema.CapaPresentacion.Html.BombForest {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
-        /// <summary>
-        /// RegularExpressionValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
         /// cantEntre control.
