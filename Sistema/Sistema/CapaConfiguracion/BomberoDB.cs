@@ -786,243 +786,55 @@ namespace CapaConfiguracion
             }
         }
 
-        //public DataSet seleccionar_Dataset_PolizaAsig(bool activo, string brigada, string columna, string operacion, string valor)
-        //{
-        //    if (!conectar())
-        //    {
-        //        return null;
-        //    }
+        public DataSet seleccionar_Dataset_ActivPrevAsig(bool activo, string brigada, string columna, string operacion, string valor)
+        {
+            if (!conectar())
+            {
+                return null;
+            }
 
-        //    try
-        //    {
-        //        if (activo)
-        //        {
-        //            if (columna == null || valor == null)
-        //            {
-        //                SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where BP.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
-        //                DataSet temp2 = new DataSet();
-        //                temp1.Fill(temp2);
-        //                return temp2;
-        //            }
-        //            else
-        //            {
-        //                SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where BP.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
-        //                DataSet temp2 = new DataSet();
-        //                temp1.Fill(temp2);
-        //                return temp2;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            if (columna == null || valor == null)
-        //            {
-        //                SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where BP.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "'", coneccion);
-        //                DataSet temp2 = new DataSet();
-        //                temp1.Fill(temp2);
-        //                return temp2;
-        //            }
-        //            else
-        //            {
-        //                SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where BP.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
-        //                DataSet temp2 = new DataSet();
-        //                temp1.Fill(temp2);
-        //                return temp2;
-        //            }
-        //        }
+            try
+            {
+                if (activo)
+                {
+                    if (columna == null || valor == null)
+                    {
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where BA.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
+                        DataSet temp2 = new DataSet();
+                        temp1.Fill(temp2);
+                        return temp2;
+                    }
+                    else
+                    {
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where BA.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        DataSet temp2 = new DataSet();
+                        temp1.Fill(temp2);
+                        return temp2;
+                    }
+                }
+                else
+                {
+                    if (columna == null || valor == null)
+                    {
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where BA.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "'", coneccion);
+                        DataSet temp2 = new DataSet();
+                        temp1.Fill(temp2);
+                        return temp2;
+                    }
+                    else
+                    {
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where BA.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        DataSet temp2 = new DataSet();
+                        temp1.Fill(temp2);
+                        return temp2;
+                    }
+                }
 
-        //    }
-        //    catch
-        //    {
-        //        return null;
-        //    }
-        //}
-
-        //// bomberos filtrados para polizas dataset
-        //public DataSet seleccionar_Dataset_NoCapacitAsig(bool activo, string brigada, string columna, string operacion, string valor)
-        //{
-        //    if (!conectar())
-        //    {
-        //        return null;
-        //    }
-
-        //    try
-        //    {
-        //        if (activo)
-        //        {
-        //            if (columna == null || valor == null)
-        //            {
-        //                SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where (BC.FK_TB_Capacitacion IS NULL or BC.estado = 0) and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
-        //                DataSet temp2 = new DataSet();
-        //                temp1.Fill(temp2);
-        //                return temp2;
-        //            }
-        //            else
-        //            {
-        //                SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where (BC.FK_TB_Capacitacion IS NULL or BC.estado = 0) and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
-        //                DataSet temp2 = new DataSet();
-        //                temp1.Fill(temp2);
-        //                return temp2;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            if (columna == null || valor == null)
-        //            {
-        //                SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where (BC.FK_TB_Capacitacion IS NULL or BC.estado = 0) and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "'", coneccion);
-        //                DataSet temp2 = new DataSet();
-        //                temp1.Fill(temp2);
-        //                return temp2;
-        //            }
-        //            else
-        //            {
-        //                SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where (BC.FK_TB_Capacitacion IS NULL or BC.estado = 0) and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
-        //                DataSet temp2 = new DataSet();
-        //                temp1.Fill(temp2);
-        //                return temp2;
-        //            }
-        //        }
-
-        //    }
-        //    catch
-        //    {
-        //        return null;
-        //    }
-        //}
-
-        //public DataSet seleccionar_Dataset_CapacitAsig(bool activo, string brigada, string columna, string operacion, string valor)
-        //{
-        //    if (!conectar())
-        //    {
-        //        return null;
-        //    }
-
-        //    try
-        //    {
-        //        if (activo)
-        //        {
-        //            if (columna == null || valor == null)
-        //            {
-        //                SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where BC.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
-        //                DataSet temp2 = new DataSet();
-        //                temp1.Fill(temp2);
-        //                return temp2;
-        //            }
-        //            else
-        //            {
-        //                SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where BC.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
-        //                DataSet temp2 = new DataSet();
-        //                temp1.Fill(temp2);
-        //                return temp2;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            if (columna == null || valor == null)
-        //            {
-        //                SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where BC.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "'", coneccion);
-        //                DataSet temp2 = new DataSet();
-        //                temp1.Fill(temp2);
-        //                return temp2;
-        //            }
-        //            else
-        //            {
-        //                SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where BC.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
-        //                DataSet temp2 = new DataSet();
-        //                temp1.Fill(temp2);
-        //                return temp2;
-        //            }
-        //        }
-
-        //    }
-        //    catch
-        //    {
-        //        return null;
-        //    }
-        //}
-
-        //public List<string> listaBomberos(string areaconserv, string brigada)
-        //{
-        //    if (!conectar())
-        //    {
-        //        return null;
-        //    }
-
-        //    try
-        //    {
-        //        SqlCommand ing = new SqlCommand("select PK_Id_BomberoForestal, TB_BomberoForestal.nombre from TB_BomberoForestal inner join TB_AreasConservacion on TB_AreasConservacion.nombre = @areaconserv inner join TB_Brigada on TB_Brigada.nombre_Brigada = @brigada", coneccion);
-        //        ing.Parameters.AddWithValue("areaconserv", areaconserv);
-        //        ing.Parameters.AddWithValue("brigada", brigada);
-
-        //        coneccion.Open();
-        //        SqlDataReader objReader = ing.ExecuteReader();
-        //        List<string> temp = new List<string>();
-
-        //        while (objReader.Read())
-        //        {
-
-        //            temp.Add(objReader.GetString(0) + " " + objReader.GetString(1));
-        //        }
-
-        //        coneccion.Close();
-
-        //        return temp;
-        //    }
-        //    catch
-        //    {
-        //        return null;
-        //    }
-        //}
-
-        //public int idBrigada(string nombre)
-        //{
-        //    if (!conectar())
-        //    {
-        //        return -1;
-        //    }
-
-        //    try
-        //    {
-        //        SqlCommand ing = new SqlCommand("select PK_Id_Brigada from TB_Brigada where nombre_Brigada = @nombre", coneccion);
-        //        ing.Parameters.AddWithValue("nombre", nombre);
-
-        //        coneccion.Open();
-        //        SqlDataReader objReader = ing.ExecuteReader();
-        //        objReader.Read();
-        //        int temp = objReader.GetInt32(0);
-        //        coneccion.Close();
-
-        //        return temp;
-        //    }
-        //    catch
-        //    {
-        //        return -1;
-        //    }
-        //}
-
-        //public bool getEstado(string identificacion)
-        //{
-        //    if (!conectar())
-        //    {
-        //        return false;
-        //    }
-
-        //    try
-        //    {
-        //        SqlCommand ing = new SqlCommand("select estado from TB_BomberoForestal where PK_Id_BomberoForestal = @identificacion", coneccion);
-        //        ing.Parameters.AddWithValue("identificacion", identificacion);
-
-        //        coneccion.Open();
-        //        SqlDataReader objReader = ing.ExecuteReader();
-        //        objReader.Read();
-        //        bool temp = objReader.GetBoolean(0);
-        //        coneccion.Close();
-
-        //        return temp;
-        //    }
-        //    catch
-        //    {
-        //        return false;
-        //    }
-        //}
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }
