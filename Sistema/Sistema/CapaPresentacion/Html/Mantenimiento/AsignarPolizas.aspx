@@ -22,7 +22,7 @@
                     $('[data-toggle="tooltip"]').tooltip();
                 });
             </script>
-                 <h3 style="text-align:center">Asignar Pólizas</h3>
+                 <h3 class="text-center login-title" id="tituloPrincipal" runat="server">Bomberos Forestales</h3>
 
                 <form id="form1" runat="server">
                     <!--buscar-->
@@ -33,7 +33,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label>Área de Conservación</label>
+                                <label id="labelArea" runat="server">Área de Conservación</label>
                                 <asp:DropDownList ID="Area" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="Area_SelectedIndexChanged">
                                 </asp:DropDownList>
                             </div>
@@ -109,7 +109,7 @@
 
                     <hr />
 
-                    <h1 class="text-center login-title" id="titulo" runat="server">Bomberos Forestales</h1>
+                    <h1 class="text-center login-title" id="titulo" runat="server"></h1>
                     <div style="padding-left:9.7%"> 
                      <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" GridLines="None"  
                         AllowPaging="True" CssClass="mGrid table-responsive" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"  
@@ -157,17 +157,17 @@
                         </div>
                      <div style="width:15%; margin:0 auto;">
                     <asp:ImageButton ID="buttonAgregar" data-toggle="tooltip" title="Asignar Póliza"  runat="server"  ImageUrl="~/Imagenes/flechaAbajo.png" CssClass="Imagen_boton" Text="Asignar Póliza"  OnClick="buttonAgregar_Click" />
-                    <asp:ImageButton ID="ImageButton1" data-toggle="tooltip" title="Quitar bombero"  runat="server"  ImageUrl="~/Imagenes/flechaArriba.png" CssClass="Imagen_boton" Text="Quitar bombero"/>
+                    <asp:ImageButton ID="ImageButton1" data-toggle="tooltip" title="Quitar bombero"  runat="server"  ImageUrl="~/Imagenes/flechaArriba.png" CssClass="Imagen_boton" Text="Quitar bombero"  OnClick="buttonQuitar_Click"/>
                      </div>
                     <br />
                     <br />
                     <br />
                     <br />
-                   <h1 class="text-center login-title" id="H1" runat="server">Bomberos Asignados</h1>
+                   <h1 class="text-center login-title" id="H1" runat="server">Bomberos con póliza</h1>
                    <div style="padding-left:9.7%"> 
                        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" GridLines="None"  
                         AllowPaging="True" CssClass="mGrid table-responsive" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"  
-                        PageSize="7" onrowcommand="gvPerson_RowCommand" DataKeyNames="PK_Id_BomberoForestal, nombre, apellido1, apellido2" CellPadding="4" ForeColor="#333333" Width="936px" Height="160px" >
+                        PageSize="7" onrowcommand="gvPerson_RowCommand2" DataKeyNames="PK_Id_BomberoForestal, nombre, apellido1, apellido2" CellPadding="4" ForeColor="#333333" Width="936px" Height="160px" >
         <AlternatingRowStyle CssClass="alt" BackColor="White" ForeColor="#284775"></AlternatingRowStyle>
                     <Columns>
                         <asp:CommandField ButtonType="Image" SelectImageUrl="/Imagenes/editar.gif" ShowSelectButton="True" />
