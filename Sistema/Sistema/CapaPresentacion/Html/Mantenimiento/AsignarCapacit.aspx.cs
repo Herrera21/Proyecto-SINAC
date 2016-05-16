@@ -159,7 +159,7 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
         {
             // cargar los bomberos no asignados con poliza
             BomberoDB temp = new BomberoDB();
-            GridView1.DataSource = temp.seleccionar_Dataset_NoPolizaAsig(activo, VariablesSeccionControl.Lee<string>("Brigada"), null, null, null);
+            GridView1.DataSource = temp.seleccionar_Dataset_NoCapacitAsig(activo, VariablesSeccionControl.Lee<string>("Brigada"), null, null, null);
             GridView1.DataBind();
         }
 
@@ -167,7 +167,7 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
         {
             // cargar los bomberos no asignados con poliza
             BomberoDB temp = new BomberoDB();
-            GridView1.DataSource = temp.seleccionar_Dataset_NoPolizaAsig(activo, VariablesSeccionControl.Lee<string>("Brigada"), columna, operador, valor);
+            GridView1.DataSource = temp.seleccionar_Dataset_NoCapacitAsig(activo, VariablesSeccionControl.Lee<string>("Brigada"), columna, operador, valor);
             GridView1.DataBind();
         }
 
@@ -175,7 +175,7 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
         {
             // cargar los bomberos no asignados con poliza
             BomberoDB temp = new BomberoDB();
-            GridView2.DataSource = temp.seleccionar_Dataset_PolizaAsig(activo, VariablesSeccionControl.Lee<string>("Brigada"), null, null, null);
+            GridView2.DataSource = temp.seleccionar_Dataset_CapacitAsig(activo, VariablesSeccionControl.Lee<string>("Brigada"), null, null, null);
             GridView2.DataBind();
         }
 
@@ -183,7 +183,7 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
         {
             // cargar los bomberos no asignados con poliza
             BomberoDB temp = new BomberoDB();
-            GridView2.DataSource = temp.seleccionar_Dataset_PolizaAsig(activo, VariablesSeccionControl.Lee<string>("Brigada"), columna, operador, valor);
+            GridView2.DataSource = temp.seleccionar_Dataset_CapacitAsig(activo, VariablesSeccionControl.Lee<string>("Brigada"), columna, operador, valor);
             GridView2.DataBind();
         }
 
@@ -235,23 +235,19 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void buttonAgregar_Click(object sender, ImageClickEventArgs e)
+        protected void ButtonGuardar(object sender, EventArgs e)
         {
             if (GridView1.SelectedRow != null)
             {
-                BombPolizaDB DB = new BombPolizaDB();
-                if (!DB.existe(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Poliza")))
+                activaModal("agregarInfo", false);
+                BombCapacitDB DB = new BombCapacitDB();
+                if (!DB.existe(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Capacit")))
                 {
-                    DB.insertar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Poliza"));
+                    DB.insertar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Capacit"), aprobCapacit.Checked);
                 }
                 else
                 {
-                    DB.inactivar(false, seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Poliza"));
+                    DB.activar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Capacit"), aprobCapacit.Checked);
                 }
 
 
@@ -260,12 +256,17 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
             }
         }
 
+        protected void buttonAgregar_Click(object sender, ImageClickEventArgs e)
+        {
+            activaModal("agregarInfo", true);
+        }
+
         protected void buttonQuitar_Click(object sender, ImageClickEventArgs e)
         {
             if (GridView2.SelectedRow != null)
             {
-                BombPolizaDB DB = new BombPolizaDB();
-                DB.inactivar(true, seleccionar2(GridView2.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Poliza"));
+                BombCapacitDB DB = new BombCapacitDB();
+                DB.inactivar(seleccionar2(GridView2.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Capacit"));
 
                 cargarTabla();
                 cargarAsignados();
@@ -435,10 +436,10 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
             cargarTabla();
             cargarAsignados();
 
-            PolizaDB P_DB = new PolizaDB();
+            CapacitacionDB P_DB = new CapacitacionDB();
 
-            string poliza = P_DB.getNombre(VariablesSeccionControl.Lee<int>("Poliza"));
-            this.tituloPrincipal.InnerText = " Asignar Póliza " + poliza;
+            string capacit = P_DB.getNombre(VariablesSeccionControl.Lee<int>("Capacit"));
+            this.tituloPrincipal.InnerText = " Asignar Capacitación " + capacit;
 
             activaModal("buscar", false);
         }

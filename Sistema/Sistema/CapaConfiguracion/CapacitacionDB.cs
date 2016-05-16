@@ -243,5 +243,31 @@ namespace Sistema.CapaConfiguracion
                 return false;
             }
         }
+
+        public string getNombre(int id)
+        {
+            if (!conectar())
+            {
+                return null;
+            }
+
+            try
+            {
+                SqlCommand ing = new SqlCommand("select nombre_Capacitacion from TB_Capacitacion where PK_Id_Capacitacion = @id", coneccion);
+                ing.Parameters.AddWithValue("id", id);
+
+                coneccion.Open();
+                SqlDataReader objReader = ing.ExecuteReader();
+                objReader.Read();
+                string temp = objReader.GetString(0);
+                coneccion.Close();
+
+                return temp;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }
