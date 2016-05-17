@@ -37,19 +37,19 @@
                         <%--<li><a href="RBomInfoPerson.aspx">Información Personal</a></li>--%>
                         <li><a href="CEquipoProtPerso.aspx">Equipo de protección personal</a></li>
                         <li class="active"><a href="Carne.aspx">Información del carné</a></li>
-                        <%--<li><a href="RCapacitación.aspx">Capacitaciones</a></li>
+                        <li><a href="CCapacit.aspx">Capacitaciones</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Experiencia de campo<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="RActivPrevenc.aspx">Actividades de Prevención</a></li>
-                                <li><a href="RIncendForest.aspx">Participación en incencios forestales</a></li>
+                                <li><a href="CActivPrev.aspx">Actividades de Prevención</a></li>
+                                <li><a href="CIncendForest.aspx">Participación en incencios forestales</a></li>
                             </ul>
-                        </li>--%>
+                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Información médica<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="RBomPoliza.aspx">Pólizas</li>
-                                <li><a href="RBomBenef.aspx">Beneficiarios</a></li>
+                                <li><a href="CPoliza.aspx">Pólizas</li>
+                                <%--<li><a href="RBomBenef.aspx">Beneficiarios</a></li>--%>
                                 <li><a href="CContactosEmergencia.aspx">Contactos de Emergencia</a></li>
                                 <li><a href="ReseniaMedica.aspx">Reseña médica</a></li>
                             </ul>
