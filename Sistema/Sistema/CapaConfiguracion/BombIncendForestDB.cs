@@ -7,11 +7,11 @@ using System.Web;
 
 namespace Sistema.CapaConfiguracion
 {
-    public class BombIncendForest : ControlBD
+    public class BombIncendForestDB : ControlBD
     {
-        public BombIncendForest() { }
+        public BombIncendForestDB() { }
 
-        public bool insertar(string bombero, int eventoInc, int cantHoras) //agrego la cantidad de horas
+        public bool insertar(string bombero, int eventoInc, int cantHoras, string actividadReali) //agrego la cantidad de horas
         {
             try
             {
@@ -20,10 +20,11 @@ namespace Sistema.CapaConfiguracion
                     return false;
                 }
 
-                SqlCommand ing = new SqlCommand("insert into TB_BomberoIncendioForestal(FK_BomberoForestal, FK_TB_IncendioForestal, cantHoras, estado) values (@bombero, @eventoInc, @cantHoras, 1)", coneccion);
+                SqlCommand ing = new SqlCommand("insert into TB_BomberoIncendioForestal(FK_TB_BomberoForestal, FK_TB_IncendioForestal, cantHoras, activRealiz, estado) values (@bombero, @eventoInc, @cantHoras, @activRealiz, 1)", coneccion);
                 ing.Parameters.AddWithValue("bombero", bombero);
                 ing.Parameters.AddWithValue("eventoInc", eventoInc);
                 ing.Parameters.AddWithValue("cantHoras", cantHoras);
+                ing.Parameters.AddWithValue("activRealiz", actividadReali);
 
                 coneccion.Open();
                 ing.ExecuteNonQuery();
@@ -36,7 +37,30 @@ namespace Sistema.CapaConfiguracion
             }
         }
 
-        //CREO QUE FALTA EL ACTIVAR
+        public bool activar(string bombero, int eventIncend)
+        {
+            if (!conectar())
+            {
+                return false;
+            }
+
+            try
+            {
+                SqlCommand ing = new SqlCommand("update TB_BomberoIncendioForestal set estado = 1 where FK_TB_BomberoForestal = @bombero and FK_TB_IncendioForestal = @ eventIncend", coneccion);
+                ing.Parameters.AddWithValue("bombero", bombero);
+                ing.Parameters.AddWithValue(" eventIncend", eventIncend);
+
+                coneccion.Open();
+                ing.ExecuteNonQuery();
+                coneccion.Close();
+                return true;
+
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         public bool inactivar(string bombero, int eventIncend)
         {
@@ -47,9 +71,9 @@ namespace Sistema.CapaConfiguracion
 
             try
             {
-                SqlCommand ing = new SqlCommand("update TB_BomberoIncendioForestal set estado = 0 where FK_BomberoForestal = @bombero and FK_TB_IncendioForestal = @ eventIncend", coneccion);
+                SqlCommand ing = new SqlCommand("update TB_BomberoIncendioForestal set estado = 0 where FK_TB_BomberoForestal = @bombero and FK_TB_IncendioForestal = @eventIncend", coneccion);
                 ing.Parameters.AddWithValue("bombero", bombero);
-                ing.Parameters.AddWithValue(" eventIncend", eventIncend);
+                ing.Parameters.AddWithValue("eventIncend", eventIncend);
 
                 coneccion.Open();
                 ing.ExecuteNonQuery();

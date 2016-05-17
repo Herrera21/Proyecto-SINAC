@@ -174,7 +174,7 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
 
         private void BindData2(bool activo)
         {
-            // cargar los bomberos no asignados con poliza
+            // cargar los bomberos asignados en incendio
             BomberoDB temp = new BomberoDB();
             GridView2.DataSource = temp.seleccionar_Dataset_EventIncendAsig(activo, VariablesSeccionControl.Lee<string>("Brigada"), null, null, null);
             GridView2.DataBind();
@@ -238,23 +238,31 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
 
         protected void ButtonGuardar(object sender, EventArgs e)
         {
-            if (GridView1.SelectedRow != null)
+            try
             {
-                activaModal("agregarInfo", false);
-                BombCapacitDB DB = new BombCapacitDB();
-                if (!DB.existe(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Incendio")))
+                if (GridView1.SelectedRow != null)
                 {
-                    DB.insertar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Incendio"), aprobCapacit.Checked);
-                }
-                else
-                {
-                    DB.activar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Incendio"), aprobCapacit.Checked);
-                }
+                    activaModal("agregarInfo", false);
+                    BombIncendForestDB DB = new BombIncendForestDB();
+                    if (!DB.existe(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("IncendForest")))
+                    {
+                        DB.insertar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("IncendForest"), Convert.ToInt32(cantHoras.Value), actividadReali.Value);
+                    }
+                    else
+                    {
+                        DB.activar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("IncendForest"));
+                    }
 
 
-                cargarTabla();
-                cargarAsignados();
+                    cargarTabla();
+                    cargarAsignados();
+                }
             }
+            catch
+            {
+
+            }
+            
         }
 
         protected void buttonAgregar_Click(object sender, ImageClickEventArgs e)
@@ -264,14 +272,18 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
 
         protected void buttonQuitar_Click(object sender, ImageClickEventArgs e)
         {
-            if (GridView2.SelectedRow != null)
+            try
             {
-                BombIncendForest DB = new BombIncendForest();
-                DB.inactivar(seleccionar2(GridView2.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Incendio"));
+                if (GridView2.SelectedRow != null)
+                {
+                    BombIncendForestDB DB = new BombIncendForestDB();
+                    DB.inactivar(seleccionar2(GridView2.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("IncendForest"));
 
-                cargarTabla();
-                cargarAsignados();
+                    cargarTabla();
+                    cargarAsignados();
+                }
             }
+            catch { }
         }
 
         protected void buttonFiltrar_Click(object sender, ImageClickEventArgs e)
@@ -336,7 +348,7 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
             Response.Clear();
             Response.Buffer = true;
             Response.Charset = "";
-            Response.AddHeader("content-disposition", "attachment;filename=ReporteBrigadas.xls");
+            Response.AddHeader("content-disposition", "attachment;filename=ReporteIncendio.xls");
             Response.ContentType = "application/ms-excell";
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);
@@ -439,7 +451,7 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
 
             IncendForestDB P_DB = new IncendForestDB();
 
-            string incendio = P_DB.getLugar(VariablesSeccionControl.Lee<int>("Incendio"));
+            string incendio = P_DB.getLugar(VariablesSeccionControl.Lee<int>("IncendForest"));
             this.tituloPrincipal.InnerText = " Asignar Evento de Incendio Forestal Lugar: " + incendio;
 
             activaModal("buscar", false);
