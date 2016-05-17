@@ -6,7 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-
+ 
 namespace Sistema.CapaConfiguracion
 {
     public class IncendForestDB : ControlBD
@@ -233,6 +233,33 @@ namespace Sistema.CapaConfiguracion
             catch
             {
                 return false;
+            }
+        }
+
+
+        public string getLugar(int id)
+        {
+            if (!conectar())
+            {
+                return null;
+            }
+
+            try
+            {
+                SqlCommand ing = new SqlCommand("select lugar from TB_IncendioForestal where PK_Id_IncendioForestal = @id", coneccion);
+                ing.Parameters.AddWithValue("id", id);
+
+                coneccion.Open();
+                SqlDataReader objReader = ing.ExecuteReader();
+                objReader.Read();
+                string temp = objReader.GetString(0);
+                coneccion.Close();
+
+                return temp;
+            }
+            catch
+            {
+                return null;
             }
         }
     }
