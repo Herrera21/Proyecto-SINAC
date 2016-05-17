@@ -138,7 +138,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
         {
             if (GridView1.SelectedRow != null && ButtonMuestra.Text.Equals(buttonName))
             {
-                VariablesSeccionControl.Escribe("EventoInce", seleccionar(GridView1.SelectedRow.RowIndex));
+                VariablesSeccionControl.Escribe("IncendForest", seleccionar(GridView1.SelectedRow.RowIndex));
                 Response.Redirect("AsignarEventoIncendio.aspx");
             }
         }
