@@ -237,22 +237,28 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
 
         protected void ButtonGuardar(object sender, EventArgs e)
         {
-            if (GridView1.SelectedRow != null)
+            try
             {
-                activaModal("agregarInfo", false);
-                BombActivPrevDB DB = new BombActivPrevDB();
-                if (!DB.existe(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("ActivPrevenc")))
+                if (GridView1.SelectedRow != null)
                 {
-                    DB.insertar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("ActivPrevenc"), Convert.ToInt32(cantHoras.Value));
-                }
-                else
-                {
-                    DB.activar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("ActivPrevenc"), Convert.ToInt32(cantHoras.Value));
-                }
+                    activaModal("agregarInfo", false);
+                    BombActivPrevDB DB = new BombActivPrevDB();
+                    if (!DB.existe(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("ActivPrevenc")))
+                    {
+                        DB.insertar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("ActivPrevenc"), Convert.ToInt32(cantHoras.Value));
+                    }
+                    else
+                    {
+                        DB.activar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("ActivPrevenc"), Convert.ToInt32(cantHoras.Value));
+                    }
 
+                    cargarTabla();
+                    cargarAsignados();
+                }
+            }
+            catch
+            {
 
-                cargarTabla();
-                cargarAsignados();
             }
         }
 
@@ -263,13 +269,19 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
 
         protected void buttonQuitar_Click(object sender, ImageClickEventArgs e)
         {
-            if (GridView2.SelectedRow != null)
+            try
             {
-                BombActivPrevDB DB = new BombActivPrevDB();
-                DB.inactivar(seleccionar2(GridView2.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("ActivPrevenc"));
+                if (GridView2.SelectedRow != null)
+                {
+                    BombActivPrevDB DB = new BombActivPrevDB();
+                    DB.inactivar(seleccionar2(GridView2.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("ActivPrevenc"));
 
-                cargarTabla();
-                cargarAsignados();
+                    cargarTabla();
+                    cargarAsignados();
+                }
+            }
+            catch
+            {
             }
         }
 
