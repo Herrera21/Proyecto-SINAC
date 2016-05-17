@@ -184,6 +184,27 @@ namespace Sistema.CapaConfiguracion
             }
         }
 
+        public DataSet seleccionar_Dataset_AsignActivPrev(string id)
+        {
+            if (!conectar())
+            {
+                return null;
+            }
+
+            try
+            {
+                SqlDataAdapter temp1 = new SqlDataAdapter("select PK_Id_ActividadPrevencion, nombre, fecha, lugar, observaciones from TB_ActividadPrevencion AP join TB_BomberoActividadPrevencion BAP on AP.PK_Id_ActividadPrevencion = BAP.FK_TB_ActividadPrevencion where AP.estado = 1 and BAP.estado = 1 and BAP.FK_TB_BomberoForestal = '" + id + "'", coneccion);
+                DataSet temp2 = new DataSet();
+                temp1.Fill(temp2);
+                return temp2;
+
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public bool getEstado(int id)
         {
             if (!conectar())
