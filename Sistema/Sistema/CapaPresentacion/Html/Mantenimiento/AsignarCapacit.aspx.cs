@@ -237,22 +237,29 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
 
         protected void ButtonGuardar(object sender, EventArgs e)
         {
-            if (GridView1.SelectedRow != null)
+            try
             {
-                activaModal("agregarInfo", false);
-                BombCapacitDB DB = new BombCapacitDB();
-                if (!DB.existe(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Capacit")))
+                if (GridView1.SelectedRow != null)
                 {
-                    DB.insertar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Capacit"), aprobCapacit.Checked);
-                }
-                else
-                {
-                    DB.activar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Capacit"), aprobCapacit.Checked);
-                }
+                    activaModal("agregarInfo", false);
+                    BombCapacitDB DB = new BombCapacitDB();
+                    if (!DB.existe(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Capacit")))
+                    {
+                        DB.insertar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Capacit"), aprobCapacit.Checked);
+                    }
+                    else
+                    {
+                        DB.activar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Capacit"), aprobCapacit.Checked);
+                    }
 
 
-                cargarTabla();
-                cargarAsignados();
+                    cargarTabla();
+                    cargarAsignados();
+                }
+            }
+            catch
+            {
+
             }
         }
 
@@ -263,13 +270,19 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
 
         protected void buttonQuitar_Click(object sender, ImageClickEventArgs e)
         {
-            if (GridView2.SelectedRow != null)
+            try
             {
-                BombCapacitDB DB = new BombCapacitDB();
-                DB.inactivar(seleccionar2(GridView2.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Capacit"));
+                if (GridView2.SelectedRow != null)
+                {
+                    BombCapacitDB DB = new BombCapacitDB();
+                    DB.inactivar(seleccionar2(GridView2.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Capacit"));
 
-                cargarTabla();
-                cargarAsignados();
+                    cargarTabla();
+                    cargarAsignados();
+                }
+            }
+            catch
+            {
             }
         }
 
