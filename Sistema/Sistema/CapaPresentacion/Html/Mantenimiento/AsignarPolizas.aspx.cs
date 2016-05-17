@@ -242,33 +242,47 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
 
         protected void buttonAgregar_Click(object sender, ImageClickEventArgs e)
         {
-            if (GridView1.SelectedRow != null)
+            try
             {
-                BombPolizaDB DB = new BombPolizaDB();
-                if (!DB.existe(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Poliza")))
+                if (GridView1.SelectedRow != null)
                 {
-                    DB.insertar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Poliza"));
-                }
-                else
-                {
-                    DB.inactivar(false, seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Poliza"));
-                }
-                
+                    BombPolizaDB DB = new BombPolizaDB();
+                    if (!DB.existe(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Poliza")))
+                    {
+                        DB.insertar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Poliza"));
+                    }
+                    else
+                    {
+                        DB.inactivar(false, seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Poliza"));
+                    }
 
-                cargarTabla();
-                cargarAsignados();
+
+                    cargarTabla();
+                    cargarAsignados();
+                }
+            }
+            catch
+            {
+
             }
         }
 
         protected void buttonQuitar_Click(object sender, ImageClickEventArgs e)
         {
-            if (GridView2.SelectedRow != null)
+            try
             {
-                BombPolizaDB DB = new BombPolizaDB();
-                DB.inactivar(true, seleccionar2(GridView2.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Poliza"));
+                if (GridView2.SelectedRow != null)
+                {
+                    BombPolizaDB DB = new BombPolizaDB();
+                    DB.inactivar(true, seleccionar2(GridView2.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Poliza"));
 
-                cargarTabla();
-                cargarAsignados();
+                    cargarTabla();
+                    cargarAsignados();
+                }
+            }
+            catch
+            {
+
             }
         }
 
