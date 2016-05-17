@@ -29,12 +29,21 @@
                               <h3>Agregar información</h3>
                             </div>
                             <div class="modal-body">
-                               <asp:CheckBox text=" Aprobó Capacitación" ID="aprobCapacit" runat="server"/>		        
+                                <label>Cantidad de horas participadas en el incendio</label>
+                                <input type="text" class="form-control" id="cantHoras" runat="server"
+                                placeholder="Ingrese la cantida de horas" />
+                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="cantHoras" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Solo se permiten números" ControlToValidate="cantHoras" ValidationExpression="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                                <span class="" aria-hidden="true" id="span1NombreActiv"></span>--%>		        
                             </div>
-                                <div class="modal-body">
-                                    <h3>Cantidad de horas realizadas:</h3>
-                                    <asp:TextBox ID="horas" runat="server"></asp:TextBox>      
-                                </div>
+                            <div class="modal-body">
+                                <label>Actividad realizada en el incendio</label>
+                                <input type="text" class="form-control" id="actividadReali" runat="server"
+                                placeholder="Ingrese la actividad realizada" />
+                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="cantHoras" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Solo se permiten números" ControlToValidate="cantHoras" ValidationExpression="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                                <span class="" aria-hidden="true" id="span1NombreActiv"></span>--%>		        
+                            </div>
                             <div class="modal-footer">
                               <asp:Button ID="ButtonAceptar" runat="server" Text="Guardar" class="btn" OnClick="ButtonGuardar"/>
                             </div>
@@ -171,7 +180,7 @@
 
                         </div>
                      <div style="width:15%; margin:0 auto;">
-                    <asp:ImageButton ID="buttonAgregar" data-toggle="tooltip" title="Asignar Póliza"  runat="server"  ImageUrl="~/Imagenes/flechaAbajo.png" CssClass="Imagen_boton" Text="Asignar Póliza"  OnClick="buttonAgregar_Click" />
+                    <asp:ImageButton ID="buttonAgregar" data-toggle="tooltip" title="Asignar evento"  runat="server"  ImageUrl="~/Imagenes/flechaAbajo.png" CssClass="Imagen_boton" Text="Asignar Póliza"  OnClick="buttonAgregar_Click" />
                     <asp:ImageButton ID="ImageButton1" data-toggle="tooltip" title="Quitar bombero"  runat="server"  ImageUrl="~/Imagenes/flechaArriba.png" CssClass="Imagen_boton" Text="Quitar bombero"  OnClick="buttonQuitar_Click"/>
                      </div>
                     <br />
