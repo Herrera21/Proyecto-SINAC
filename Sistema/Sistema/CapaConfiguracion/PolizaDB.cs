@@ -216,6 +216,28 @@ namespace CapaConfiguracion
                 return null;
             }
         }
+
+        public DataSet seleccionar_Dataset_AsignPolizaBom(string id)
+        {
+            if (!conectar())
+            {
+                return null;
+            }
+
+            try
+            {
+                SqlDataAdapter temp1 = new SqlDataAdapter("select PK_Id_Poliza, nombre_Poliza, inicioPeriodo, finPeriodo from TB_Poliza P join TB_BomberoPoliza BP on P.PK_Id_Poliza = BP.FK_TB_Poliza where  P.estado = 1 and BP.estado = 1 and BP.FK_TB_BomberoForestal = '" + id + "'", coneccion);
+                DataSet temp2 = new DataSet();
+                temp1.Fill(temp2);
+                return temp2;
+
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public bool getEstado(int id)
         {
             if (!conectar())
