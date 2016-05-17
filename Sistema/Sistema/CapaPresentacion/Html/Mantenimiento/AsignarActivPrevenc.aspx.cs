@@ -173,17 +173,17 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
 
         private void BindData2(bool activo)
         {
-            // cargar los bomberos no asignados con poliza
+            // cargar los bomberos asignados con actividad prevenc
             BomberoDB temp = new BomberoDB();
-            GridView2.DataSource = temp.seleccionar_Dataset_CapacitAsig(activo, VariablesSeccionControl.Lee<string>("Brigada"), null, null, null);
+            GridView2.DataSource = temp.seleccionar_Dataset_ActivPrevAsig(activo, VariablesSeccionControl.Lee<string>("Brigada"), null, null, null);
             GridView2.DataBind();
         }
 
         private void BindData2(bool activo, string columna, string operador, string valor)
         {
-            // cargar los bomberos no asignados con poliza
+            // cargar los bomberos asignados con actividad prevenc
             BomberoDB temp = new BomberoDB();
-            GridView2.DataSource = temp.seleccionar_Dataset_CapacitAsig(activo, VariablesSeccionControl.Lee<string>("Brigada"), columna, operador, valor);
+            GridView2.DataSource = temp.seleccionar_Dataset_ActivPrevAsig(activo, VariablesSeccionControl.Lee<string>("Brigada"), columna, operador, valor);
             GridView2.DataBind();
         }
 
@@ -240,14 +240,14 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
             if (GridView1.SelectedRow != null)
             {
                 activaModal("agregarInfo", false);
-                BombCapacitDB DB = new BombCapacitDB();
-                if (!DB.existe(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Capacit")))
+                BombActivPrevDB DB = new BombActivPrevDB();
+                if (!DB.existe(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("ActivPrevenc")))
                 {
-                    DB.insertar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Capacit"), aprobCapacit.Checked);
+                    DB.insertar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("ActivPrevenc"), Convert.ToInt32(cantHoras.Value));
                 }
                 else
                 {
-                    DB.activar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Capacit"), aprobCapacit.Checked);
+                    DB.activar(seleccionar(GridView1.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("ActivPrevenc"), Convert.ToInt32(cantHoras.Value));
                 }
 
 
@@ -265,8 +265,8 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
         {
             if (GridView2.SelectedRow != null)
             {
-                BombCapacitDB DB = new BombCapacitDB();
-                DB.inactivar(seleccionar2(GridView2.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("Capacit"));
+                BombActivPrevDB DB = new BombActivPrevDB();
+                DB.inactivar(seleccionar2(GridView2.SelectedRow.RowIndex), VariablesSeccionControl.Lee<int>("ActivPrevenc"));
 
                 cargarTabla();
                 cargarAsignados();
@@ -335,7 +335,7 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
             Response.Clear();
             Response.Buffer = true;
             Response.Charset = "";
-            Response.AddHeader("content-disposition", "attachment;filename=ReporteBrigadas.xls");
+            Response.AddHeader("content-disposition", "attachment;filename=ReportePoliza.xls");
             Response.ContentType = "application/ms-excell";
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);

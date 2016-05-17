@@ -28,7 +28,12 @@
                               <h3>Agregar información</h3>
                             </div>
                             <div class="modal-body">
-                               <asp:CheckBox text=" Aprobó Capacitación" ID="aprobCapacit" runat="server"/>		        
+                                <label>Cantidad de horas participadas en la actividad</label>
+                                <input type="text" class="form-control" id="cantHoras" runat="server"
+                                placeholder="Ingrese la cantida de horas" />
+                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="cantHoras" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Solo se permiten números" ControlToValidate="cantHoras" ValidationExpression="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                                <span class="" aria-hidden="true" id="span1NombreActiv"></span>--%>		        
                             </div>
                             <div class="modal-footer">
                               <asp:Button ID="ButtonAceptar" runat="server" Text="Guardar" class="btn" OnClick="ButtonGuardar"/>
