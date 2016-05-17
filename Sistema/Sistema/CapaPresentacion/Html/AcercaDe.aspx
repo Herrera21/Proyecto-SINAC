@@ -12,9 +12,12 @@
             <h1 class="text-center login-title">Acerca del sistema</h1>
             <div class="panel panel-default">
               <div class="panel-body">
-                  <p class="text-justify">El sistema de expediente digital de bomberos sddgdf hdfh f</p>
-                 <b>Desarrollado por los estudiantes de la Universidad Nacional:</b>
-                  <p>Santiago Sanchez<br />Alejandro Herrera<br />Oscar Jimenez<br />Adrian Lopez<br />William Mendez</p>
+                  <p class="text-justify">El Sistema de Expediente Digital de Bomberos Forestales 
+                      fue elaborado por estudiantes de la Universidad Nacional, con el propósito 
+                      de brindar una ayuda a la sociedad, y así también para el desarrollo profesional 
+                      de los estudiantes. </p>
+                 <b>Desarrollado por:</b>
+                  <p>Santiago Sánchez Madrigal<br/>Alejandro Herrera Fernández<br/>Oscar Jiménez Obando<br />Adrián López Jiménez<br />William Méndez Barquero</p>
               </div>
             </div>
             </div>
