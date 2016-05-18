@@ -86,33 +86,23 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
             }
             else
             {
-                if (VariablesSeccionControl.Lee<string>("Brigada") == null || VariablesSeccionControl.Lee<string>("AreaConserv") == null)
+                if (VariablesSeccionControl.Lee<byte>("userRol") == 0 || VariablesSeccionControl.Lee<byte>("userRol") == 1)
                 {
-
-
-                    if (VariablesSeccionControl.Lee<byte>("userRol") == 0 || VariablesSeccionControl.Lee<byte>("userRol") == 1)
+                    if (!IsPostBack)
                     {
-                        if (!IsPostBack)
-                        {
-                            CargarComboboxArea(Area);
-                            CargarComboboxBriga(Brigadas);
-                            activaModal("buscar", true);
-                        }
-                    }
-                    else
-                    {
-                        if (!IsPostBack)
-                        {
-                            ocultaComboAreaCons();
-                            CargarComboboxBriga(Brigadas, VariablesSeccionControl.Lee<string>("userAreaConserv"));
-                            activaModal("buscar", true);
-                        }
+                        CargarComboboxArea(Area);
+                        CargarComboboxBriga(Brigadas);
+                        activaModal("buscar", true);
                     }
                 }
                 else
                 {
-                    cargarTabla();
-                    cargarAsignados();
+                    if (!IsPostBack)
+                    {
+                        ocultaComboAreaCons();
+                        CargarComboboxBriga(Brigadas, VariablesSeccionControl.Lee<string>("userAreaConserv"));
+                        activaModal("buscar", true);
+                    }
                 }
             }
 
@@ -159,7 +149,7 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
         {
             // cargar los bomberos no asignados con poliza
             BomberoDB temp = new BomberoDB();
-            GridView1.DataSource = temp.seleccionar_Dataset_NoCapacitAsig(activo, VariablesSeccionControl.Lee<string>("Brigada"), null, null, null);
+            GridView1.DataSource = temp.seleccionar_Dataset_NoCapacitAsig(activo, VariablesSeccionControl.Lee<int>("Capacit"), VariablesSeccionControl.Lee<string>("Brigada"), null, null, null);
             GridView1.DataBind();
         }
 
@@ -167,7 +157,7 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
         {
             // cargar los bomberos no asignados con poliza
             BomberoDB temp = new BomberoDB();
-            GridView1.DataSource = temp.seleccionar_Dataset_NoCapacitAsig(activo, VariablesSeccionControl.Lee<string>("Brigada"), columna, operador, valor);
+            GridView1.DataSource = temp.seleccionar_Dataset_NoCapacitAsig(activo, VariablesSeccionControl.Lee<int>("Capacit"), VariablesSeccionControl.Lee<string>("Brigada"), columna, operador, valor);
             GridView1.DataBind();
         }
 
@@ -175,7 +165,7 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
         {
             // cargar los bomberos no asignados con poliza
             BomberoDB temp = new BomberoDB();
-            GridView2.DataSource = temp.seleccionar_Dataset_CapacitAsig(activo, VariablesSeccionControl.Lee<string>("Brigada"), null, null, null);
+            GridView2.DataSource = temp.seleccionar_Dataset_CapacitAsig(activo, VariablesSeccionControl.Lee<int>("Capacit"), VariablesSeccionControl.Lee<string>("Brigada"), null, null, null);
             GridView2.DataBind();
         }
 
@@ -183,7 +173,7 @@ namespace Sistema.CapaPresentacion.Html.Mantenimiento
         {
             // cargar los bomberos no asignados con poliza
             BomberoDB temp = new BomberoDB();
-            GridView2.DataSource = temp.seleccionar_Dataset_CapacitAsig(activo, VariablesSeccionControl.Lee<string>("Brigada"), columna, operador, valor);
+            GridView2.DataSource = temp.seleccionar_Dataset_CapacitAsig(activo, VariablesSeccionControl.Lee<int>("Capacit"), VariablesSeccionControl.Lee<string>("Brigada"), columna, operador, valor);
             GridView2.DataBind();
         }
 
