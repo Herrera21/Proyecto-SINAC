@@ -49,7 +49,7 @@
 
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" GridLines="None"  
                         AllowPaging="True" CssClass="mGrid table-responsive" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"  
-                        PageSize="7" onrowcommand="gvPerson_RowCommand" DataKeyNames="PK_Id_IncendioForestal,lugar,fechaParticipacion" CellPadding="4" ForeColor="#333333" >
+                        PageSize="7" onrowcommand="gvPerson_RowCommand" DataKeyNames="PK_Id_IncendioForestal,lugar,fechaParticipacion,cantHoras,activRealiz" CellPadding="4" ForeColor="#333333" >
         <AlternatingRowStyle CssClass="alt" BackColor="White" ForeColor="#284775"></AlternatingRowStyle>
                     <Columns>
                         <asp:CommandField ButtonType="Image" SelectImageUrl="/Imagenes/editar.gif" ShowSelectButton="True" />
@@ -61,6 +61,16 @@
                         <asp:TemplateField HeaderText="Fecha de participación">
                             <ItemTemplate>
                                 <asp:Label ID="Label2" runat="server" Text='<%# Bind("fechaParticipacion") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Horas participadas">
+                            <ItemTemplate>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Bind("cantHoras") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Actividad realizada">
+                            <ItemTemplate>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Bind("activRealiz") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
