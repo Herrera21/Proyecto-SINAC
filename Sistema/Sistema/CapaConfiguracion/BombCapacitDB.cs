@@ -23,7 +23,7 @@ namespace Sistema.CapaConfiguracion
                 SqlCommand ing = new SqlCommand("insert into TB_BomberoCapacitacion(FK_BomberoForestal, FK_TB_Capacitacion, aprobacion_Capacitacion, estado) values (@bombero, @capacitacion, @aproboCap, 1)", coneccion);
                 ing.Parameters.AddWithValue("bombero", bombero);
                 ing.Parameters.AddWithValue("capacitacion", capacitacion);
-                ing.Parameters.AddWithValue("aproboCap", aproboCap);
+                ing.Parameters.AddWithValue("aproboCap", aproboCapacit(aproboCap));
 
                 coneccion.Open();
                 ing.ExecuteNonQuery();
@@ -48,7 +48,7 @@ namespace Sistema.CapaConfiguracion
                 SqlCommand ing = new SqlCommand("update TB_BomberoCapacitacion set aprobacion_Capacitacion = @aproboCap, estado = 1 where FK_BomberoForestal = @bombero and FK_TB_Capacitacion = @capacitacion", coneccion);
                 ing.Parameters.AddWithValue("bombero", bombero);
                 ing.Parameters.AddWithValue("capacitacion", capacitacion);
-                ing.Parameters.AddWithValue("aproboCap", aproboCap);
+                ing.Parameters.AddWithValue("aproboCap", aproboCapacit(aproboCap));
 
                 coneccion.Open();
                 ing.ExecuteNonQuery();
@@ -136,6 +136,18 @@ namespace Sistema.CapaConfiguracion
             catch
             {
                 return false;
+            }
+        }
+
+        public string aproboCapacit(bool dato)
+        {
+            if (dato)
+            {
+                return "Aprobado";
+            }
+            else
+            {
+                return "Reprobado";
             }
         }
     }
