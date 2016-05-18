@@ -49,7 +49,7 @@
 
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" GridLines="None"  
                         AllowPaging="True" CssClass="mGrid table-responsive" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"  
-                        PageSize="7" onrowcommand="gvPerson_RowCommand" DataKeyNames="PK_Id_Capacitacion,nombre_Capacitacion,lugar_Capacitacion,institucion,cantHoras,fechaEmision,fechaCaducidad" CellPadding="4" ForeColor="#333333" >
+                        PageSize="7" onrowcommand="gvPerson_RowCommand" DataKeyNames="PK_Id_Capacitacion,nombre_Capacitacion,lugar_Capacitacion,institucion,cantHoras,fechaEmision,fechaCaducidad,aprobacion_Capacitacion" CellPadding="4" ForeColor="#333333" >
         <AlternatingRowStyle CssClass="alt" BackColor="White" ForeColor="#284775"></AlternatingRowStyle>
                     <Columns>
                         <asp:CommandField ButtonType="Image" SelectImageUrl="/Imagenes/editar.gif" ShowSelectButton="True" />
@@ -81,6 +81,11 @@
                         <asp:TemplateField HeaderText="Fecha de caducidad">
                             <ItemTemplate>
                                 <asp:Label ID="Label6" runat="server" Text='<%# Bind("fechaCaducidad") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Aprobación de la capacitación">
+                            <ItemTemplate>
+                                <asp:Label ID="Label6" runat="server" Text='<%# Bind("aprobacion_Capacitacion") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
