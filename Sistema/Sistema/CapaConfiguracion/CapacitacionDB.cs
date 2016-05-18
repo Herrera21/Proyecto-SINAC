@@ -227,7 +227,7 @@ namespace Sistema.CapaConfiguracion
 
             try
             {
-                SqlDataAdapter temp1 = new SqlDataAdapter("select PK_Id_Capacitacion, nombre_Capacitacion, lugar_Capacitacion, institucion, cantHoras, fechaEmision, fechaCaducidad from TB_Capacitacion C join TB_BomberoCapacitacion BC on C.PK_Id_Capacitacion = BC.FK_TB_Capacitacion where C.estado = 1 and BC.estado = 1 and BC.FK_BomberoForestal = '"+id+"'", coneccion);
+                SqlDataAdapter temp1 = new SqlDataAdapter("select PK_Id_Capacitacion, nombre_Capacitacion, lugar_Capacitacion, institucion, cantHoras, fechaEmision, fechaCaducidad, aprobacion_Capacitacion from TB_Capacitacion C join TB_BomberoCapacitacion BC on C.PK_Id_Capacitacion = BC.FK_TB_Capacitacion where C.estado = 1 and BC.estado = 1 and BC.FK_BomberoForestal = '" + id+"'", coneccion);
                 DataSet temp2 = new DataSet();
                 temp1.Fill(temp2);
                 return temp2;
