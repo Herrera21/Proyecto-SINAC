@@ -55,7 +55,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             if (registrar.insertar(new Carnet(Convert.ToInt32(anioCarne.Value), emiCarne.Value, FechaVencim.Value, VariablesSeccionControl.Lee<string>("Bombero")))
              || registrar.actualizar(VariablesSeccionControl.Lee<string>("Bombero"), new Carnet(Convert.ToInt32(anioCarne.Value), emiCarne.Value, FechaVencim.Value, VariablesSeccionControl.Lee<string>("Bombero"))))
             {
-                mensaje("Reseña médica guardada", false);
+                mensaje("Carné guardado", false);
             }
 
             else

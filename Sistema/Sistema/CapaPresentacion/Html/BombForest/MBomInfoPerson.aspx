@@ -150,7 +150,7 @@
                         <div class="form-group has-feedback has-success" id="divCedula">
                             <label class="control-label">Identificación</label>
                             <input type="text" class="form-control" name="identificacion" id="cedula" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator13','ContentPlaceHolderContenido_RegularExpressionValidator13' ,'divCedula','span1Cedula');"
-                                    placeholder="Ingresar identificación" maxlength="9" readonly/>
+                                    placeholder="Ingresar identificación" maxlength="9"/>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="cedula" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator13" runat="server" ErrorMessage="Solo se permiten numeros. Minimo 9 números" ControlToValidate="cedula" ValidationExpression="^[0-9 ]{9,15}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" SkinID="divNombre" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1Cedula"></span>
@@ -184,7 +184,7 @@
                             <label class="control-label">Lugar de residencia</label>
                             <input type="text" id="lugarResid" runat="server" class="form-control" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator6','ContentPlaceHolderContenido_RegularExpressionValidator6' ,'divLugarResidencia','span1LugarResidencia');" placeholder="Ingrese el lugar de residencia" maxlength="60" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="lugarResid" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="Solo se permiten letras" ControlToValidate="lugarResid" ValidationExpression="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="Solo se permiten letras" ControlToValidate="lugarResid" ValidationExpression="^[0-9A-Za-zñÑáéíóúÁÉÍÓÚ ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1LugarResidencia"></span>
                         </div>
                         
@@ -210,7 +210,7 @@
                         
                          <div class="form-group has-feedback has-success" id="divTelResid">
                             <label class="control-label">Teléfono de residencia</label>
-                            <input type="text" id="telResid" runat="server" class="form-control" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator8','ContentPlaceHolderContenido_RegularExpressionValidator8' ,'divTelResid','span1TelefonoResidencia');" placeholder="Ingrese el teléfono de residencia" maxlength="8" />
+                            <input type="text" id="telResid" runat="server" class="form-control" onchange="validarInputText('ContentPlaceHolderContenido_CompareValidator1','ContentPlaceHolderContenido_RegularExpressionValidator8' ,'divTelResid','span1TelefonoResidencia');" placeholder="Ingrese el teléfono de residencia" maxlength="8" />
                             <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="telCel" ControlToValidate="telResid" CssClass="alert-danger" Display="Dynamic" ErrorMessage="Verificar. Los telefonos son iguales" Operator="NotEqual"></asp:CompareValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ErrorMessage="El teléfono debe ser de 8 numeros" ControlToValidate="telResid" ValidationExpression="^[0-9 ]{8,9}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1TelefonoResidencia"></span>
@@ -218,7 +218,7 @@
                         
                         <div class="form-group has-feedback has-success" id="divTelCel">
                             <label class="control-label">Teléfono celular</label>
-                            <input type="text" id="telCel" runat="server" class="form-control" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator9','ContentPlaceHolderContenido_RegularExpressionValidator9' ,'divTelCel','span1TelefonoCelular');" placeholder="Ingrese el teléfono celular" maxlength="8" />
+                            <input type="text" id="telCel" runat="server" class="form-control" onchange="validarInputText('ContentPlaceHolderContenido_CompareValidator2','ContentPlaceHolderContenido_RegularExpressionValidator9' ,'divTelCel','span1TelefonoCelular');" placeholder="Ingrese el teléfono celular" maxlength="8" />
                             <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToCompare="telResid" ControlToValidate="telCel" CssClass="alert-danger" Display="Dynamic" ErrorMessage="Verificar. Los telefonos son iguales" Operator="NotEqual"></asp:CompareValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ErrorMessage="El teléfono debe ser de 8 numeros" ControlToValidate="telCel" ValidationExpression="^[0-9 ]{8,9}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1TelefonoCelular"></span>
