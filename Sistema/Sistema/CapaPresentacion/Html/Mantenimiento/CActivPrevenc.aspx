@@ -1,17 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CapaPresentacion/Html/PaginaEstandar.Master" AutoEventWireup="true" CodeBehind="CActivPrevenc.aspx.cs" EnableEventValidation = "false" Inherits="Sistema.CapaPresentacion.Html.Mantenimiento.CActivPrevenc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderContenido" runat="server">
-    <!--contenido-->   
-                
-     <div class="container">
+   
          <!-- menu-->
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs" style="background-color:#D8D8D8;">
             <li class="dropdown"><a href="CMenuPoliza.aspx">Pólizas</a></li>
             <li class="dropdown"><a href="CCapacitación.aspx">Capacitaciones</a></li>
             <li class="dropdown active"><a href="CActivPrevenc.aspx">Actividades de prevención</a></li>
             <li class="dropdown"><a href="CIncendForest.aspx">Evento de incendio forestal</a></li>
             <li class="dropdown"><a href="../MenuPrincipal.aspx">Salir</a></li>
         </ul>
-
+        <!--contenido-->   
+                
+     <div class="container">
              <!-- Miga -->
             <div class="row" style="background-color:white; width:99.7%">
                 <ol class="breadcrumb">
@@ -79,7 +79,7 @@
                         </div>
 
                         <div class="col-md-2">
-                            <asp:ImageButton ID="buttonConsultar" data-toggle="tooltip" title="Asignar a Bomberos" ImageUrl="~/Imagenes/Icono_Consultar.jpg" CssClass="Imagen_boton" Text="Consultar" runat="server" OnClick="buttonConsultar_Click" />
+                            <asp:ImageButton ID="buttonConsultar" data-toggle="tooltip" title="Asignar a Bomberos" ImageUrl="~/Imagenes/icono_Asignar.png" CssClass="Imagen_boton" Text="Consultar" runat="server" OnClick="buttonConsultar_Click" />
                         </div>
 
                         <div class="col-md-2">
