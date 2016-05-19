@@ -25,7 +25,7 @@
                     <li><a href="../CBrigadas.aspx">Brigada </a></li>
                     <li><a href="../BombForest/CBomberos.aspx">Bomberos </a></li>
                     <li class="active">Información detallada </li>
-                    <li><a href="../CContactosEmergencia.aspx">Contactos de emergencia </a></li>
+                    <li><a href="CContactosEmergencia.aspx">Contactos de emergencia </a></li>
                     <li class="active">Registrar </li>
                 </ol>
             </div>
