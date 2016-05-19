@@ -219,7 +219,7 @@ namespace Sistema.CapaConfiguracion
 
             try
             {
-                SqlDataAdapter temp1 = new SqlDataAdapter("select PK_Id_IncendioForestal, lugar, fechaParticipacion from TB_IncendioForestal FI join TB_BomberoIncendioForestal BFI on FI.PK_Id_IncendioForestal = BFI.FK_TB_IncendioForestal where FI.estado = 1 and BFI.estado = 1 and BFI.FK_TB_BomberoForestal = '" + id + "'", coneccion);
+                SqlDataAdapter temp1 = new SqlDataAdapter("select PK_Id_IncendioForestal, lugar, fechaParticipacion, cantHoras, activRealiz from TB_IncendioForestal FI join TB_BomberoIncendioForestal BFI on FI.PK_Id_IncendioForestal = BFI.FK_TB_IncendioForestal where FI.estado = 1 and BFI.estado = 1 and BFI.FK_TB_BomberoForestal = '" + id + "'", coneccion);
                 DataSet temp2 = new DataSet();
                 temp1.Fill(temp2);
                 return temp2;

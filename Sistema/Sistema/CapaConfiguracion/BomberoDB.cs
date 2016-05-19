@@ -444,7 +444,7 @@ namespace CapaConfiguracion
         }
 
         // bomberos filtrados para polizas dataset
-        public DataSet seleccionar_Dataset_NoPolizaAsig(bool activo, string brigada, string columna, string operacion, string valor)
+        public DataSet seleccionar_Dataset_NoPolizaAsig(bool activo, int poliza, string brigada, string columna, string operacion, string valor)
         {
             if (!conectar())
             {
@@ -457,14 +457,14 @@ namespace CapaConfiguracion
                 {
                     if (columna == null || valor == null)
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where (BP.FK_TB_Poliza IS NULL or BP.estado = 0) and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where (BP.FK_TB_Poliza IS NULL or BP.estado = 0 or BP.FK_TB_Poliza != " + poliza + ") and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' except SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where BP.FK_TB_Poliza = " + poliza + " and BP.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
                     }
                     else
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where (BP.FK_TB_Poliza IS NULL or BP.estado = 0) and and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where (BP.FK_TB_Poliza IS NULL or BP.estado = 0 or BP.FK_TB_Poliza != " + poliza + ") and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "' except SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where BP.FK_TB_Poliza = " + poliza + " and BP.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
@@ -474,14 +474,14 @@ namespace CapaConfiguracion
                 {
                     if (columna == null || valor == null)
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where (BP.FK_TB_Poliza IS NULL or BP.estado = 0) and and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where (BP.FK_TB_Poliza IS NULL or BP.estado = 0 or BP.FK_TB_Poliza != " + poliza + ") and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' except SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where BP.FK_TB_Poliza = " + poliza + " and BP.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
                     }
                     else
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where (BP.FK_TB_Poliza IS NULL or BP.estado = 0) and and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where (BP.FK_TB_Poliza IS NULL or BP.estado = 0 or BP.FK_TB_Poliza != " + poliza + ") and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "' except SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where BP.FK_TB_Poliza = " + poliza + " and BP.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
@@ -495,7 +495,7 @@ namespace CapaConfiguracion
             }
         }
 
-        public DataSet seleccionar_Dataset_PolizaAsig(bool activo, string brigada, string columna, string operacion, string valor)
+        public DataSet seleccionar_Dataset_PolizaAsig(bool activo, int poliza, string brigada, string columna, string operacion, string valor)
         {
             if (!conectar())
             {
@@ -508,14 +508,14 @@ namespace CapaConfiguracion
                 {
                     if (columna == null || valor == null)
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where BP.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where BP.FK_TB_Poliza = " + poliza + " and BP.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
                     }
                     else
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where BP.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where BP.FK_TB_Poliza = " + poliza + " and BP.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
@@ -525,14 +525,14 @@ namespace CapaConfiguracion
                 {
                     if (columna == null || valor == null)
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where BP.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where BP.FK_TB_Poliza = " + poliza + " and BP.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
                     }
                     else
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where BP.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoPoliza BP on BF.PK_Id_BomberoForestal = BP.FK_TB_BomberoForestal where BP.FK_TB_Poliza = " + poliza + " and BP.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
@@ -546,8 +546,8 @@ namespace CapaConfiguracion
             }
         }
 
-        // bomberos filtrados para polizas dataset
-        public DataSet seleccionar_Dataset_NoCapacitAsig(bool activo, string brigada, string columna, string operacion, string valor)
+        // bomberos filtrados para capacitaciones dataset
+        public DataSet seleccionar_Dataset_NoCapacitAsig(bool activo, int capacitacion, string brigada, string columna, string operacion, string valor)
         {
             if (!conectar())
             {
@@ -560,14 +560,14 @@ namespace CapaConfiguracion
                 {
                     if (columna == null || valor == null)
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where (BC.FK_TB_Capacitacion IS NULL or BC.estado = 0) and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where (BC.FK_TB_Capacitacion IS NULL or BC.estado = 0 or BC.FK_TB_Capacitacion != " + capacitacion + ") and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' except SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where BC.FK_TB_Capacitacion = " + capacitacion + " and BC.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
                     }
                     else
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where (BC.FK_TB_Capacitacion IS NULL or BC.estado = 0) and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where (BC.FK_TB_Capacitacion IS NULL or BC.estado = 0 or BC.FK_TB_Capacitacion != " + capacitacion + ") and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "' except SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where BC.FK_TB_Capacitacion = " + capacitacion + " and BC.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
@@ -577,14 +577,14 @@ namespace CapaConfiguracion
                 {
                     if (columna == null || valor == null)
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where (BC.FK_TB_Capacitacion IS NULL or BC.estado = 0) and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where (BC.FK_TB_Capacitacion IS NULL or BC.estado = 0 or BC.FK_TB_Capacitacion != " + capacitacion + ") and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' except SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where BC.FK_TB_Capacitacion = " + capacitacion + " and BC.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
                     }
                     else
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where (BC.FK_TB_Capacitacion IS NULL or BC.estado = 0) and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where (BC.FK_TB_Capacitacion IS NULL or BC.estado = 0 or BC.FK_TB_Capacitacion != " + capacitacion + ") and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "' except SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where BC.FK_TB_Capacitacion = " + capacitacion + " and BC.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
@@ -598,7 +598,7 @@ namespace CapaConfiguracion
             }
         }
 
-        public DataSet seleccionar_Dataset_CapacitAsig(bool activo, string brigada, string columna, string operacion, string valor)
+        public DataSet seleccionar_Dataset_CapacitAsig(bool activo, int capacitacion, string brigada, string columna, string operacion, string valor)
         {
             if (!conectar())
             {
@@ -611,14 +611,14 @@ namespace CapaConfiguracion
                 {
                     if (columna == null || valor == null)
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where BC.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where BC.FK_TB_Capacitacion = " + capacitacion + " and BC.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
                     }
                     else
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where BC.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where BC.FK_TB_Capacitacion = " + capacitacion + " and BC.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
@@ -628,14 +628,14 @@ namespace CapaConfiguracion
                 {
                     if (columna == null || valor == null)
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where BC.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where BC.FK_TB_Capacitacion = " + capacitacion + " and BC.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
                     }
                     else
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where BC.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoCapacitacion BC on BF.PK_Id_BomberoForestal = BC.FK_BomberoForestal where BC.FK_TB_Capacitacion = " + capacitacion + " and BC.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
@@ -649,7 +649,7 @@ namespace CapaConfiguracion
             }
         }
         // dataset para eventos de incendios forestales
-        public DataSet seleccionar_Dataset_NoEventIncen(bool activo, string brigada, string columna, string operacion, string valor)
+        public DataSet seleccionar_Dataset_NoEventIncen(bool activo, int eventIncend, string brigada, string columna, string operacion, string valor)
         {
             if (!conectar())
             {
@@ -662,14 +662,14 @@ namespace CapaConfiguracion
                 {
                     if (columna == null || valor == null)
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where (EI.FK_TB_IncendioForestal IS NULL or EI.estado = 0) and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where (EI.FK_TB_IncendioForestal IS NULL or EI.estado = 0 or EI.FK_TB_IncendioForestal != " + eventIncend + ") and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' except SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where EI.FK_TB_IncendioForestal = " + eventIncend + " and EI.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
                     }
                     else
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where (EI.FK_TB_IncendioForestal IS NULL or EI.estado = 0) and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where (EI.FK_TB_IncendioForestal IS NULL or EI.estado = 0 or EI.FK_TB_IncendioForestal != " + eventIncend + ") and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "' except SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where EI.FK_TB_IncendioForestal = " + eventIncend + " and EI.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
@@ -679,14 +679,14 @@ namespace CapaConfiguracion
                 {
                     if (columna == null || valor == null)
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where (EI.FK_TB_IncendioForestal IS NULL or EI.estado = 0) and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where (EI.FK_TB_IncendioForestal IS NULL or EI.estado = 0 or EI.FK_TB_IncendioForestal != " + eventIncend + ") and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' except SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where EI.FK_TB_IncendioForestal = " + eventIncend + " and EI.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
                     }
                     else
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where (EI.FK_TB_IncendioForestal IS NULL or EI.estado = 0) and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where (EI.FK_TB_IncendioForestal IS NULL or EI.estado = 0 or EI.FK_TB_IncendioForestal != " + eventIncend + ") and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "' except SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where EI.FK_TB_IncendioForestal = " + eventIncend + " and EI.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
@@ -700,7 +700,7 @@ namespace CapaConfiguracion
             }
         }
 
-        public DataSet seleccionar_Dataset_EventIncendAsig(bool activo, string brigada, string columna, string operacion, string valor)
+        public DataSet seleccionar_Dataset_EventIncendAsig(bool activo, int eventIncend, string brigada, string columna, string operacion, string valor)
         {
             if (!conectar())
             {
@@ -713,14 +713,14 @@ namespace CapaConfiguracion
                 {
                     if (columna == null || valor == null)
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where EI.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where EI.FK_TB_IncendioForestal = " + eventIncend + " and EI.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
                     }
                     else
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where EI.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where EI.FK_TB_IncendioForestal = " + eventIncend + " and EI.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
@@ -730,14 +730,14 @@ namespace CapaConfiguracion
                 {
                     if (columna == null || valor == null)
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where EI.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where EI.FK_TB_IncendioForestal = " + eventIncend + " and EI.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
                     }
                     else
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where EI.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoIncendioForestal EI on BF.PK_Id_BomberoForestal = EI.FK_TB_BomberoForestal where EI.FK_TB_IncendioForestal = " + eventIncend + " and EI.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
@@ -836,8 +836,8 @@ namespace CapaConfiguracion
             }
         }
 
-        // bomberos filtrados para actividad prevancion dataset
-        public DataSet seleccionar_Dataset_NoActivPrevAsig(bool activo, string brigada, string columna, string operacion, string valor)
+        // bomberos filtrados para actividad prevencion dataset
+        public DataSet seleccionar_Dataset_NoActivPrevAsig(bool activo, int activPrev, string brigada, string columna, string operacion, string valor)
         {
             if (!conectar())
             {
@@ -850,14 +850,14 @@ namespace CapaConfiguracion
                 {
                     if (columna == null || valor == null)
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where (BA.FK_TB_ActividadPrevencion IS NULL or BA.estado = 0) and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where (BA.FK_TB_ActividadPrevencion IS NULL or BA.estado = 0 or BA.FK_TB_ActividadPrevencion != " + activPrev + ") and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' except SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where BA.FK_TB_ActividadPrevencion = " + activPrev + " and BA.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
                     }
                     else
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where (BA.FK_TB_ActividadPrevencion IS NULL or BA.estado = 0) and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where (BA.FK_TB_ActividadPrevencion IS NULL or BA.estado = 0 or BA.FK_TB_ActividadPrevencion != " + activPrev + ") and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "' except SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where BA.FK_TB_ActividadPrevencion = " + activPrev + " and BA.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
@@ -867,14 +867,14 @@ namespace CapaConfiguracion
                 {
                     if (columna == null || valor == null)
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where (BA.FK_TB_ActividadPrevencion IS NULL or BA.estado = 0) and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where (BA.FK_TB_ActividadPrevencion IS NULL or BA.estado = 0 or BA.FK_TB_ActividadPrevencion != " + activPrev + ") and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' except SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where BA.FK_TB_ActividadPrevencion = " + activPrev + " and BA.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
                     }
                     else
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where (BA.FK_TB_ActividadPrevencion IS NULL or BA.estado = 0) and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada left join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where (BA.FK_TB_ActividadPrevencion IS NULL or BA.estado = 0 or BA.FK_TB_ActividadPrevencion != " + activPrev + ") and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "' except SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where BA.FK_TB_ActividadPrevencion = " + activPrev + " and BA.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
@@ -888,7 +888,7 @@ namespace CapaConfiguracion
             }
         }
 
-        public DataSet seleccionar_Dataset_ActivPrevAsig(bool activo, string brigada, string columna, string operacion, string valor)
+        public DataSet seleccionar_Dataset_ActivPrevAsig(bool activo, int activPrev, string brigada, string columna, string operacion, string valor)
         {
             if (!conectar())
             {
@@ -901,14 +901,14 @@ namespace CapaConfiguracion
                 {
                     if (columna == null || valor == null)
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where BA.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where BA.FK_TB_ActividadPrevencion = " + activPrev + " and BA.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
                     }
                     else
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where BA.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where BA.FK_TB_ActividadPrevencion = " + activPrev + " and BA.estado = 1 and BF.estado = 1 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
@@ -918,14 +918,14 @@ namespace CapaConfiguracion
                 {
                     if (columna == null || valor == null)
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where BA.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where BA.FK_TB_ActividadPrevencion = " + activPrev + " and BA.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;
                     }
                     else
                     {
-                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where BA.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
+                        SqlDataAdapter temp1 = new SqlDataAdapter("SELECT distinct PK_Id_BomberoForestal, nombre, apellido1, apellido2 from TB_BomberoForestal BF join TB_Brigada B on B.PK_Id_Brigada = BF.FK_Id_Brigada join TB_BomberoActividadPrevencion BA on BF.PK_Id_BomberoForestal = BA.FK_TB_BomberoForestal where BA.FK_TB_ActividadPrevencion = " + activPrev + " and BA.estado = 1 and BF.estado = 0 and B.nombre_Brigada = '" + brigada + "' and " + columna + " " + operacion + " '" + valor + "'", coneccion);
                         DataSet temp2 = new DataSet();
                         temp1.Fill(temp2);
                         return temp2;

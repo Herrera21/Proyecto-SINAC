@@ -85,16 +85,22 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             String tipoLimitFisic, bool checkMedic, String diagnostico, String tipoSangre)
         {
             this.internado.Checked = internado;
+            this.inter.Enabled = internado;
             this.inter.Text = motivoIN;
             this.tratMedic.Checked = tratMedic;
+            this.tratamiento.Enabled = tratMedic;
             this.tratamiento.Text = motivoTM;
             this.lentesContacto.Checked = lentCont;
+            this.lentContText.Enabled = lentCont;
             this.lentContText.Text = motivoLC;
             this.operado.Checked = operado;
+            this.operadoText.Enabled = operado;
             this.operadoText.Text = motivoOP;
             this.limitFisic.Checked = limitFisic;
+            this.limitacionFisica.Enabled = limitFisic;
             this.limitacionFisica.Text = tipoLimitFisic;
             this.checkMedic.Checked = checkMedic;
+            this.Chequeado.Enabled = checkMedic;
             this.Chequeado.Text = diagnostico;
             this.TipoSangre.SelectedValue = tipoSangre;
         }
