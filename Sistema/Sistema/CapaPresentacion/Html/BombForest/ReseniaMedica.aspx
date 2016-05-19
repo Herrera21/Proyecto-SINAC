@@ -34,7 +34,7 @@
                 <form id="form1" runat="server" >
                     <!-- menu-->
                     <ul class="nav nav-tabs">
-                        <%--<li><a href="RBomInfoPerson.aspx">Información Personal</a></li>--%>
+                        <li><a href="InfPersDetallado.aspx">Información Personal</a></li>
                         <li><a href="CEquipoProtPerso.aspx">Equipo de protección personal</a></li>
                         <li><a href="Carne.aspx">Información del carné</a></li>
                         <li><a href="CCapacit.aspx">Capacitaciones</a></li>
