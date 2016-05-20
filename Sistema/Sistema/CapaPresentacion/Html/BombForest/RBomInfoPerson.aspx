@@ -49,7 +49,7 @@
             <%--Modal identificacion--%>
             <div id="buscarId" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
                         <div class="modal-header">
-                        <a class="close">×</a>
+                        <a class="close" href="CBomberos.aspx">×</a>
                             <h3>Ingresar la identificación del bombero</h3>
                         </div>
                         <div class="modal-body">
