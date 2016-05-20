@@ -66,7 +66,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             // Obtengo el id de la entidad que se esta editando
             // en este caso de la entidad Person
             //
-            return Convert.ToInt32(GridView1.DataKeys[index].Values["PK_Id_Capacitacion"]);
+            return Convert.ToInt32(GridView1.DataKeys[index].Values["PK_Id_BomberoPoliza"]);
         }
 
         protected void gvPerson_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -81,6 +81,15 @@ namespace Sistema.CapaPresentacion.Html.BombForest
                 seleccionar(index);
             }
 
+        }
+
+        protected void buttonConsultar_Click(object sender, ImageClickEventArgs e)
+        {
+            if (GridView1.SelectedRow != null /*&& ButtonMuestra.Text.Equals(buttonName)*/)
+            {
+                VariablesSeccionControl.Escribe("BomberoPoliza", seleccionar(GridView1.SelectedRow.RowIndex));
+                Response.Redirect("CBeneficiarios.aspx");
+            }
         }
     }
 }

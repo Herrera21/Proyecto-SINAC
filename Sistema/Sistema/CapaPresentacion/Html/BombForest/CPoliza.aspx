@@ -42,13 +42,37 @@
                         <li><a href="CBomberos.aspx">Salir</a></li>
                     </ul>
 
+                    <%--botones menu--%>
+
+
+
+                    <div class="row" style="padding-left:20%;">
+                        <%--<div class="col-md-2" >
+                            <asp:ImageButton ID="buttonAgregar" data-toggle="tooltip" title="Crear una Actividad de prevención"  runat="server"  ImageUrl="~/Imagenes/Icono_Agregar.png" CssClass="Imagen_boton" Text="Crear"  OnClick="buttonAgregar_Click" />
+                        </div>--%>
+
+                        <div class="col-md-2">
+                            <asp:ImageButton ID="buttonConsultar" data-toggle="tooltip" title="Consultar beneficiarios" ImageUrl="~/Imagenes/icono_Asignar.png" CssClass="Imagen_boton" Text="Consultar" runat="server" OnClick="buttonConsultar_Click" />
+                        </div>
+
+                        <%--<div class="col-md-2">
+                            <asp:ImageButton ID="buttonFiltrar"  data-toggle="tooltip" title="Filtrar una Actividad de prevención" runat="server" ImageUrl="~/Imagenes/Icono_Buscar.png" CssClass="Imagen_boton" Text="Buscar" OnClick="buttonFiltrar_Click"  />
+                        </div>
+
+                        <div class="col-md-2">
+                            <asp:ImageButton ID="buttonImprimir" data-toggle="tooltip" title="Imprimir las Actividades de prevención" runat="server" ImageUrl="~/Imagenes/Icono_Imprimir.png" CssClass="Imagen_boton" Text="Imprimir" OnClick="buttonImprimir_Click" />
+                        </div>--%>
+                    </div>
+
+                    <hr />
+
                     <%--formulario--%>
 
                     <h1 class="text-center login-title">Pólizas del bombero</h1>
 
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" GridLines="None"  
                         AllowPaging="True" CssClass="mGrid table-responsive" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"  
-                        PageSize="7" onrowcommand="gvPerson_RowCommand" DataKeyNames="nombre_Poliza,PK_Id_Poliza,inicioPeriodo,finPeriodo" CellPadding="4" ForeColor="#333333" >
+                        PageSize="7" onrowcommand="gvPerson_RowCommand" DataKeyNames="PK_Id_BomberoPoliza,nombre_Poliza,PK_Id_Poliza,inicioPeriodo,finPeriodo" CellPadding="4" ForeColor="#333333" >
         <AlternatingRowStyle CssClass="alt" BackColor="White" ForeColor="#284775"></AlternatingRowStyle>
                     <Columns>
                         <asp:CommandField ButtonType="Image" SelectImageUrl="/Imagenes/editar.gif" ShowSelectButton="True" />
