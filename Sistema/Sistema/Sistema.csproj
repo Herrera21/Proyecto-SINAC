@@ -108,14 +108,17 @@
     <Content Include="CapaPresentacion\Html\AcercaDe.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\CActivPrev.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\Carne.aspx" />
+    <Content Include="CapaPresentacion\Html\BombForest\CBeneficiarios.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\CCapacit.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\CContactosEmergencia.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\CEquipoProtPerso.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\CIncendForest.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\CPoliza.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\InfPersDetallado.aspx" />
+    <Content Include="CapaPresentacion\Html\BombForest\MBeneficiarios.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\MContactosEmergencia.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\MEquipoProtPerso.aspx" />
+    <Content Include="CapaPresentacion\Html\BombForest\RBeneficiarios.aspx" />
     <Content Include="CapaPresentacion\Html\BombForest\ReseniaMedica.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\AsignarActivPrevenc.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\AsignarCapacit.aspx" />
@@ -266,6 +269,13 @@
     <Compile Include="CapaPresentacion\Html\BombForest\Carne.aspx.designer.cs">
       <DependentUpon>Carne.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\CBeneficiarios.aspx.cs">
+      <DependentUpon>CBeneficiarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\CBeneficiarios.aspx.designer.cs">
+      <DependentUpon>CBeneficiarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CapaPresentacion\Html\BombForest\CCapacit.aspx.cs">
       <DependentUpon>CCapacit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -301,8 +311,19 @@
     <Compile Include="CapaPresentacion\Html\BombForest\CPoliza.aspx.designer.cs">
       <DependentUpon>CPoliza.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\InfPersDetallado.aspx.cs">
+      <DependentUpon>InfPersDetallado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="CapaPresentacion\Html\BombForest\InfPersDetallado.aspx.designer.cs">
       <DependentUpon>InfPersDetallado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\MBeneficiarios.aspx.cs">
+      <DependentUpon>MBeneficiarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\MBeneficiarios.aspx.designer.cs">
+      <DependentUpon>MBeneficiarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\Html\BombForest\MContactosEmergencia.aspx.cs">
       <DependentUpon>MContactosEmergencia.aspx</DependentUpon>
@@ -317,6 +338,13 @@
     </Compile>
     <Compile Include="CapaPresentacion\Html\BombForest\MEquipoProtPerso.aspx.designer.cs">
       <DependentUpon>MEquipoProtPerso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\RBeneficiarios.aspx.cs">
+      <DependentUpon>RBeneficiarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\BombForest\RBeneficiarios.aspx.designer.cs">
+      <DependentUpon>RBeneficiarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\Html\BombForest\ReseniaMedica.aspx.cs">
       <DependentUpon>ReseniaMedica.aspx</DependentUpon>

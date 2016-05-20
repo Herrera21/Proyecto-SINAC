@@ -54,7 +54,7 @@
                     <div class="col-sm-6 col-md-8 col-md-offset-2">
                         <div class="form-group" id="divUsuario">
                             <label>Usuario</label>
-                            <input type="text" class="form-control" id="usuario" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator1','ContentPlaceHolderContenido_RegularExpressionValidator1' ,'divUsuario','span1Usuario');" runat="server" maxlength="20" placeholder="Ingrese el usuario que desea" />
+                            <input type="text" class="form-control" id="usuario" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator1','ContentPlaceHolderContenido_RegularExpressionValidator1' ,'divUsuario','span1Usuario');" runat="server" maxlength="15" placeholder="Ingrese el usuario que desea" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="usuario" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="4 a 15 caracteres. Se permiten numeros, letras, _ y -" ControlToValidate="usuario" ValidationExpression="^[A-Za-z0-9_-]{4,15}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" SkinID="divNombre"></asp:RegularExpressionValidator>
                             <span class="" aria-hidden="true" id="span1Usuario"></span>

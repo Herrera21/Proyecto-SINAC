@@ -49,7 +49,7 @@
                            <div class="form-group" id="divNombreActiv">
                             <label>Nombre de la actividad</label>
                             <input type="text" class="form-control" id="NombreActiv" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator1','ContentPlaceHolderContenido_RegularExpressionValidator1' ,'divNombreActiv','span1NombreActiv');"
-                                placeholder="Ingrese el nombre de la actividad" />
+                                placeholder="Ingrese el nombre de la actividad" maxlength="30"/>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="NombreActiv" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Solo se permiten letras" ControlToValidate="NombreActiv" ValidationExpression="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="" aria-hidden="true" id="span1NombreActiv"></span>
@@ -57,7 +57,7 @@
                           <div class="form-group" id="divFechaActiv">
                             <label>Fecha de la actividad</label>
                             <input type="text" class="form-control date activPrevenc" id="fechaActiv" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator2','ContentPlaceHolderContenido_RegularExpressionValidator2' ,'divFechaActiv','span1FechaActiv');"
-                                   placeholder="Ingrese la fecha de la actividad" readonly/>
+                                   placeholder="Ingrese la fecha de la actividad" maxlength="10" readonly/>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="fechaActiv" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Formato inválido" ControlToValidate="fechaActiv" ValidationExpression="^\d{2}\/\d{2}\/\d{4}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="" aria-hidden="true" id="span1FechaActiv"></span>
@@ -70,14 +70,14 @@
                           <div class="form-group" id="divLugarActiv">
                             <label>Lugar donde se realizó la actividad</label>
                             <input type="text" class="form-control" id="LugarActiv" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator3','ContentPlaceHolderContenido_RegularExpressionValidator3' ,'divLugarActiv','span1LugarActiv');"
-                                   placeholder="Ingrese el lugar donde se realizó la actividad"/>
+                                   placeholder="Ingrese el lugar donde se realizó la actividad" maxlength="50"/>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="LugarActiv" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Solo se permiten letras" ControlToValidate="LugarActiv" ValidationExpression="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="" aria-hidden="true" id="span1LugarActiv"></span>
                           </div>
                           <div class="form-group">
                                 <label class="control-label" >Observaciones</label>
-                                <textarea name="observaciones" id="observaciones" runat="server" class="form-control"></textarea>
+                                <textarea name="observaciones" id="observaciones" runat="server" class="form-control" maxlength="500"></textarea>
                             </div>
                           <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Guardar" Enabled="true" OnClick="Button1_Click" ValidationGroup="enviar" />
                           <asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="Inactivar" OnClick="Button2_Click" OnClientClick="" />

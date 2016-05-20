@@ -34,7 +34,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Información médica<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li class="active"><a href="CPoliza.aspx">Pólizas</li>
+                                <li class="active"><a href="CPoliza.aspx">Pólizas</a></li>
                                 <li><a href="CContactosEmergencia.aspx">Contactos de Emergencia</a></li>
                                 <li><a href="ReseniaMedica.aspx">Reseña médica</a></li>
                             </ul>
@@ -75,7 +75,7 @@
                         PageSize="7" onrowcommand="gvPerson_RowCommand" DataKeyNames="PK_Id_BomberoPoliza,nombre_Poliza,PK_Id_Poliza,inicioPeriodo,finPeriodo" CellPadding="4" ForeColor="#333333" >
         <AlternatingRowStyle CssClass="alt" BackColor="White" ForeColor="#284775"></AlternatingRowStyle>
                     <Columns>
-                        <asp:CommandField ButtonType="Image" SelectImageUrl="/Imagenes/editar.gif" ShowSelectButton="True" />
+                        <asp:CommandField ButtonType="Image" SelectImageUrl="/Imagenes/editar.gif" ShowSelectButton="True"/>
                         <asp:TemplateField HeaderText="Nombre de Póliza">
                             <ItemTemplate>
                                 <asp:Label ID="Label1" runat="server" Text='<%# Bind("nombre_Poliza") %>'></asp:Label>

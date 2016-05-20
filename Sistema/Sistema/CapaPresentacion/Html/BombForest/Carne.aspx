@@ -48,7 +48,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Información médica<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="CPoliza.aspx">Pólizas</li>
+                                <li><a href="CPoliza.aspx">Pólizas</a></li>
                                 <li><a href="CContactosEmergencia.aspx">Contactos de Emergencia</a></li>
                                 <li><a href="ReseniaMedica.aspx">Reseña médica</a></li>
                             </ul>
@@ -58,15 +58,18 @@
 
                     <%--formulario--%>
 
-                    <h1 class="text-center login-title">Carné</h1>
+                    <h1 class="text-center login-title">Carné</h1><hr />
 
-                        <div class="col-sm-6 col-md-4 col-md-offset-4">
+                        <div class="col-md-6">
+                        <div class="col-sm-6 col-md-8 col-md-offset-2">
+                            
+                            <div class="alert alert-warning">Datos recopilados de <a href="CBomberos.aspx" class="alert-link">registro de bombero</a></div>
+                          
                              <!-- cargar de info person -->
                                   <div class="form-group" id="divNombre">
                                     <label for="ejemplo_email_1">Nombre</label>
                                     <input type="text" class="form-control" id="nombre" runat="server" readonly/>
                                     
-                          
                                   </div>
                                     <!-- cargar de info person -->
                                   <div class="form-group">
@@ -78,7 +81,32 @@
                                     <label for="ejemplo_email_1">Segundo apellido</label>
                                     <input type="text" class="form-control" id="s_Ape" runat="server" readonly/>
                                   </div>
-                                  <div class="form-group" id="divAnioCarne">
+                                  
+                                  
+                                    <!-- cargar de info person -->
+                                  <div class="form-group">
+                                    <label for="ejemplo_password_1">Fecha de nacimiento de bombero</label>
+                                    <input type="text" class="form-control date" id="fechaNacim" runat="server" readonly/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>Imagen de perfil</label>
+                                    <img  class="form-control" ID="Image1" style="width: 300px; height: auto;" runat="server"/>
+                                   </div> 
+                            <hr />
+                                  <div class="alert alert-warning">Dato de reseña. Puede estar vacío hasta no introducir <a href="ReseniaMedica.aspx" class="alert-link">la reseña médica</a> del bombero</div>
+                                  <!-- cargar de info medica -->
+                                  <div class="form-group">
+                                    <label for="ejemplo_password_1">Tipo de sangre del bombero</label>
+                                    <input type="text" class="form-control" id="tipoSangre" runat="server" readonly/>
+                                    </div>
+                                   
+                                  
+                            <br /><br />
+                            </div>
+                            </div>
+                    <div class="col-md-6">
+                        <div class="col-sm-6 col-md-8 col-md-offset-2">
+                            <div class="form-group" id="divAnioCarne">
                                     <label for="ejemplo_password_1">Año del carné</label>
                                     <input type="number" class="form-control" id="anioCarne" runat="server" placeholder="Ingresar el año el carné" maxlength="4" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator12','ContentPlaceHolderContenido_RegularExpressionValidator12' ,'divAnioCarne','span1AnioCarne');" />
                                      <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="anioCarne" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
@@ -101,27 +129,13 @@
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Formato inválido" ControlToValidate="FechaVencim" ValidationExpression="^\d{2}\/\d{2}\/\d{4}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                                     <span class="" aria-hidden="true" id="span1FechaVen"></span>
                                   </div>
-                                    <!-- cargar de info medica -->
-                                  <div class="form-group">
-                                    <label for="ejemplo_password_1">Tipo de sangre del bombero</label>
-                                    <input type="text" class="form-control" id="tipoSangre" runat="server" readonly/>
-                                  </div>
-                                    <!-- cargar de info person -->
-                                  <div class="form-group">
-                                    <label for="ejemplo_password_1">Fecha de nacimiento de bombero</label>
-                                    <input type="text" class="form-control date" id="fechaNacim" runat="server" readonly/>
-                                  </div>
-                                  <div class="form-group">
-                                    <label>Imagen de perfil</label>
-                                    <img  class="form-control" ID="Image1" style="width: 300px; height: auto;" runat="server"/>
-                                  </div> 
-                                   <hr />
-                                  <asp:Button ID="Button1" runat="server" Text="Guardar" OnClick="Button1_Click" class="btn btn-lg btn-primary btn-block" ValidationGroup="enviar"/>
-                            <br /><br />
-                            </div>
+                            <hr />
+                            <asp:Button ID="Button1" runat="server" Text="Guardar" OnClick="Button1_Click" class="btn btn-lg btn-primary btn-block" ValidationGroup="enviar"/>
+                        </div>
+                    </div>
                 </form>
             </div>
-        </div>
+        
     <script>
         Configurafecha("+0m +0d +0y", ".fechaEmi", "-65:+0");
         Configurafecha("+0m +0d +20y", ".fechaVen", "+1:+20");

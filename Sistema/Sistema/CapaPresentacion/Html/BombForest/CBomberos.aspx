@@ -171,7 +171,7 @@
                         PageSize="7" onrowcommand="gvPerson_RowCommand" DataKeyNames="PK_Id_BomberoForestal, nombre, apellido1, apellido2" CellPadding="4" ForeColor="#333333" >
         <AlternatingRowStyle CssClass="alt" BackColor="White" ForeColor="#284775"></AlternatingRowStyle>
                     <Columns>
-                        <asp:CommandField ButtonType="Image" SelectImageUrl="/Imagenes/editar.gif" ShowSelectButton="True" />
+                        <asp:CommandField ButtonType="Image" SelectImageUrl="/Imagenes/editar.gif" ShowSelectButton="True"/>
                         <asp:TemplateField HeaderText="C&#233dula">
                             <ItemTemplate>
                                 <asp:Label ID="Label1" runat="server" Text='<%# Bind("PK_Id_BomberoForestal") %>'></asp:Label>

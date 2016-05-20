@@ -48,7 +48,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Información médica<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="CPoliza.aspx">Pólizas</li>
+                                <li><a href="CPoliza.aspx">Pólizas</a></li>
                                 <li><a href="CContactosEmergencia.aspx">Contactos de Emergencia</a></li>
                                 <li class="active"><a href="ReseniaMedica.aspx">Reseña médica</a></li>
                             </ul>
@@ -75,38 +75,38 @@
                             </div>
                         </td>
                         <td style="width:65%; border:1px" >
-                            <asp:TextBox ID="inter" runat="server" CssClass="form-control" ></asp:TextBox> </td>
+                            <asp:TextBox ID="inter" runat="server" CssClass="form-control" maxlength="100"></asp:TextBox> </td>
                     </tr>
                   <tr style="height:60px">
                     <td><div class="checkbox">
                     <asp:CheckBox text="Tiene tratamiento médico" ID="tratMedic" runat="server" OnClick="checkReseniaMedica('ContentPlaceHolderContenido_tratMedic','ContentPlaceHolderContenido_tratamiento')" />
                     </div></td>
-                    <td>  <asp:TextBox ID="tratamiento" runat="server" CssClass="form-control" ></asp:TextBox></td>
+                    <td>  <asp:TextBox ID="tratamiento" runat="server" CssClass="form-control" maxlength="100"></asp:TextBox></td>
                   </tr>
                   <tr style="height:60px">
                     <td><div class="checkbox">
                      <asp:CheckBox text="Usa lentes de contacto" ID="lentesContacto" runat="server" OnClick="checkReseniaMedica('ContentPlaceHolderContenido_lentesContacto','ContentPlaceHolderContenido_lentContText')"/>
                      </div>  </td>
-                    <td><asp:TextBox ID="lentContText" runat="server" CssClass="form-control" ></asp:TextBox></td>
+                    <td><asp:TextBox ID="lentContText" runat="server" CssClass="form-control" maxlength="100"></asp:TextBox></td>
                   </tr>
                     <tr style="height:60px">
                     <td> <div class="checkbox">
                      <asp:CheckBox text="Operado" ID="operado" runat="server" OnClick="checkReseniaMedica('ContentPlaceHolderContenido_operado','ContentPlaceHolderContenido_operadoText')"/>
                      </div>  </td>
-                    <td><asp:TextBox ID="operadoText" runat="server" CssClass="form-control" ></asp:TextBox></td>
+                    <td><asp:TextBox ID="operadoText" runat="server" CssClass="form-control" maxlength="100"></asp:TextBox></td>
                   </tr>
                     <tr style="height:60px">
                     <td> <div class="checkbox">
                     <asp:CheckBox text="Cuenta con limitación física" ID="limitFisic" runat="server" OnClick="checkReseniaMedica('ContentPlaceHolderContenido_limitFisic','ContentPlaceHolderContenido_limitacionFisica')"/>
                     </div>  </td>
-                    <td><asp:TextBox ID="limitacionFisica" runat="server" CssClass="form-control" ></asp:TextBox></td>
+                    <td><asp:TextBox ID="limitacionFisica" runat="server" CssClass="form-control" maxlength="100"></asp:TextBox></td>
                   </tr>
                     <tr style="height:60px">
                     <td> <div class="checkbox">
                      <asp:CheckBox text="Chequeado recientemente por médico" ID="checkMedic" runat="server" OnClick="checkReseniaMedica('ContentPlaceHolderContenido_checkMedic','ContentPlaceHolderContenido_Chequeado')"/>
                      </div></td>
                     <td>
-                        <asp:TextBox ID="Chequeado" runat="server" CssClass="form-control" ></asp:TextBox>
+                        <asp:TextBox ID="Chequeado" runat="server" CssClass="form-control" maxlength="100"></asp:TextBox>
                     </td>
                   </tr>
                 </tbody>
