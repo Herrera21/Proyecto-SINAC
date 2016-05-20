@@ -31,7 +31,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             ContactosEmergenciaDB registrar = new ContactosEmergenciaDB();
 
 
-            if (registrar.insertar(new ContEmerg(nombre.Value, p_Ape.Value, s_Ape.Value, cedula.Value, parent.Value, telCel.Value, telCasa.Value, VariablesSeccionControl.Lee<string>("Bombero"))))
+            if (registrar.insertar(new ContEmerg(cedula.Value, nombre.Value, p_Ape.Value, s_Ape.Value, parent.Value, telCel.Value, telCasa.Value, VariablesSeccionControl.Lee<string>("Bombero"))))
             {
                 mensaje("El contacto de emergencia ha sido creado", true);
             }
