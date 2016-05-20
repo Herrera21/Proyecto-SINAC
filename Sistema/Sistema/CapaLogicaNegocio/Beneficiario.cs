@@ -8,10 +8,11 @@ namespace Sistema.CapaLogicaNegocio
     public class Beneficiario : PersonaAbstract2
     {
         private int porcentaje;
+        private int id_BomPoliza;
 
         public Beneficiario() { }
 
-        public Beneficiario(string identificacion, string nombre, string apellido1, string apellido2, string parentesco, int porcentaje)
+        public Beneficiario(string identificacion, string nombre, string apellido1, string apellido2, string parentesco, int porcentaje, int id_BomPoliza)
         {
             this.identificacion = identificacion;
             this.nombre = nombre;
@@ -19,6 +20,7 @@ namespace Sistema.CapaLogicaNegocio
             this.apellido2 = apellido2;
             this.parentesco = parentesco;
             this.porcentaje = porcentaje;
+            this.id_BomPoliza = id_BomPoliza;
         }
 
         public void setPorcentaje(int porcentaje)
@@ -31,6 +33,14 @@ namespace Sistema.CapaLogicaNegocio
             return porcentaje;
         }
 
+        public void setId_BomPoliza(int id_BomPoliza)
+        {
+            this.id_BomPoliza = id_BomPoliza;
+        }
 
+        public int getId_BomPoliza()
+        {
+            return id_BomPoliza;
+        }
     }
 }
