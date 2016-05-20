@@ -23,14 +23,29 @@ namespace Sistema.CapaPresentacion.Html.BombForest
                 if (VariablesSeccionControl.Lee<string>("Brigada") == null)
                 {
                     Response.Redirect("CBomberos.aspx");
+                }else
+                {
+                    if (!IsPostBack)
+                    {
+                        activaModal("buscarId", true);
+                    }
                 }
             }
         }
 
-        protected void activaModal(string id)
+        protected void activaModal(string id, bool activar)
         {
-            string script = string.Format("javascript:$('#" + id + "').modal('show');");
-            ScriptManager.RegisterStartupScript(this, Page.ClientScript.GetType(), null, script, true);
+            if (activar)
+            {
+                string script = string.Format("javascript:$('#" + id + "').modal('show');");
+                ScriptManager.RegisterStartupScript(this, Page.ClientScript.GetType(), null, script, true);
+            }
+            else
+            {
+                string script = string.Format("javascript:$('#" + id + "').modal('hide');");
+                ScriptManager.RegisterStartupScript(this, Page.ClientScript.GetType(), null, script, true);
+            }
+
         }
 
         protected void mensaje(String mensaje, Boolean redireccionar)
@@ -46,7 +61,40 @@ namespace Sistema.CapaPresentacion.Html.BombForest
                 botonMensaje1.Visible = false;
                 botonMensaje2.Visible = true;
             }
-            activaModal("mensajes");
+            activaModal("mensajes", true);
+        }
+
+        protected void ButtonVerificarId(object sender, EventArgs e)
+        {
+            
+            String idV = verificarIdInput.Value;
+            BomberoDB DB = new BomberoDB();
+            Bombero temp = DB.seleccionar(idV);
+
+            if (temp != null)
+            {
+                //this.labelMensaje.InnerText = "Esta cédula ya pertenece a un bombero registrado en el sistema";
+
+                activaModal("mensajes2", true);
+                activaModal("buscarId", true);
+                //Response.Write("<script>alert('Esta cédula ya pertenece a un bombero registrado en el sistema')</script>");
+            }
+            else
+            {
+                //activaModal("buscarId", false);
+                cedula.Value = idV;
+                //mensaje("Identificación correcta", true);
+            }
+
+            //Bombero temp = DB.seleccionar();
+
+                //if (temp != null)
+                //{
+                //}
+                //else
+                //{
+                //VariablesSeccionControl.Lee<string>("Bombero")
+                //}
         }
 
         protected void Button1_Click(object sender, EventArgs e)

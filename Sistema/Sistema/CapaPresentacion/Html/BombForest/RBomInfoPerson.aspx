@@ -21,6 +21,17 @@
               <a id="botonMensaje2" runat="server" href="#" class="btn" data-dismiss="modal">Cerrar</a>
             </div>
     </div>
+     <div id="mensajes2" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
+            <div class="modal-header">
+              <h3>Error</h3>
+            </div>
+            <div class="modal-body">
+               <label id="label1" runat="server">Esta cédula ya pertenece a un bombero registrado en el sistema</label>
+            </div>
+            <div class="modal-footer">
+              <a id="A1" runat="server" href="RBomInfoPerson.aspx" class="btn">Cerrar</a>
+            </div>
+    </div>
     <!--contenido-->
     <div class="container">
 
@@ -34,6 +45,35 @@
         </div>
 
         <form id="form1" runat="server">
+
+            <%--Modal identificacion--%>
+            <div id="buscarId" class="modal" data-backdrop="static" data-keyboard="false" style="display: none; ">
+                        <div class="modal-header">
+                        <a class="close">×</a>
+                            <h3>Ingresar la identificación del bombero</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group has-feedback" id="divVId">
+                                <label id="labelArea" runat="server">Este campo no podrá ser modificado después</label>
+                                <input type="text" id="verificarIdInput" runat="server" class="form-control" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator8','ContentPlaceHolderContenido_RegularExpressionValidator14' ,'divVId','span1VId');" placeholder="Ingrese la identificación" maxlength="9" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="verificarIdInput" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="verificar"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator14" runat="server" ErrorMessage="La identificación debe tener un mínimo de 9 caracteres" ControlToValidate="verificarIdInput" ValidationExpression="^[0-9a-zA-Z ]{9,15}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True"  ValidationGroup="verificar"></asp:RegularExpressionValidator>
+                                <span class="" aria-hidden="true" id="span1VId"></span>
+                                
+                            </div>
+                            <div>
+                            <input type="radio" name="iden" id="cedulaRB" onclick="validarId('ContentPlaceHolderContenido_verificarIdInput');" checked /> Cedula 
+                            <input type="radio" name="iden" id="pasaporteRB" onclick="validarId('ContentPlaceHolderContenido_verificarIdInput');" /> Pasaporte 
+                            <input type="radio" name="iden" id="residenciaRB" onclick="validarId('ContentPlaceHolderContenido_verificarIdInput');"/> Residencia 
+                            </div>
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <asp:Button ID="botonVerificarId" runat="server" Text="Ingresar" class="btn btn-primary " OnClick="ButtonVerificarId" ValidationGroup="verificar"/>
+                        </div>
+                     </div>
+
+
             <div class="row" style="background-color:white; width:99.7%">
                 <!--formulario-->
 
@@ -42,6 +82,14 @@
                 <!--columna1-->
                 <div class="col-md-6">
                     <div class="col-sm-6 col-md-8 col-md-offset-2">
+
+                        <div class="form-group has-feedback has-success" id="divCedula">
+                            <label class="control-label">Identificación</label>
+                            <input type="text" class="form-control" name="identificacion" id="cedula" runat="server" 
+                                    placeholder="Ingresar identificación" maxlength="9" readonly/>
+                            
+                            <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1Cedula"></span>
+                        </div>
 
                         <div class="form-group has-feedback" id="divNombre">
                             <label class="control-label">Nombre</label>
@@ -67,20 +115,20 @@
                             <span class="" aria-hidden="true" id="span1Apellido2"></span>
                         </div>
                         
-                        <div class="form-group" id="divCedula">
+                        <%--<div class="form-group" id="divCedula">
                             <label class="control-label">Identificación</label>
                             <input type="text" class="form-control" name="identificacion" id="cedula" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator13','ContentPlaceHolderContenido_RegularExpressionValidator13' ,'divCedula','span1Cedula');"
                                     placeholder="Ingresar identificación" maxlength="9" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="cedula" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator13" runat="server" ErrorMessage="Solo se permiten numeros. Minimo 9 números" ControlToValidate="cedula" ValidationExpression="^[0-9 ]{9,15}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" SkinID="divNombre" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="" aria-hidden="true" id="span1Cedula"></span>
-                        </div>
-                        <div>
+                        </div>--%>
+                        <%--<div>
                             <input type="radio" name="iden" id="cedulaRB" onclick="validarId('ContentPlaceHolderContenido_cedula', 'ContentPlaceHolderContenido_RegularExpressionValidator13');" checked /> Cedula 
                             <input type="radio" name="iden" id="pasaporteRB" onclick="validarId('ContentPlaceHolderContenido_cedula', 'ContentPlaceHolderContenido_RegularExpressionValidator13');" /> Pasaporte 
                             <input type="radio" name="iden" id="residenciaRB" onclick="validarId('ContentPlaceHolderContenido_cedula', 'ContentPlaceHolderContenido_RegularExpressionValidator13');"/> Residencia 
                         </div>
-                         <br />
+                         <br />--%>
                          
 
                         
