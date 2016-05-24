@@ -77,7 +77,7 @@
                         </div>
 
                         <div class="col-md-2">
-                            <asp:ImageButton ID="buttonConsultar" data-toggle="tooltip" title="Asignar a Bomberos" ImageUrl="~/Imagenes/icono_Asignar.png" onmouseover="this.width=400;this.height=300;" onmouseout="this.width=100;this.height=80;" width="100" height="80"  CssClass="Imagen_boton" Text="Consultar" runat="server" OnClick="buttonConsultar_Click" />
+                            <asp:ImageButton ID="buttonConsultar" data-toggle="tooltip" title="Asignar a Bomberos" ImageUrl="~/Imagenes/icono_Asignar.png" CssClass="Imagen_boton" Text="Consultar" runat="server" OnClick="buttonConsultar_Click" />
                         </div>
 
                         <div class="col-md-2">
