@@ -15,6 +15,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            CargarComboboxProvincias(Provincia);
             if (!IsPostBack)
             {
                 if (VariablesSeccionControl.Lee<string>("userAreaConserv") == null)
@@ -110,24 +111,27 @@ namespace Sistema.CapaPresentacion.Html.BombForest
         }
 
         protected void cargarInfo(String identificacion, String nombre,
-            String apellido1, String apellido2, String provincia, String canton, String residencia, String nacionalidad, String fechaNac,
-            String telResidencia, String telCelular, String ocupacion, String correo, int aniosEnBriga, int tipoBombe, byte[] Perfil, byte[] Ced)
+            String apellido1, String apellido2, String provincia, String canton, String distrito, String residencia, String nacionalidad, String fechaNac,
+            String telResidencia, String telCelular, String ocupacion, String correo, int aniosEnBriga, String tipoBombe, byte[] Perfil, byte[] Ced)
         {
             this.cedula.Value = identificacion;
             this.nombre.Value = nombre;
             this.p_Ape.Value = apellido1;
             this.s_Ape.Value = apellido2;
-            this.provincia.Value = provincia;
-            this.canton.Value = canton;
-            this.lugarResid.Value = residencia.ToString();
-            this.nacionalidad.SelectedIndex = Int32.Parse(nacionalidad);
+            this.Provincia.SelectedValue = provincia;
+            CargarComboboxCanton(Canton);
+            this.Canton.SelectedValue = canton;
+            CargarComboboxDistrito(Distrito);
+            this.Distrito.SelectedValue = distrito;
+            this.lugarResid.Value = residencia;
+            this.nacionalidad.SelectedValue = nacionalidad;
             this.fechaNac.Value = fechaNac;
             this.telResid.Value = telResidencia;
             this.telCel.Value = telCelular;
             this.ocupacion.Value = ocupacion;
             this.correo.Value = correo;
             this.aniosBrig.Value = aniosEnBriga.ToString();
-            this.tipoBombero.SelectedIndex = tipoBombe;
+            this.tipoBombero.SelectedValue = tipoBombe;
             this.Image1.Src = ImageControl.byteVecToIMG(Perfil);
             this.Image2.Src = ImageControl.byteVecToIMG(Ced);
         }
@@ -150,8 +154,8 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             BrigadaDB DB2 = new BrigadaDB();
             Brigada temp = DB2.seleccionar(VariablesSeccionControl.Lee<string>("Brigada"));
 
-            if (DB.actualizar(cedula.Value, new Bombero(cedula.Value, nombre.Value, p_Ape.Value, s_Ape.Value, tipoBombero.SelectedIndex, provincia.Value,
-                canton.Value, lugarResid.Value, nacionalidad.SelectedIndex.ToString(), fechaNac.Value, telResid.Value, telCel.Value, ocupacion.Value, correo.Value,
+            if (DB.actualizar(cedula.Value, new Bombero(cedula.Value, nombre.Value, p_Ape.Value, s_Ape.Value, tipoBombero.SelectedItem.ToString(), Provincia.SelectedItem.ToString(),
+                Canton.SelectedItem.ToString(), Distrito.SelectedItem.ToString(), lugarResid.Value, nacionalidad.SelectedItem.ToString(), fechaNac.Value, telResid.Value, telCel.Value, ocupacion.Value, correo.Value,
                 Convert.ToInt32(aniosBrig.Value), ImageControl.fileInpTObyteVec(FileUpload1), ImageControl.fileInpTObyteVec(FileUpload2), DB.idBrigada(VariablesSeccionControl.Lee<string>("Brigada")))))
             {
                 mensaje("El bombero ha sido modificado", true);
@@ -176,7 +180,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
                     Button2.Text = "Activar";
                 }
 
-                cargarInfo(temp.getIdentificacion(), temp.getNombre(), temp.getApellido1(), temp.getApellido2(), temp.getProvincia(), temp.getCanton(),
+                cargarInfo(temp.getIdentificacion(), temp.getNombre(), temp.getApellido1(), temp.getApellido2(), temp.getProvincia(), temp.getCanton(), temp.getDistrito(),
                     temp.getResidencia(), temp.getNacionalidad(), temp.getFechaNac(), temp.getTelResidencia(), temp.getTelCelular(), temp.getOcupacion(),
                     temp.getCorreo(), temp.getAniosEnBriga(), temp.getTipoBombe(), temp.getImgPerfil(), temp.getImgCed());
             }
@@ -184,6 +188,73 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             {
                 mensaje("El bombero " + bombero + " no se encuentra", true);
             }
+        }
+
+        protected void CargarComboboxProvincias(DropDownList combobox)
+        {
+            try
+            {
+                ProvinciaDB DB = new ProvinciaDB();
+                List<string> provinciasList = DB.listaProvincias();
+
+                for (int i = 0; i < provinciasList.Count; i++)
+                {
+                    combobox.Items.Add(provinciasList[i]);
+                }
+
+
+            }
+            catch { }
+        }
+
+        protected void CargarComboboxCanton(DropDownList combobox)
+        {
+            try
+            {
+                CantonDB DB = new CantonDB();
+                List<string> cantonesList = DB.listaCantones(Provincia.SelectedValue);
+
+                for (int i = 0; i < cantonesList.Count; i++)
+                {
+                    combobox.Items.Add(cantonesList[i]);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        protected void CargarComboboxDistrito(DropDownList combobox)
+        {
+            try
+            {
+                DistritoDB DB = new DistritoDB();
+                List<string> distritosList = DB.listaDistritos(Canton.SelectedValue);
+
+                for (int i = 0; i < distritosList.Count; i++)
+                {
+                    combobox.Items.Add(distritosList[i]);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        protected void Provincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Canton.Items.Clear();
+            CargarComboboxCanton(Canton);
+            Distrito.Items.Clear();
+            CargarComboboxDistrito(Distrito);
+        }
+
+        protected void Canton_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Distrito.Items.Clear();
+            CargarComboboxDistrito(Distrito);
         }
 
         //protected void ButtonCargar(object sender, EventArgs e)
