@@ -43,7 +43,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
 
         protected void cargarInfo(String identificacion, String nombre,
             String apellido1, String apellido2, String provincia, String canton, String residencia, String nacionalidad, String fechaNac,
-            String telResidencia, String telCelular, String ocupacion, String correo, int aniosEnBriga, int tipoBombe, byte[] Perfil, byte[] Ced)
+            String telResidencia, String telCelular, String ocupacion, String correo, int aniosEnBriga, String tipoBombe, byte[] Perfil, byte[] Ced)
         {
             this.cedula.Value = identificacion;
             this.nombre.Value = nombre;
@@ -59,7 +59,7 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             this.ocupacion.Value = ocupacion;
             this.correo.Value = correo;
             this.aniosBrig.Value = aniosEnBriga.ToString();
-            this.tipoBombero.Value = Convert.ToString(tipoBombe);
+            this.tipoBombero.Value = tipoBombe;
             this.Image1.Src = ImageControl.byteVecToIMG(Perfil);
             this.Image2.Src = ImageControl.byteVecToIMG(Ced);
         }
