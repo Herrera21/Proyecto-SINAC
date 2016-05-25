@@ -14,6 +14,9 @@ namespace Sistema.CapaPresentacion.Html.BombForest
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            CargarComboboxProvincias(Provincia);
+            CargarComboboxCanton(Canton);
+            CargarComboboxDistrito(Distrito);
             if (VariablesSeccionControl.Lee<string>("userAreaConserv") == null)
             {
                 Response.Redirect("/index.aspx");
@@ -104,8 +107,8 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             BrigadaDB DB2 = new BrigadaDB();
             Brigada temp = DB2.seleccionar(VariablesSeccionControl.Lee<string>("Brigada"));
 
-            if (DB.insertar(new Bombero(cedula.Value, nombre.Value, p_Ape.Value, s_Ape.Value, tipoBombero.SelectedIndex, provincia.Value,
-                canton.Value, lugarResid.Value, nacionalidad.SelectedIndex.ToString(), fechaNac.Value, telResid.Value, telCel.Value, ocupacion.Value, correo.Value,
+            if (DB.insertar(new Bombero(cedula.Value, nombre.Value, p_Ape.Value, s_Ape.Value, tipoBombero.SelectedItem.ToString(), Provincia.SelectedItem.ToString(),
+                Canton.SelectedItem.ToString(), Distrito.SelectedItem.ToString(), lugarResid.Value, nacionalidad.SelectedItem.ToString(), fechaNac.Value, telResid.Value, telCel.Value, ocupacion.Value, correo.Value,
                 Convert.ToInt32(aniosBrig.Value), ImageControl.fileInpTObyteVec(FileUpload1), ImageControl.fileInpTObyteVec(FileUpload2), DB.idBrigada(VariablesSeccionControl.Lee<string>("Brigada")))))
             {
                 mensaje("El Bombero ha sido creado", true);
@@ -114,6 +117,73 @@ namespace Sistema.CapaPresentacion.Html.BombForest
             {
                 mensaje("Ocurrio un error al guardar la información", true);
             }
+        }
+
+        protected void CargarComboboxProvincias(DropDownList combobox)
+        {
+            try
+            {
+                ProvinciaDB DB = new ProvinciaDB();
+                List<string> provinciasList = DB.listaProvincias();
+
+                for (int i = 0; i < provinciasList.Count; i++)
+                {
+                    combobox.Items.Add(provinciasList[i]);
+                }
+
+
+            }
+            catch { }
+        }
+
+        protected void CargarComboboxCanton(DropDownList combobox)
+        {
+            try
+            {
+                CantonDB DB = new CantonDB();
+                List<string> cantonesList = DB.listaCantones(Provincia.SelectedValue);
+
+                for (int i = 0; i < cantonesList.Count; i++)
+                {
+                    combobox.Items.Add(cantonesList[i]);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        protected void CargarComboboxDistrito(DropDownList combobox)
+        {
+            try
+            {
+                DistritoDB DB = new DistritoDB();
+                List<string> distritosList = DB.listaDistritos(Canton.SelectedValue);
+
+                for (int i = 0; i < distritosList.Count; i++)
+                {
+                    combobox.Items.Add(distritosList[i]);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        protected void Provincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Canton.Items.Clear();
+            CargarComboboxCanton(Canton);
+            Distrito.Items.Clear();
+            CargarComboboxDistrito(Distrito);
+        }
+
+        protected void Canton_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Distrito.Items.Clear();
+            CargarComboboxDistrito(Distrito);
         }
     }
 }

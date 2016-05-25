@@ -132,7 +132,7 @@
                          
 
                         
-                        <div class="form-group has-feedback" id="divProvincia">
+                       <%-- <div class="form-group has-feedback" id="divProvincia">
                             <label class="control-label">Provincia de residencia</label>
                             <input type="text" id="provincia" runat="server" class="form-control" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator4','ContentPlaceHolderContenido_RegularExpressionValidator4' ,'divProvincia','span1Provincia');" placeholder="Ingrese la provincia de residencia" maxlength="40" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="provincia" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
@@ -146,10 +146,28 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="canton" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="Solo se permiten letras" ControlToValidate="canton" ValidationExpression="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" ValidationGroup="enviar"></asp:RegularExpressionValidator>
                             <span class="" aria-hidden="true" id="span1Canton"></span>
-                        </div>
-                        
+                        </div>--%>
 
-                         <div class="form-group has-feedback" id="divLugarResidencia">
+                        <div class="form-group">
+                                <label id="label2" runat="server">Provincia</label>
+                                <asp:DropDownList ID="Provincia" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="Provincia_SelectedIndexChanged">
+                                    <asp:listitem selected="selected" value="0">Seleccionar</asp:listitem>
+                                </asp:DropDownList>
+                            </div>
+                            <div class="form-group">
+                                <label>Canton</label>
+                                <asp:DropDownList ID="Canton" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="Canton_SelectedIndexChanged">
+                                    <asp:listitem selected="selected" value="0">Seleccionar</asp:listitem>
+                                </asp:DropDownList>
+                            </div>
+                            <div class="form-group">
+                                <label>Distrito</label>
+                                <asp:DropDownList ID="Distrito" class="form-control" runat="server">
+                                    <asp:listitem selected="selected" value="0">Seleccionar</asp:listitem>
+                                </asp:DropDownList>
+                            </div>
+
+                        <div class="form-group has-feedback" id="divLugarResidencia">
                             <label class="control-label">Lugar de residencia</label>
                             <input type="text" id="lugarResid" runat="server" class="form-control" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator6','ContentPlaceHolderContenido_RegularExpressionValidator6' ,'divLugarResidencia','span1LugarResidencia');" placeholder="Ingrese el lugar de residencia" maxlength="60" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="lugarResid" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
@@ -160,11 +178,11 @@
                         <div class="form-group has-feedback" id="divNacionalidad">
                             <label class="control-label">Nacionalidad</label>
                             
-                            <select class="form-control" id="nacionalidad" runat="server" onchange="validarComboBox('ContentPlaceHolderContenido_Vnacionalidad','divNacionalidad','span1Nacionalidad');">
-	                            <option selected="selected" value="0">Seleccionar</option>
-	                            <option>Costarricense</option>
-                                <option>Extranjero</option>
-                            </select>
+                            <asp:DropDownList class="form-control" id="nacionalidad" runat="server" onchange="validarComboBox('ContentPlaceHolderContenido_Vnacionalidad','divNacionalidad','span1Nacionalidad');">
+	                            <asp:listitem selected="selected" value="0">Seleccionar</asp:listitem>
+	                            <asp:listitem>Costarricense</asp:listitem>
+                                <asp:listitem>Extranjero</asp:listitem>
+                            </asp:DropDownList>
                             <asp:RequiredFieldValidator id="Vnacionalidad" ControlToValidate="nacionalidad" ErrorMessage="Seleccione una nacionalidad" Display="Dynamic" InitialValue="0" runat="server" CssClass="alert-danger" SetFocusOnError="True" ValidationGroup="enviar"/>
                             <span class="" aria-hidden="true" id="span1Nacionalidad"></span>  
                         </div>
@@ -234,12 +252,12 @@
 
                             <div class="form-group has-feedback" id="divTipoBom">
                             <label class="control-label">Tipo de bombero</label> 
-                            <select class="form-control" id="tipoBombero" runat="server" onchange="validarComboBox('ContentPlaceHolderContenido_RequiredFieldValidatorTipo','divTipoBom','span1TipoBom');">
-	                            <option selected="selected" value="0">Seleccionar</option>
-	                            <option>Bombero funcionario</option>
-                                <option>Bombero voluntario</option>
-                                <option>Bombero Institucional</option>
-                            </select>
+                            <asp:DropDownList class="form-control" id="tipoBombero" runat="server" onchange="validarComboBox('ContentPlaceHolderContenido_RequiredFieldValidatorTipo','divTipoBom','span1TipoBom');">
+	                            <asp:listitem selected="selected" value="0">Seleccionar</asp:listitem>
+	                            <asp:listitem>Bombero funcionario</asp:listitem>
+                                <asp:listitem>Bombero voluntario</asp:listitem>
+                                <asp:listitem>Bombero Institucional</asp:listitem>
+                            </asp:DropDownList>
                             <asp:RequiredFieldValidator id="RequiredFieldValidatorTipo" ControlToValidate="tipoBombero" ErrorMessage="Seleccione un tipo de bombero" Display="Dynamic" InitialValue="0" runat="server" CssClass="alert-danger" SetFocusOnError="True" ValidationGroup="enviar"/>
                             <span class="" aria-hidden="true" id="span1TipoBom"></span>
                             </div>
