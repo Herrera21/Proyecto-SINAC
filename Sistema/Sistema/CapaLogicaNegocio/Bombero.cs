@@ -11,6 +11,7 @@ namespace CapaLogica
     {
         private String provincia;
         private String canton;
+        private String distrito;
         private String residencia;
         private String nacionalidad;
         private String fechaNac;
@@ -19,7 +20,7 @@ namespace CapaLogica
         private String ocupacion;
         private String correo;
         private int aniosEnBriga;
-        private int tipoBombe;
+        private String tipoBombe;
         private Byte[] imgPerfil;
         private Byte[] imgCed;
         private int id_Brigada;
@@ -29,7 +30,7 @@ namespace CapaLogica
         }
 
         public Bombero(String identificacion, String nombre,
-            String apellido1, String apellido2, int tipoBombe, String provincia, String canton, String residencia, String nacionalidad, String fechaNac,
+            String apellido1, String apellido2, String tipoBombe, String provincia, String canton, String distrito, String residencia, String nacionalidad, String fechaNac,
             String telResidencia, String telCelular, String ocupacion, String correo, int aniosEnBriga, Byte[] imgPerfil, Byte[] imgCed, int id_Brigada)
         {
             this.identificacion = identificacion;
@@ -39,6 +40,7 @@ namespace CapaLogica
             this.apellido2 = apellido2;
             this.provincia = provincia;
             this.canton = canton;
+            this.distrito = distrito;
             this.residencia = residencia;
             this.nacionalidad = nacionalidad;
             this.fechaNac = fechaNac;
@@ -70,6 +72,16 @@ namespace CapaLogica
         public string getCanton()
         {
             return canton;
+        }
+
+        public void setDistrito(string distrito)
+        {
+            this.distrito = distrito;
+        }
+
+        public string getDistrito()
+        {
+            return distrito;
         }
 
         public void setResidencia(string residencia)
@@ -152,12 +164,12 @@ namespace CapaLogica
             return aniosEnBriga;
         }
 
-        public void setTipoBombe(int tipoBombe)
+        public void setTipoBombe(String tipoBombe)
         {
             this.tipoBombe = tipoBombe;
         }
 
-        public int getTipoBombe()
+        public String getTipoBombe()
         {
             return tipoBombe;
         }
