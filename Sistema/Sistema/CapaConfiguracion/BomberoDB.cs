@@ -27,7 +27,7 @@ namespace CapaConfiguracion
 
                 if (objeto.getImgPerfil() == null && objeto.getImgCed() == null)
                 {
-                    SqlCommand ing = new SqlCommand("insert into TB_BomberoForestal(PK_Id_BomberoForestal, nombre, apellido1, apellido2, tipoBombero, provincia, canton, lugarResidencia, nacionalidad, fechaNacimiento, telefonoResidencia, telefonoCelular, ocupacion, correoElectronico, aniosBrigada, imagenPerfil, imagenCedula, FK_Id_Brigada, estado) values (@identificacion, @nombre, @apellido1, @apellido2, @tipoBombero, @provincia, @canton, @lugarResidencia, @nacionalidad, @fechaNacimiento, @telefonoResidencia, @telefonoCelular, @ocupacion, @correoElectronico, @aniosBrigada, @imagenPerfil, @imagenCedula, @IdBrigada, 1)", coneccion);
+                    SqlCommand ing = new SqlCommand("insert into TB_BomberoForestal(PK_Id_BomberoForestal, nombre, apellido1, apellido2, tipoBombero, provincia, canton, distrito, lugarResidencia, nacionalidad, fechaNacimiento, telefonoResidencia, telefonoCelular, ocupacion, correoElectronico, aniosBrigada, imagenPerfil, imagenCedula, FK_Id_Brigada, estado) values (@identificacion, @nombre, @apellido1, @apellido2, @tipoBombero, @provincia, @canton, @distrito, @lugarResidencia, @nacionalidad, @fechaNacimiento, @telefonoResidencia, @telefonoCelular, @ocupacion, @correoElectronico, @aniosBrigada, @imagenPerfil, @imagenCedula, @IdBrigada, 1)", coneccion);
                     ing.Parameters.AddWithValue("identificacion", objeto.getIdentificacion());
                     ing.Parameters.AddWithValue("nombre", objeto.getNombre());
                     ing.Parameters.AddWithValue("apellido1", objeto.getApellido1());
@@ -35,6 +35,7 @@ namespace CapaConfiguracion
                     ing.Parameters.AddWithValue("tipoBombero", objeto.getTipoBombe());
                     ing.Parameters.AddWithValue("provincia", objeto.getProvincia());
                     ing.Parameters.AddWithValue("canton", objeto.getCanton());
+                    ing.Parameters.AddWithValue("distrito", objeto.getDistrito());
                     ing.Parameters.AddWithValue("lugarResidencia", objeto.getResidencia());
                     ing.Parameters.AddWithValue("nacionalidad", objeto.getNacionalidad());
                     ing.Parameters.AddWithValue("fechaNacimiento", objeto.getFechaNac());
@@ -55,7 +56,7 @@ namespace CapaConfiguracion
                 {
                     if (objeto.getImgPerfil() == null && objeto.getImgCed() != null)
                     {
-                        SqlCommand ing = new SqlCommand("insert into TB_BomberoForestal(PK_Id_BomberoForestal, nombre, apellido1, apellido2, tipoBombero, provincia, canton, lugarResidencia, nacionalidad, fechaNacimiento, telefonoResidencia, telefonoCelular, ocupacion, correoElectronico, aniosBrigada, imagenPerfil, imagenCedula, FK_Id_Brigada, estado) values (@identificacion, @nombre, @apellido1, @apellido2, @tipoBombero, @provincia, @canton, @lugarResidencia, @nacionalidad, @fechaNacimiento, @telefonoResidencia, @telefonoCelular, @ocupacion, @correoElectronico, @aniosBrigada, @imagenPerfil, @imagenCedula, @IdBrigada, 1)", coneccion);
+                        SqlCommand ing = new SqlCommand("insert into TB_BomberoForestal(PK_Id_BomberoForestal, nombre, apellido1, apellido2, tipoBombero, provincia, canton, distrito, lugarResidencia, nacionalidad, fechaNacimiento, telefonoResidencia, telefonoCelular, ocupacion, correoElectronico, aniosBrigada, imagenPerfil, imagenCedula, FK_Id_Brigada, estado) values (@identificacion, @nombre, @apellido1, @apellido2, @tipoBombero, @provincia, @canton, @distrito, @lugarResidencia, @nacionalidad, @fechaNacimiento, @telefonoResidencia, @telefonoCelular, @ocupacion, @correoElectronico, @aniosBrigada, @imagenPerfil, @imagenCedula, @IdBrigada, 1)", coneccion);
                         ing.Parameters.AddWithValue("identificacion", objeto.getIdentificacion());
                         ing.Parameters.AddWithValue("nombre", objeto.getNombre());
                         ing.Parameters.AddWithValue("apellido1", objeto.getApellido1());
@@ -63,6 +64,7 @@ namespace CapaConfiguracion
                         ing.Parameters.AddWithValue("tipoBombero", objeto.getTipoBombe());
                         ing.Parameters.AddWithValue("provincia", objeto.getProvincia());
                         ing.Parameters.AddWithValue("canton", objeto.getCanton());
+                        ing.Parameters.AddWithValue("distrito", objeto.getDistrito());
                         ing.Parameters.AddWithValue("lugarResidencia", objeto.getResidencia());
                         ing.Parameters.AddWithValue("nacionalidad", objeto.getNacionalidad());
                         ing.Parameters.AddWithValue("fechaNacimiento", objeto.getFechaNac());
@@ -83,7 +85,7 @@ namespace CapaConfiguracion
                     {
                         if (objeto.getImgPerfil() != null && objeto.getImgCed() == null)
                         {
-                            SqlCommand ing = new SqlCommand("insert into TB_BomberoForestal(PK_Id_BomberoForestal, nombre, apellido1, apellido2, tipoBombero, provincia, canton, lugarResidencia, nacionalidad, fechaNacimiento, telefonoResidencia, telefonoCelular, ocupacion, correoElectronico, aniosBrigada, imagenPerfil, imagenCedula, FK_Id_Brigada, estado) values (@identificacion, @nombre, @apellido1, @apellido2, @tipoBombero, @provincia, @canton, @lugarResidencia, @nacionalidad, @fechaNacimiento, @telefonoResidencia, @telefonoCelular, @ocupacion, @correoElectronico, @aniosBrigada, @imagenPerfil, @imagenCedula, @IdBrigada, 1)", coneccion);
+                            SqlCommand ing = new SqlCommand("insert into TB_BomberoForestal(PK_Id_BomberoForestal, nombre, apellido1, apellido2, tipoBombero, provincia, canton, distrito, lugarResidencia, nacionalidad, fechaNacimiento, telefonoResidencia, telefonoCelular, ocupacion, correoElectronico, aniosBrigada, imagenPerfil, imagenCedula, FK_Id_Brigada, estado) values (@identificacion, @nombre, @apellido1, @apellido2, @tipoBombero, @provincia, @canton, @distrito, @lugarResidencia, @nacionalidad, @fechaNacimiento, @telefonoResidencia, @telefonoCelular, @ocupacion, @correoElectronico, @aniosBrigada, @imagenPerfil, @imagenCedula, @IdBrigada, 1)", coneccion);
                             ing.Parameters.AddWithValue("identificacion", objeto.getIdentificacion());
                             ing.Parameters.AddWithValue("nombre", objeto.getNombre());
                             ing.Parameters.AddWithValue("apellido1", objeto.getApellido1());
@@ -91,6 +93,7 @@ namespace CapaConfiguracion
                             ing.Parameters.AddWithValue("tipoBombero", objeto.getTipoBombe());
                             ing.Parameters.AddWithValue("provincia", objeto.getProvincia());
                             ing.Parameters.AddWithValue("canton", objeto.getCanton());
+                            ing.Parameters.AddWithValue("distrito", objeto.getDistrito());
                             ing.Parameters.AddWithValue("lugarResidencia", objeto.getResidencia());
                             ing.Parameters.AddWithValue("nacionalidad", objeto.getNacionalidad());
                             ing.Parameters.AddWithValue("fechaNacimiento", objeto.getFechaNac());
@@ -109,7 +112,7 @@ namespace CapaConfiguracion
                         }
                         else
                         {
-                            SqlCommand ing = new SqlCommand("insert into TB_BomberoForestal(PK_Id_BomberoForestal, nombre, apellido1, apellido2, tipoBombero, provincia, canton, lugarResidencia, nacionalidad, fechaNacimiento, telefonoResidencia, telefonoCelular, ocupacion, correoElectronico, aniosBrigada, imagenPerfil, imagenCedula, FK_Id_Brigada, estado) values (@identificacion, @nombre, @apellido1, @apellido2, @tipoBombero, @provincia, @canton, @lugarResidencia, @nacionalidad, @fechaNacimiento, @telefonoResidencia, @telefonoCelular, @ocupacion, @correoElectronico, @aniosBrigada, @imagenPerfil, @imagenCedula, @IdBrigada, 1)", coneccion);
+                            SqlCommand ing = new SqlCommand("insert into TB_BomberoForestal(PK_Id_BomberoForestal, nombre, apellido1, apellido2, tipoBombero, provincia, canton, distrito, lugarResidencia, nacionalidad, fechaNacimiento, telefonoResidencia, telefonoCelular, ocupacion, correoElectronico, aniosBrigada, imagenPerfil, imagenCedula, FK_Id_Brigada, estado) values (@identificacion, @nombre, @apellido1, @apellido2, @tipoBombero, @provincia, @canton, @distrito, @lugarResidencia, @nacionalidad, @fechaNacimiento, @telefonoResidencia, @telefonoCelular, @ocupacion, @correoElectronico, @aniosBrigada, @imagenPerfil, @imagenCedula, @IdBrigada, 1)", coneccion);
                             ing.Parameters.AddWithValue("identificacion", objeto.getIdentificacion());
                             ing.Parameters.AddWithValue("nombre", objeto.getNombre());
                             ing.Parameters.AddWithValue("apellido1", objeto.getApellido1());
@@ -117,6 +120,7 @@ namespace CapaConfiguracion
                             ing.Parameters.AddWithValue("tipoBombero", objeto.getTipoBombe());
                             ing.Parameters.AddWithValue("provincia", objeto.getProvincia());
                             ing.Parameters.AddWithValue("canton", objeto.getCanton());
+                            ing.Parameters.AddWithValue("distrito", objeto.getDistrito());
                             ing.Parameters.AddWithValue("lugarResidencia", objeto.getResidencia());
                             ing.Parameters.AddWithValue("nacionalidad", objeto.getNacionalidad());
                             ing.Parameters.AddWithValue("fechaNacimiento", objeto.getFechaNac());
@@ -154,7 +158,7 @@ namespace CapaConfiguracion
             {
                 if (objeto.getImgPerfil() == null && objeto.getImgCed() == null)
                 {
-                    SqlCommand ing = new SqlCommand("update TB_BomberoForestal set PK_Id_BomberoForestal = @Oidentificacion, nombre = @Onombre, apellido1 = @Oapellido1, apellido2 = @Oapellido2, tipoBombero = @OtipoBombero, provincia = @Oprovincia, canton = @Ocanton, lugarResidencia = @OlugarResidencia, nacionalidad = @Onacionalidad, fechaNacimiento = @OfechaNacimiento, telefonoResidencia = @OtelefonoResidencia, telefonoCelular = @OtelefonoCelular, ocupacion = @Oocupacion, correoElectronico = @OcorreoElectronico, aniosBrigada = @OaniosBrigada, FK_Id_Brigada = @OIdBrigada where PK_Id_BomberoForestal = @identificacion", coneccion);
+                    SqlCommand ing = new SqlCommand("update TB_BomberoForestal set PK_Id_BomberoForestal = @Oidentificacion, nombre = @Onombre, apellido1 = @Oapellido1, apellido2 = @Oapellido2, tipoBombero = @OtipoBombero, provincia = @Oprovincia, canton = @Ocanton, distrito = @Odistrito, lugarResidencia = @OlugarResidencia, nacionalidad = @Onacionalidad, fechaNacimiento = @OfechaNacimiento, telefonoResidencia = @OtelefonoResidencia, telefonoCelular = @OtelefonoCelular, ocupacion = @Oocupacion, correoElectronico = @OcorreoElectronico, aniosBrigada = @OaniosBrigada, FK_Id_Brigada = @OIdBrigada where PK_Id_BomberoForestal = @identificacion", coneccion);
                     ing.Parameters.AddWithValue("Oidentificacion", objeto.getIdentificacion());
                     ing.Parameters.AddWithValue("Onombre", objeto.getNombre());
                     ing.Parameters.AddWithValue("Oapellido1", objeto.getApellido1());
@@ -162,6 +166,7 @@ namespace CapaConfiguracion
                     ing.Parameters.AddWithValue("OtipoBombero", objeto.getTipoBombe());
                     ing.Parameters.AddWithValue("Oprovincia", objeto.getProvincia());
                     ing.Parameters.AddWithValue("Ocanton", objeto.getCanton());
+                    ing.Parameters.AddWithValue("Odistrito", objeto.getDistrito());
                     ing.Parameters.AddWithValue("OlugarResidencia", objeto.getResidencia());
                     ing.Parameters.AddWithValue("Onacionalidad", objeto.getNacionalidad());
                     ing.Parameters.AddWithValue("OfechaNacimiento", objeto.getFechaNac());
@@ -182,7 +187,7 @@ namespace CapaConfiguracion
                 {
                     if (objeto.getImgPerfil() == null && objeto.getImgCed() != null)
                     {
-                        SqlCommand ing = new SqlCommand("update TB_BomberoForestal set PK_Id_BomberoForestal = @Oidentificacion, nombre = @Onombre, apellido1 = @Oapellido1, apellido2 = @Oapellido2, tipoBombero = @OtipoBombero, provincia = @Oprovincia, canton = @Ocanton, lugarResidencia = @OlugarResidencia, nacionalidad = @Onacionalidad, fechaNacimiento = @OfechaNacimiento, telefonoResidencia = @OtelefonoResidencia, telefonoCelular = @OtelefonoCelular, ocupacion = @Oocupacion, correoElectronico = @OcorreoElectronico, aniosBrigada = @OaniosBrigada, imagenCedula = @OimagenCedula, FK_Id_Brigada = @OIdBrigada where PK_Id_BomberoForestal = @identificacion", coneccion);
+                        SqlCommand ing = new SqlCommand("update TB_BomberoForestal set PK_Id_BomberoForestal = @Oidentificacion, nombre = @Onombre, apellido1 = @Oapellido1, apellido2 = @Oapellido2, tipoBombero = @OtipoBombero, provincia = @Oprovincia, canton = @Ocanton, distrito = @Odistrito, lugarResidencia = @OlugarResidencia, nacionalidad = @Onacionalidad, fechaNacimiento = @OfechaNacimiento, telefonoResidencia = @OtelefonoResidencia, telefonoCelular = @OtelefonoCelular, ocupacion = @Oocupacion, correoElectronico = @OcorreoElectronico, aniosBrigada = @OaniosBrigada, imagenCedula = @OimagenCedula, FK_Id_Brigada = @OIdBrigada where PK_Id_BomberoForestal = @identificacion", coneccion);
                         ing.Parameters.AddWithValue("Oidentificacion", objeto.getIdentificacion());
                         ing.Parameters.AddWithValue("Onombre", objeto.getNombre());
                         ing.Parameters.AddWithValue("Oapellido1", objeto.getApellido1());
@@ -190,6 +195,7 @@ namespace CapaConfiguracion
                         ing.Parameters.AddWithValue("OtipoBombero", objeto.getTipoBombe());
                         ing.Parameters.AddWithValue("Oprovincia", objeto.getProvincia());
                         ing.Parameters.AddWithValue("Ocanton", objeto.getCanton());
+                        ing.Parameters.AddWithValue("Odistrito", objeto.getDistrito());
                         ing.Parameters.AddWithValue("OlugarResidencia", objeto.getResidencia());
                         ing.Parameters.AddWithValue("Onacionalidad", objeto.getNacionalidad());
                         ing.Parameters.AddWithValue("OfechaNacimiento", objeto.getFechaNac());
@@ -211,7 +217,7 @@ namespace CapaConfiguracion
                     {
                         if (objeto.getImgPerfil() != null && objeto.getImgCed() == null)
                         {
-                            SqlCommand ing = new SqlCommand("update TB_BomberoForestal set PK_Id_BomberoForestal = @Oidentificacion, nombre = @Onombre, apellido1 = @Oapellido1, apellido2 = @Oapellido2, tipoBombero = @OtipoBombero, provincia = @Oprovincia, canton = @Ocanton, lugarResidencia = @OlugarResidencia, nacionalidad = @Onacionalidad, fechaNacimiento = @OfechaNacimiento, telefonoResidencia = @OtelefonoResidencia, telefonoCelular = @OtelefonoCelular, ocupacion = @Oocupacion, correoElectronico = @OcorreoElectronico, aniosBrigada = @OaniosBrigada, imagenPerfil = @OimagenPerfil, FK_Id_Brigada = @OIdBrigada where PK_Id_BomberoForestal = @identificacion", coneccion);
+                            SqlCommand ing = new SqlCommand("update TB_BomberoForestal set PK_Id_BomberoForestal = @Oidentificacion, nombre = @Onombre, apellido1 = @Oapellido1, apellido2 = @Oapellido2, tipoBombero = @OtipoBombero, provincia = @Oprovincia, canton = @Ocanton, distrito = @Odistrito, lugarResidencia = @OlugarResidencia, nacionalidad = @Onacionalidad, fechaNacimiento = @OfechaNacimiento, telefonoResidencia = @OtelefonoResidencia, telefonoCelular = @OtelefonoCelular, ocupacion = @Oocupacion, correoElectronico = @OcorreoElectronico, aniosBrigada = @OaniosBrigada, imagenPerfil = @OimagenPerfil, FK_Id_Brigada = @OIdBrigada where PK_Id_BomberoForestal = @identificacion", coneccion);
                             ing.Parameters.AddWithValue("Oidentificacion", objeto.getIdentificacion());
                             ing.Parameters.AddWithValue("Onombre", objeto.getNombre());
                             ing.Parameters.AddWithValue("Oapellido1", objeto.getApellido1());
@@ -219,6 +225,7 @@ namespace CapaConfiguracion
                             ing.Parameters.AddWithValue("OtipoBombero", objeto.getTipoBombe());
                             ing.Parameters.AddWithValue("Oprovincia", objeto.getProvincia());
                             ing.Parameters.AddWithValue("Ocanton", objeto.getCanton());
+                            ing.Parameters.AddWithValue("Odistrito", objeto.getDistrito());
                             ing.Parameters.AddWithValue("OlugarResidencia", objeto.getResidencia());
                             ing.Parameters.AddWithValue("Onacionalidad", objeto.getNacionalidad());
                             ing.Parameters.AddWithValue("OfechaNacimiento", objeto.getFechaNac());
@@ -238,7 +245,7 @@ namespace CapaConfiguracion
                         }
                         else
                         {
-                            SqlCommand ing = new SqlCommand("update TB_BomberoForestal set PK_Id_BomberoForestal = @Oidentificacion, nombre = @Onombre, apellido1 = @Oapellido1, apellido2 = @Oapellido2, tipoBombero = @OtipoBombero, provincia = @Oprovincia, canton = @Ocanton, lugarResidencia = @OlugarResidencia, nacionalidad = @Onacionalidad, fechaNacimiento = @OfechaNacimiento, telefonoResidencia = @OtelefonoResidencia, telefonoCelular = @OtelefonoCelular, ocupacion = @Oocupacion, correoElectronico = @OcorreoElectronico, aniosBrigada = @OaniosBrigada, imagenPerfil = @OimagenPerfil, imagenCedula = @OimagenCedula, FK_Id_Brigada = @OIdBrigada where PK_Id_BomberoForestal = @identificacion", coneccion);
+                            SqlCommand ing = new SqlCommand("update TB_BomberoForestal set PK_Id_BomberoForestal = @Oidentificacion, nombre = @Onombre, apellido1 = @Oapellido1, apellido2 = @Oapellido2, tipoBombero = @OtipoBombero, provincia = @Oprovincia, canton = @Ocanton, distrito = @Odistrito, lugarResidencia = @OlugarResidencia, nacionalidad = @Onacionalidad, fechaNacimiento = @OfechaNacimiento, telefonoResidencia = @OtelefonoResidencia, telefonoCelular = @OtelefonoCelular, ocupacion = @Oocupacion, correoElectronico = @OcorreoElectronico, aniosBrigada = @OaniosBrigada, imagenPerfil = @OimagenPerfil, imagenCedula = @OimagenCedula, FK_Id_Brigada = @OIdBrigada where PK_Id_BomberoForestal = @identificacion", coneccion);
                             ing.Parameters.AddWithValue("Oidentificacion", objeto.getIdentificacion());
                             ing.Parameters.AddWithValue("Onombre", objeto.getNombre());
                             ing.Parameters.AddWithValue("Oapellido1", objeto.getApellido1());
@@ -246,6 +253,7 @@ namespace CapaConfiguracion
                             ing.Parameters.AddWithValue("OtipoBombero", objeto.getTipoBombe());
                             ing.Parameters.AddWithValue("Oprovincia", objeto.getProvincia());
                             ing.Parameters.AddWithValue("Ocanton", objeto.getCanton());
+                            ing.Parameters.AddWithValue("Odistrito", objeto.getDistrito());
                             ing.Parameters.AddWithValue("OlugarResidencia", objeto.getResidencia());
                             ing.Parameters.AddWithValue("Onacionalidad", objeto.getNacionalidad());
                             ing.Parameters.AddWithValue("OfechaNacimiento", objeto.getFechaNac());
@@ -321,15 +329,15 @@ namespace CapaConfiguracion
 
             try
             {
-                SqlCommand ing = new SqlCommand("select PK_Id_BomberoForestal, nombre, apellido1, apellido2, tipoBombero, provincia, canton, lugarResidencia, nacionalidad, fechaNacimiento, telefonoResidencia, telefonoCelular, ocupacion, correoElectronico, aniosBrigada, imagenPerfil, imagenCedula, FK_Id_Brigada from TB_BomberoForestal where PK_Id_BomberoForestal = @identificacion", coneccion);
+                SqlCommand ing = new SqlCommand("select PK_Id_BomberoForestal, nombre, apellido1, apellido2, tipoBombero, provincia, canton, distrito, lugarResidencia, nacionalidad, fechaNacimiento, telefonoResidencia, telefonoCelular, ocupacion, correoElectronico, aniosBrigada, imagenPerfil, imagenCedula, FK_Id_Brigada from TB_BomberoForestal where PK_Id_BomberoForestal = @identificacion", coneccion);
                 ing.Parameters.AddWithValue("identificacion", identificacion);
 
                 coneccion.Open();
                 SqlDataReader objReader = ing.ExecuteReader();
                 objReader.Read();
                 Bombero temp = new Bombero(objReader.GetString(0), objReader.GetString(1),
-                objReader.GetString(2), objReader.GetString(3), objReader.GetInt32(4), objReader.GetString(5), objReader.GetString(6), objReader.GetString(7), objReader.GetString(8),
-                 objReader.GetString(9), objReader.GetString(10), objReader.GetString(11), objReader.GetString(12), objReader.GetString(13), objReader.GetInt32(14), (byte[])objReader[15], (byte[])objReader[16], objReader.GetInt32(17));
+                objReader.GetString(2), objReader.GetString(3), objReader.GetString(4), objReader.GetString(5), objReader.GetString(6), objReader.GetString(7), objReader.GetString(8), objReader.GetString(9),
+                 objReader.GetString(10), objReader.GetString(11), objReader.GetString(12), objReader.GetString(13), objReader.GetString(14), objReader.GetInt32(15), (byte[])objReader[16], (byte[])objReader[17], objReader.GetInt32(18));
                 coneccion.Close();
 
                 return temp;
