@@ -15,9 +15,10 @@ namespace Sistema.CapaPresentacion.Html.BombForest
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            CargarComboboxProvincias(Provincia);
+            
             if (!IsPostBack)
             {
+                CargarComboboxProvincias(Provincia);
                 if (VariablesSeccionControl.Lee<string>("userAreaConserv") == null)
                 {
                     Response.Redirect("/index.aspx");
@@ -211,12 +212,18 @@ namespace Sistema.CapaPresentacion.Html.BombForest
         {
             try
             {
-                CantonDB DB = new CantonDB();
-                List<string> cantonesList = DB.listaCantones(Provincia.SelectedValue);
-
-                for (int i = 0; i < cantonesList.Count; i++)
+                if (Provincia.SelectedItem.ToString() == "Seleccionar")
                 {
-                    combobox.Items.Add(cantonesList[i]);
+                    combobox.Items.Add("Seleccionar");
+                }
+                else {
+                    CantonDB DB = new CantonDB();
+                    List<string> cantonesList = DB.listaCantones(Provincia.SelectedValue);
+
+                    for (int i = 0; i < cantonesList.Count; i++)
+                    {
+                        combobox.Items.Add(cantonesList[i]);
+                    }
                 }
             }
             catch
@@ -229,12 +236,18 @@ namespace Sistema.CapaPresentacion.Html.BombForest
         {
             try
             {
-                DistritoDB DB = new DistritoDB();
-                List<string> distritosList = DB.listaDistritos(Canton.SelectedValue);
-
-                for (int i = 0; i < distritosList.Count; i++)
+                if (Provincia.SelectedItem.ToString() == "Seleccionar")
                 {
-                    combobox.Items.Add(distritosList[i]);
+                    combobox.Items.Add("Seleccionar");
+                }
+                else {
+                    DistritoDB DB = new DistritoDB();
+                    List<string> distritosList = DB.listaDistritos(Canton.SelectedValue);
+
+                    for (int i = 0; i < distritosList.Count; i++)
+                    {
+                        combobox.Items.Add(distritosList[i]);
+                    }
                 }
             }
             catch
