@@ -187,7 +187,7 @@
                     <br />
                     <br />
                     <br />
-                   <h1 class="text-center login-title" id="H1" runat="server">Bomberos con capacitación</h1>
+                   <h1 class="text-center login-title" id="H1" runat="server">Bomberos con evento de incendio forestal</h1>
                    <div style="padding-left:9.7%"> 
                        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" GridLines="None"  
                         AllowPaging="True" CssClass="mGrid table-responsive" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"  
