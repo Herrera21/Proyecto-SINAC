@@ -70,7 +70,7 @@
         <div class="row" style="background-color:white; width:99.7%">
             <ol class="breadcrumb">
                 <li><a href="../MenuPrincipal.aspx"> Menú Principal </a></li>
-                <li class="active">Bomberos Forestales</li>
+                <li class="active"><a href="CBomberos.aspx"> Bomberos Forestales </a></li>
                 <li class="active">Modificar información personal </li>                
             </ol>
         </div>
@@ -123,6 +123,15 @@
                 <div class="col-md-6">
                     <div class="col-sm-6 col-md-8 col-md-offset-2">
 
+                        <div class="form-group has-feedback has-success" id="divCedula">
+                            <label class="control-label">Identificación (campo no modificable)</label>
+                            <input type="text" class="form-control" name="identificacion" id="cedula" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator13','ContentPlaceHolderContenido_RegularExpressionValidator13' ,'divCedula','span1Cedula');"
+                                    placeholder="Ingresar identificación" maxlength="9" readonly/>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="cedula" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator13" runat="server" ErrorMessage="Solo se permiten numeros. Minimo 9 números" ControlToValidate="cedula" ValidationExpression="^[0-9 ]{9,15}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" SkinID="divNombre" ValidationGroup="enviar"></asp:RegularExpressionValidator>
+                            <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1Cedula"></span>
+                        </div>
+
                         <div class="form-group has-feedback has-success" id="divNombre">
                             <label class="control-label">Nombre</label>
                             <input type="text" id="nombre" runat="server" class="form-control" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator1','ContentPlaceHolderContenido_RegularExpressionValidator1' ,'divNombre','span1Nombre');" placeholder="Ingrese el nombre" maxlength="40" />
@@ -147,20 +156,13 @@
                             <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1Apellido2"></span>
                         </div>
                         
-                        <div class="form-group has-feedback has-success" id="divCedula">
-                            <label class="control-label">Identificación</label>
-                            <input type="text" class="form-control" name="identificacion" id="cedula" runat="server" onchange="validarInputText('ContentPlaceHolderContenido_RequiredFieldValidator13','ContentPlaceHolderContenido_RegularExpressionValidator13' ,'divCedula','span1Cedula');"
-                                    placeholder="Ingresar identificación" maxlength="9"/>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="cedula" CssClass="alert-danger" Display="Dynamic" ErrorMessage="No se permiten campos vacíos" Font-Bold="False" Font-Overline="False" Font-Strikeout="False" SetFocusOnError="True" ValidationGroup="enviar"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator13" runat="server" ErrorMessage="Solo se permiten numeros. Minimo 9 números" ControlToValidate="cedula" ValidationExpression="^[0-9 ]{9,15}$" CssClass="alert-danger" Display="Dynamic" SetFocusOnError="True" SkinID="divNombre" ValidationGroup="enviar"></asp:RegularExpressionValidator>
-                            <span class="glyphicon form-control-feedback icon-checkmark" aria-hidden="true" id="span1Cedula"></span>
-                        </div>
-                        <div>
+                        
+                        <%--<div>
                             <input type="radio" name="iden" id="cedulaRB"  checked /> Cedula 
                             <input type="radio" name="iden" id="pasaporteRB"  /> Pasaporte 
                             <input type="radio" name="iden" id="residenciaRB" /> Residencia 
                         </div>
-                         <br />
+                         <br />--%>
 
                         
                         <%--<div class="form-group has-feedback has-success" id="divProvincia">

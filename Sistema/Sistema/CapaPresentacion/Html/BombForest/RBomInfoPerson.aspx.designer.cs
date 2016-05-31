@@ -220,6 +220,15 @@ namespace Sistema.CapaPresentacion.Html.BombForest {
         protected global::System.Web.UI.WebControls.DropDownList Provincia;
         
         /// <summary>
+        /// RequiredFieldValidatorPro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorPro;
+        
+        /// <summary>
         /// Canton control.
         /// </summary>
         /// <remarks>
@@ -229,6 +238,15 @@ namespace Sistema.CapaPresentacion.Html.BombForest {
         protected global::System.Web.UI.WebControls.DropDownList Canton;
         
         /// <summary>
+        /// RequiredFieldValidatorCanton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorCanton;
+        
+        /// <summary>
         /// Distrito control.
         /// </summary>
         /// <remarks>
@@ -236,6 +254,15 @@ namespace Sistema.CapaPresentacion.Html.BombForest {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList Distrito;
+        
+        /// <summary>
+        /// RequiredFieldValidatorDis control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorDis;
         
         /// <summary>
         /// lugarResid control.

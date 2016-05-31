@@ -221,12 +221,15 @@
     <Compile Include="CapaConfiguracion\BombIncendForestDB.cs" />
     <Compile Include="CapaConfiguracion\BombPolizaDB.cs" />
     <Compile Include="CapaConfiguracion\BrigadaDB.cs" />
+    <Compile Include="CapaConfiguracion\CantonDB.cs" />
     <Compile Include="CapaConfiguracion\CapacitacionDB.cs" />
     <Compile Include="CapaConfiguracion\CarneDB.cs" />
     <Compile Include="CapaConfiguracion\ContactosEmergenciaDB.cs" />
+    <Compile Include="CapaConfiguracion\DistritoDB.cs" />
     <Compile Include="CapaConfiguracion\EquipoProtPersoDB.cs" />
     <Compile Include="CapaConfiguracion\IncendForestDB.cs" />
     <Compile Include="CapaConfiguracion\PolizaDB.cs" />
+    <Compile Include="CapaConfiguracion\ProvinciaDB.cs" />
     <Compile Include="CapaConfiguracion\ReseniaMedicaDB.cs" />
     <Compile Include="CapaConfiguracion\UsuarioDB.cs" />
     <Compile Include="CapaConfiguracion\AreaConservacionDB.cs" />

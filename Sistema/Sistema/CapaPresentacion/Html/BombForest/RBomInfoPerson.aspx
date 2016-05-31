@@ -39,7 +39,7 @@
         <div class="row" style="background-color:white; width:99.7%">
             <ol class="breadcrumb">
                 <li><a href="../MenuPrincipal.aspx"> Menú Principal </a></li>
-                <li class="active">Bomberos Forestales</li>
+                <li class="active"><a href="CBomberos.aspx"> Bomberos forestales </a></li>
                 <li class="active">Registrar información personal </li>                
             </ol>
         </div>
@@ -148,23 +148,29 @@
                             <span class="" aria-hidden="true" id="span1Canton"></span>
                         </div>--%>
 
-                        <div class="form-group">
+                        <div class="form-group" id="divPro">
                                 <label id="label2" runat="server">Provincia</label>
-                                <asp:DropDownList ID="Provincia" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="Provincia_SelectedIndexChanged">
+                                <asp:DropDownList ID="Provincia" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="Provincia_SelectedIndexChanged" onchange="validarComboBox('ContentPlaceHolderContenido_RequiredFieldValidatorPro','divPro','span1Pro');">
                                     <asp:listitem selected="selected" value="0">Seleccionar</asp:listitem>
                                 </asp:DropDownList>
+                             <asp:RequiredFieldValidator id="RequiredFieldValidatorPro" ControlToValidate="Provincia" ErrorMessage="Seleccione una provincia" Display="Dynamic" InitialValue="0" runat="server" CssClass="alert-danger" SetFocusOnError="True" ValidationGroup="enviar"/>
+                            <span class="" aria-hidden="true" id="span1Pro"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="divCanton">
                                 <label>Canton</label>
-                                <asp:DropDownList ID="Canton" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="Canton_SelectedIndexChanged">
+                                <asp:DropDownList ID="Canton" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="Canton_SelectedIndexChanged" onchange="validarComboBox('ContentPlaceHolderContenido_RequiredFieldValidatorCanton','divCanton','span1Canton');">
                                     <asp:listitem selected="selected" value="0">Seleccionar</asp:listitem>
                                 </asp:DropDownList>
+                                <asp:RequiredFieldValidator id="RequiredFieldValidatorCanton" ControlToValidate="Provincia" ErrorMessage="Seleccione una provincia" Display="Dynamic" InitialValue="0" runat="server" CssClass="alert-danger" SetFocusOnError="True" ValidationGroup="enviar"/>
+                            <span class="" aria-hidden="true" id="span1Canton"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="divDis">
                                 <label>Distrito</label>
-                                <asp:DropDownList ID="Distrito" class="form-control" runat="server">
+                                <asp:DropDownList ID="Distrito" class="form-control" runat="server" onchange="validarComboBox('ContentPlaceHolderContenido_RequiredFieldValidatorDis','divDis','span1Dis');">
                                     <asp:listitem selected="selected" value="0">Seleccionar</asp:listitem>
                                 </asp:DropDownList>
+                                 <asp:RequiredFieldValidator id="RequiredFieldValidatorDis" ControlToValidate="Provincia" ErrorMessage="Seleccione una provincia" Display="Dynamic" InitialValue="0" runat="server" CssClass="alert-danger" SetFocusOnError="True" ValidationGroup="enviar"/>
+                            <span class="" aria-hidden="true" id="span1Dis"></span>
                             </div>
 
                         <div class="form-group has-feedback" id="divLugarResidencia">
