@@ -122,6 +122,7 @@
     <Content Include="CapaPresentacion\Html\BombForest\ReseniaMedica.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\AsignarActivPrevenc.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\AsignarCapacit.aspx" />
+    <Content Include="CapaPresentacion\Html\Mantenimiento\AsignarEventoIncendio.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\AsignarPolizas.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\CActivPrevenc.aspx" />
     <Content Include="CapaPresentacion\Html\Mantenimiento\CCapacitación.aspx" />
@@ -369,6 +370,13 @@
     </Compile>
     <Compile Include="CapaPresentacion\Html\Mantenimiento\AsignarCapacit.aspx.designer.cs">
       <DependentUpon>AsignarCapacit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\AsignarEventoIncendio.aspx.cs">
+      <DependentUpon>AsignarEventoIncendio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Html\Mantenimiento\AsignarEventoIncendio.aspx.designer.cs">
+      <DependentUpon>AsignarEventoIncendio.aspx</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\Html\Mantenimiento\AsignarPolizas.aspx.cs">
       <DependentUpon>AsignarPolizas.aspx</DependentUpon>
